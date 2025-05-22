@@ -20,11 +20,9 @@ const comparisons = [
     id: 2,
     title: "Kitchen Organization",
     before: {
-      src: "https://mommyismyhomeroom.com/wp-content/uploads/2023/03/GettyImages-1405607678-e1677957538340.jpg",
       alt: "Before - Cluttered kitchen",
     },
     after: {
-      src: "https://www.architecturelab.net/wp-content/uploads/2023/05/10.-A-Spacious-Kitchen-with-Smart-Organizers-1024x1024.jpg",
       alt: "After - Organized kitchen",
     },
   },
@@ -96,9 +94,7 @@ export default function TransformationSection() {
             <motion.div key={comparison.id} variants={itemVariants}>
               <BeforeAfterSlider 
                 title={comparison.title}
-                beforeSrc={comparison.before.src}
                 beforeAlt={comparison.before.alt}
-                afterSrc={comparison.after.src}
                 afterAlt={comparison.after.alt}
               />
             </motion.div>
