@@ -100,7 +100,7 @@ export default function CTASection() {
               >
                 <div className="relative aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-white">
                   <img 
-                    src="/images/meri-didi-app-interface.jpg" 
+                    src="/client/public/images/meri-didi-app-interface.jpg" 
                     alt="Meri Didi App Interface" 
                     className="w-full h-full object-cover"
                   />
