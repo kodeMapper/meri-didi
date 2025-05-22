@@ -3,11 +3,13 @@ import { motion } from "framer-motion";
 
 type BeforeAfterSliderProps = {
   title: string;
+  beforeSrc?: string;
   beforeAlt: string;
+  afterSrc?: string;
   afterAlt: string;
 };
 
-export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: BeforeAfterSliderProps) {
+export default function BeforeAfterSlider({ title, beforeSrc, beforeAlt, afterSrc, afterAlt }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -60,9 +62,18 @@ export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: Before
       onTouchStart={handleMouseDown}
     >
       {/* After image (full width) */}
-      <div className="w-full h-full bg-gradient-to-r from-yellow-50 to-white">
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="p-4 text-center">
+      <div className="w-full h-full bg-gradient-to-r from-yellow-50 to-white relative">
+        {afterSrc ? (
+          <img 
+            src={afterSrc} 
+            alt={afterAlt}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-r from-yellow-50 to-white"></div>
+        )}
+        <div className="w-full h-full flex items-center justify-center relative z-10 bg-black/10">
+          <div className="p-4 text-center bg-white/80 rounded-lg">
             <h3 className="font-medium text-neutral-900">{afterAlt}</h3>
             <div className="mt-2 w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center">
               <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -78,15 +89,22 @@ export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: Before
         className="absolute top-0 left-0 h-full overflow-hidden"
         style={{ width: `${sliderPosition}%` }}
       >
-        <div className="w-full h-full bg-gradient-to-r from-neutral-200 to-neutral-100">
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="p-4 text-center">
-              <h3 className="font-medium text-neutral-900">{beforeAlt}</h3>
-              <div className="mt-2 w-16 h-16 rounded-full bg-red-100 mx-auto flex items-center justify-center">
-                <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </div>
+        {beforeSrc ? (
+          <img 
+            src={beforeSrc} 
+            alt={beforeAlt}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-r from-neutral-200 to-neutral-100"></div>
+        )}
+        <div className="w-full h-full flex items-center justify-center relative z-10 bg-black/10">
+          <div className="p-4 text-center bg-white/80 rounded-lg">
+            <h3 className="font-medium text-neutral-900">{beforeAlt}</h3>
+            <div className="mt-2 w-16 h-16 rounded-full bg-red-100 mx-auto flex items-center justify-center">
+              <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
             </div>
           </div>
         </div>
