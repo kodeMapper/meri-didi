@@ -99,11 +99,47 @@ export default function CTASection() {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
                 <div className="relative aspect-[9/19] rounded-[2.5rem] overflow-hidden bg-white">
-                  <img 
-                    src="/client/public/images/meri-didi-app-interface.jpg" 
-                    alt="Meri Didi App Interface" 
-                    className="w-full h-full object-cover"
-                  />
+                  {/* Use a direct sample image for the app interface */}
+                  <div className="w-full h-full bg-white flex flex-col">
+                    {/* App header */}
+                    <div className="bg-gray-100 p-3 flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="text-amber-500 mr-2">📍</div>
+                        <div className="text-xs font-medium">52CH+H3M, Dabha R...</div>
+                      </div>
+                      <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                        <User size={16} />
+                      </div>
+                    </div>
+                    
+                    {/* Main content */}
+                    <div className="flex-1 p-4 flex flex-col">
+                      {/* Hero banner */}
+                      <div className="bg-gray-200 rounded-lg h-32 mb-6 overflow-hidden relative">
+                        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-primary/10" />
+                        <div className="absolute bottom-3 left-3 text-sm font-semibold">Our Services</div>
+                      </div>
+                      
+                      {/* Service categories */}
+                      <div className="text-lg font-bold mb-3">Our featured services</div>
+                      <div className="grid grid-cols-3 gap-3">
+                        {['Domestic help', 'Babysitters', 'Cooks', 'All-rounders', '24 hrs', 'Japas'].map((service, i) => (
+                          <div key={i} className="flex flex-col items-center">
+                            <div className="w-14 h-14 rounded-full bg-gray-100 mb-2" />
+                            <div className="text-xs text-center">{service}</div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* CTA section */}
+                      <div className="mt-auto">
+                        <div className="text-lg font-bold mb-3">Book Now</div>
+                        <div className="bg-amber-400 text-center py-3 rounded-lg font-medium">
+                          Book Now!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
 
