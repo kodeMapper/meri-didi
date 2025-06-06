@@ -7,6 +7,23 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Set up CORS headers for API routes
+app.use((req, res, next) => {
+  // Set CORS headers for all API routes
+  if (req.path.startsWith('/api')) {
+    res.header('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    
+    // Handle preflight OPTIONS requests
+    if (req.method === 'OPTIONS') {
+      res.sendStatus(200);
+      return;
+    }
+  }
+  next();
+});
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -62,10 +79,9 @@ app.use((req, res, next) => {
     });
   }
 
-  // ALWAYS serve the app on port 5000
+  // Use environment variable PORT if available, otherwise default to 5000
   // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 5000;
+  const port = process.env.PORT ? parseInt(process.env.PORT) : 5000;
   server.listen({
     port,
     host: "0.0.0.0",

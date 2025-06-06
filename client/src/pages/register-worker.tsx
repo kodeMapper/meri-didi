@@ -28,6 +28,7 @@ import { ArrowLeft, Calendar as CalendarIcon, CheckCircle2, Upload } from "lucid
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { apiRequest } from "@/lib/queryClient";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -54,6 +55,7 @@ export default function RegisterWorkerPage() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [referenceId, setReferenceId] = useState<string>("");
   const [idFile, setIdFile] = useState<File | null>(null);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState<{id: boolean, photo: boolean}>({id: false, photo: false});
@@ -74,12 +76,158 @@ export default function RegisterWorkerPage() {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Form Data:", data);
-      console.log("ID Document:", idFile);
-      console.log("Photo:", photoFile);
+    try {
+      // Validate that all required files are uploaded
+      if (!idFile) {
+        throw new Error("Please upload your ID document before submitting.");
+      }
+      if (!photoFile) {
+        throw new Error("Please upload your photograph before submitting.");
+      }
+
+      // Prepare the data for submission with correct field names to match the backend schema
+      const submissionData = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        address: data.address,
+        city: data.city,
+        gender: data.gender,
+        // Change serviceType to service to match the backend schema
+        service: data.serviceType,
+        serviceType: data.serviceType, // Include both for backward compatibility
+        exp: data.experience, // For 'exp' field in the error message
+        experience: data.experience,
+        availability: data.availability,
+        idType: data.idType,
+        idNumber: data.idNumber,
+        id_proof: idFile ? idFile.name : "document.jpg", // Match field names in the error
+        id_proof_number: data.idNumber, // Add this field from error
+        id_document: idFile ? idFile.name : "document.jpg", // Also include this
+        dob: data.dob.toISOString(), // Convert date to ISO string
+        about: data.bio, // For 'about' field in the error
+        bio: data.bio,
+        photo: photoFile ? photoFile.name : "photo.jpg" // Required field in error
+      };
+
+      console.log("Submitting worker registration data:", submissionData);
+      console.log("API endpoint:", "https://meri-biwi-1.onrender.com/api/register-worker");
+
+      // Make API call to submit the registration
+      const startTime = Date.now();
       
+      // Show a warning that API might take time to respond if it's cold starting
+      toast({
+        title: "Processing Registration",
+        description: "This might take a moment if the server is waking up.",
+        variant: "default",
+      });
+      
+      // Set up timeout for API call (30 seconds)
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+      
+      // Let's try a direct JSON approach instead of FormData
+      // Based on the error message, the server seems to expect JSON data, not form data
+      
+      // Match exactly the fields expected by the API (which differ from our schema)
+      const jsonData = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        address: data.address,
+        city: data.city,
+        gender: data.gender,
+        service: data.serviceType,       // API expects 'service', not 'serviceType'
+        exp: data.experience,            // API expects 'exp', not 'experience'
+        availability: data.availability,
+        id_proof: data.idType,           // API expects 'id_proof', not 'idType'
+        id_proof_number: data.idNumber,  // API expects 'id_proof_number', not 'idNumber'
+        dob: data.dob.toISOString(),
+        about: data.bio,                 // API expects 'about', not 'bio'
+        // These fields are required by the API
+        photo: photoFile ? photoFile.name : "photo.jpg",
+        id_document: idFile ? idFile.name : "document.jpg"
+      };
+      
+      console.log("Submitting JSON data:", jsonData);
+      
+      // Create a FormData object to submit files correctly
+      const formData = new FormData();
+      
+      // Add all the JSON data as form fields
+      Object.entries(jsonData).forEach(([key, value]) => {
+        formData.append(key, value as string);
+      });
+      
+      // Add the actual files
+      if (idFile) {
+        formData.append("id_document", idFile);
+      }
+      if (photoFile) {
+        formData.append("photo", photoFile);
+      }
+      
+      console.log("Submitting FormData with files");
+      
+      // Try fetch with FormData (multipart/form-data will be set automatically)
+      const response = await fetch("https://meri-biwi-1.onrender.com/api/register-worker", {
+        method: "POST",
+        // Don't set Content-Type header - the browser will set it with the correct boundary
+        headers: {
+          "Origin": window.location.origin,
+        },
+        body: formData,
+        signal: controller.signal,
+      });
+      
+      // Clear the timeout
+      clearTimeout(timeoutId);
+      
+      const endTime = Date.now();
+      console.log(`API request completed in ${endTime - startTime}ms with status: ${response.status}`);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`${response.status}: ${errorText || response.statusText}`);
+      }
+      
+      // Try to parse response as JSON
+      let result;
+      let referenceId;
+      
+      try {
+        const responseText = await response.text();
+        console.log("Raw response:", responseText);
+        
+        try {
+          result = JSON.parse(responseText);
+          console.log("Registration response:", result);
+          referenceId = result.referenceId;
+        } catch (jsonError) {
+          console.warn("Could not parse response as JSON:", jsonError);
+          // Generate a reference ID if we couldn't parse one from the response
+          referenceId = `REF-${Math.random().toString(36).substring(2, 10).toUpperCase()}`;
+        }
+      } catch (parseError) {
+        console.warn("Error reading response:", parseError);
+        // Generate a reference ID if we couldn't read the response
+        referenceId = `REF-${Math.random().toString(36).substring(2, 10).toUpperCase()}`;
+      }
+      
+      // Store the submission data in localStorage as a backup
+      try {
+        localStorage.setItem('lastWorkerSubmission', JSON.stringify({
+          data: submissionData,
+          timestamp: new Date().toISOString(),
+          referenceId: referenceId
+        }));
+        console.log("Submission data backed up to localStorage");
+      } catch (storageError) {
+        console.error("Failed to store submission in localStorage:", storageError);
+      }
+      
+      setReferenceId(referenceId);
       setIsSubmitting(false);
       setIsSuccess(true);
       
@@ -88,7 +236,94 @@ export default function RegisterWorkerPage() {
         description: "Your application has been received. We will contact you shortly.",
         variant: "default",
       });
-    }, 1500);
+    } catch (error) {
+      setIsSubmitting(false);
+      console.error("Registration error:", error);
+      
+      // Parse error message if it's from API response
+      let errorMessage = "There was an error submitting your application. Please try again.";
+      let isNetworkError = false;
+      
+      if (error instanceof Error) {
+        console.error("Error details:", {
+          message: error.message,
+          stack: error.stack,
+          name: error.name
+        });
+        
+        // Check for timeout/abort errors
+        if (error.name === 'AbortError') {
+          errorMessage = "The request timed out. The server might be temporarily unavailable or starting up. Please try again.";
+          isNetworkError = true;
+        }
+        // Check for network errors
+        else if (error.message.includes('NetworkError') || error.message.includes('Failed to fetch') || error.message.includes('Network request failed')) {
+          errorMessage = "Network error. Please check your connection and try again.";
+          isNetworkError = true;
+        }
+        else {
+          try {
+            // If error message contains status code and details
+            const match = error.message.match(/(\d+):\s*(.+)/);
+            if (match) {
+              const [, statusCode, details] = match;
+              if (statusCode === "400") {
+                // Try to parse the error message to get validation details
+                try {
+                  const errorObject = JSON.parse(details);
+                  if (errorObject.detail) {
+                    errorMessage = `Validation error: ${JSON.stringify(errorObject.detail)}`;
+                  } else {
+                    errorMessage = "Please check your form data - some fields may be invalid.";
+                  }
+                } catch (e) {
+                  errorMessage = details || "Please check your form data - some fields may be invalid.";
+                }
+              } else if (statusCode === "500") {
+                errorMessage = "Server error occurred. Please try again later.";
+              } else {
+                errorMessage = details || error.message;
+              }
+            } else {
+              errorMessage = error.message;
+            }
+          } catch (parseError) {
+            console.error("Error parsing error message:", parseError);
+          }
+        }
+      } else if (typeof error === 'string') {
+        errorMessage = error;
+      }
+      
+      // If network error, store the data locally for later submission
+      if (isNetworkError) {
+        try {
+          const backupData = {
+            data: {
+              ...data,
+              dob: data.dob.toISOString(),
+            },
+            timestamp: new Date().toISOString(),
+            status: 'pending'
+          };
+          localStorage.setItem('pendingWorkerSubmission', JSON.stringify(backupData));
+          
+          errorMessage += " Your form data has been saved locally and can be resubmitted when the connection is restored.";
+          console.log("Form data saved locally for later submission");
+        } catch (storageError) {
+          console.error("Failed to save form data locally:", storageError);
+        }
+      }
+      
+      // Log the error details for debugging purposes
+      console.log("Registration failed with the following data:", jsonData);
+      
+      toast({
+        title: "Registration Failed",
+        description: errorMessage,
+        variant: "destructive",
+      });
+    }
   };
 
   const handleFileChange = (
@@ -126,7 +361,7 @@ export default function RegisterWorkerPage() {
         ? ["name", "email", "phone", "address", "city", "gender", "dob"] 
         : ["serviceType", "experience", "availability", "idType", "idNumber", "bio"];
     
-    form.trigger(fieldsToValidate as any).then((isValid) => {
+    form.trigger(fieldsToValidate as any).then((isValid: boolean) => {
       if (isValid) {
         setStep(step + 1);
         window.scrollTo(0, 0);
@@ -163,7 +398,7 @@ export default function RegisterWorkerPage() {
             <div className="bg-gray-50 p-4 rounded-lg mb-6 text-left">
               <p className="text-sm text-gray-500 mb-2">Reference ID:</p>
               <p className="font-mono text-primary font-semibold">
-                WRK-{Math.floor(100000 + Math.random() * 900000)}
+                {referenceId}
               </p>
             </div>
             <Link href="/">
@@ -360,7 +595,7 @@ export default function RegisterWorkerPage() {
                               mode="single"
                               selected={field.value}
                               onSelect={field.onChange}
-                              disabled={(date) =>
+                              disabled={(date: Date) =>
                                 date > new Date() || date < new Date("1940-01-01")
                               }
                               initialFocus
@@ -545,7 +780,7 @@ export default function RegisterWorkerPage() {
                           accept="image/*,.pdf"
                           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                           id="id-upload"
-                          onChange={(e) => handleFileChange(e, "id")}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleFileChange(e, "id")}
                         />
                         <Button 
                           type="button" 
@@ -605,7 +840,7 @@ export default function RegisterWorkerPage() {
                           accept="image/*"
                           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                           id="photo-upload"
-                          onChange={(e) => handleFileChange(e, "photo")}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleFileChange(e, "photo")}
                         />
                         <Button 
                           type="button" 
@@ -688,6 +923,11 @@ export default function RegisterWorkerPage() {
                         className="flex items-center"
                       >
                         Submit Application
+                        {(!idFile || !photoFile) && (
+                          <span className="ml-2 text-xs opacity-75">
+                            (Upload files first)
+                          </span>
+                        )}
                       </motion.span>
                     )}
                   </Button>

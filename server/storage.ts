@@ -1,4 +1,4 @@
-import { users, type User, type InsertUser, type InsertContact, type ContactSubmission, contactSubmissions } from "@shared/schema";
+import { users, type User, type InsertUser, type InsertContact, type ContactSubmission, contactSubmissions, type InsertWorkerRegistration, type WorkerRegistration, workerRegistrations } from "@shared/schema";
 
 // Interface defining storage operations
 export interface IStorage {
@@ -7,20 +7,26 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   createContactSubmission(contact: InsertContact & { createdAt: string }): Promise<ContactSubmission>;
   getContactSubmissions(): Promise<ContactSubmission[]>;
+  createWorkerRegistration(worker: InsertWorkerRegistration & { createdAt: string }): Promise<WorkerRegistration>;
+  getWorkerRegistrations(): Promise<WorkerRegistration[]>;
 }
 
 // In-memory storage implementation
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
   private contacts: Map<number, ContactSubmission>;
+  private workers: Map<number, WorkerRegistration>;
   private currentUserId: number;
   private currentContactId: number;
+  private currentWorkerId: number;
 
   constructor() {
     this.users = new Map();
     this.contacts = new Map();
+    this.workers = new Map();
     this.currentUserId = 1;
     this.currentContactId = 1;
+    this.currentWorkerId = 1;
   }
 
   async getUser(id: number): Promise<User | undefined> {
@@ -49,6 +55,17 @@ export class MemStorage implements IStorage {
 
   async getContactSubmissions(): Promise<ContactSubmission[]> {
     return Array.from(this.contacts.values());
+  }
+
+  async createWorkerRegistration(insertWorker: InsertWorkerRegistration & { createdAt: string }): Promise<WorkerRegistration> {
+    const id = this.currentWorkerId++;
+    const worker: WorkerRegistration = { ...insertWorker, id, status: "pending" };
+    this.workers.set(id, worker);
+    return worker;
+  }
+
+  async getWorkerRegistrations(): Promise<WorkerRegistration[]> {
+    return Array.from(this.workers.values());
   }
 }
 

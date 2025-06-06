@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Registration API Test</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #0070f3;
+        }
+        pre {
+            background-color: #f6f8fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            overflow: auto;
+            max-height: 400px;
+        }
+        button {
+            background-color: #0070f3;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #0051a8;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .response {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .success {
+            color: #388e3c;
+        }
+        .error {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Worker Registration API Test</h1>
+    <p>This page tests the worker registration API endpoint at <code>https://meri-biwi-1.onrender.com/api/register-worker</code></p>
+
+    <h2>Test with JSON Payload</h2>
+    <div>
+        <h3>Edit JSON Payload</h3>
+        <textarea id="jsonPayload" style="width: 100%; height: 400px; font-family: monospace; padding: 10px;">
+{
+  "name": "Test Worker",
+  "email": "test@example.com",
+  "phone": "1234567890",
+  "address": "123 Test Street",
+  "city": "delhi",
+  "gender": "female",
+  "service": "cleaning",
+  "exp": "2",
+  "availability": "part-time",
+  "id_proof": "aadhar",
+  "id_proof_number": "123456789012",
+  "dob": "1990-01-01T00:00:00.000Z",
+  "about": "I am an experienced cleaner with great attention to detail and reliable service.",
+  "photo": "photo.jpg",
+  "id_document": "document.jpg"
+}
+        </textarea>
+        <div style="margin: 10px 0;">
+            <button id="sendJson">Send JSON Request</button>
+            <span id="status"></span>
+        </div>
+    </div>
+
+    <div class="response">
+        <h3>Response</h3>
+        <div>
+            <strong>Status:</strong> <span id="responseStatus"></span>
+        </div>
+        <div>
+            <strong>Response Headers:</strong> 
+            <pre id="responseHeaders"></pre>
+        </div>
+        <div>
+            <strong>Response Body:</strong>
+            <pre id="responseBody"></pre>
+        </div>
+    </div>
+
+    <h2>Request Log</h2>
+    <div id="requestLog" style="max-height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 10px;"></div>
+
+    <script>
+        document.getElementById('sendJson').addEventListener('click', async () => {
+            const statusEl = document.getElementById('status');
+            const responseStatusEl = document.getElementById('responseStatus');
+            const responseHeadersEl = document.getElementById('responseHeaders');
+            const responseBodyEl = document.getElementById('responseBody');
+            const requestLogEl = document.getElementById('requestLog');
+
+            statusEl.textContent = 'Sending request...';
+            
+            // Get JSON payload from textarea
+            let jsonData;
+            try {
+                jsonData = JSON.parse(document.getElementById('jsonPayload').value);
+                logRequest('JSON data parsed successfully');
+            } catch (e) {
+                statusEl.textContent = 'Invalid JSON';
+                logRequest('Error: Invalid JSON - ' + e.message, true);
+                return;
+            }
+
+            const url = 'https://meri-biwi-1.onrender.com/api/register-worker';
+            logRequest(`Sending POST request to ${url}`);
+            
+            try {
+                const startTime = Date.now();
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonData)
+                });
+                const endTime = Date.now();
+                
+                // Get response headers
+                const headers = {};
+                response.headers.forEach((value, key) => {
+                    headers[key] = value;
+                });
+                
+                // Get response body
+                let responseBody;
+                const responseText = await response.text();
+                
+                try {
+                    responseBody = JSON.parse(responseText);
+                } catch (e) {
+                    responseBody = responseText;
+                }
+                
+                // Update UI
+                responseStatusEl.textContent = `${response.status} ${response.statusText} (${endTime - startTime}ms)`;
+                responseHeadersEl.textContent = JSON.stringify(headers, null, 2);
+                responseBodyEl.textContent = typeof responseBody === 'object' ? 
+                    JSON.stringify(responseBody, null, 2) : responseBody;
+                
+                if (response.ok) {
+                    statusEl.textContent = 'Request successful';
+                    statusEl.className = 'success';
+                    logRequest(`Response received: ${response.status} ${response.statusText}`, false);
+                } else {
+                    statusEl.textContent = 'Request failed';
+                    statusEl.className = 'error';
+                    logRequest(`Error response: ${response.status} ${response.statusText}`, true);
+                }
+                
+                logRequest(`Response body: ${JSON.stringify(responseBody)}`);
+            } catch (error) {
+                responseStatusEl.textContent = 'Request failed';
+                responseBodyEl.textContent = error.message;
+                statusEl.textContent = 'Network error';
+                statusEl.className = 'error';
+                logRequest(`Network error: ${error.message}`, true);
+            }
+        });
+        
+        function logRequest(message, isError = false) {
+            const requestLogEl = document.getElementById('requestLog');
+            const timestamp = new Date().toLocaleTimeString();
+            const logItem = document.createElement('div');
+            logItem.style.borderBottom = '1px solid #eee';
+            logItem.style.padding = '5px 0';
+            logItem.innerHTML = `<span style="color: #666;">[${timestamp}]</span> ${isError ? '<span style="color: red;">ERROR:</span> ' : ''}${message}`;
+            requestLogEl.prepend(logItem);
+        }
+    </script>
+</body>
+</html>

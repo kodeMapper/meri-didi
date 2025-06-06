@@ -12,11 +12,21 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
+  // Determine if this is a cross-origin request to the Render backend
+  const isRenderBackend = url.includes('meri-biwi-1.onrender.com');
+  
   const res = await fetch(url, {
     method,
-    headers: data ? { "Content-Type": "application/json" } : {},
+    headers: data ? { 
+      "Content-Type": "application/json",
+      // Add specific headers for render backend if needed
+      ...(isRenderBackend ? { "X-Requested-With": "XMLHttpRequest" } : {})
+    } : {},
     body: data ? JSON.stringify(data) : undefined,
-    credentials: "include",
+    // Only include credentials for same-origin requests
+    credentials: isRenderBackend ? "omit" : "include",
+    // Longer timeout for render backend (which might cold start)
+    ...(isRenderBackend ? { signal: AbortSignal.timeout(30000) } : {})
   });
 
   await throwIfResNotOk(res);

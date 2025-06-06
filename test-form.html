@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Worker Registration</title>
+</head>
+<body>
+    <script>
+        // Simple test to submit form data
+        async function testWorkerRegistration() {
+            const testData = {
+                name: "Test Worker",
+                email: "test@example.com", 
+                phone: "1234567890",
+                address: "123 Test Street",
+                city: "delhi",
+                gender: "male",
+                serviceType: "cleaning",
+                experience: "2",
+                availability: "full-time",
+                idType: "aadhar",
+                idNumber: "123456789012",
+                dob: "1990-01-01T00:00:00.000Z",
+                bio: "I am an experienced cleaner with 2 years of experience in residential cleaning."
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/register-worker', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                const result = await response.json();
+                console.log('Success:', result);
+                document.body.innerHTML += '<p>Success: ' + JSON.stringify(result) + '</p>';
+            } catch (error) {
+                console.error('Error:', error);
+                document.body.innerHTML += '<p>Error: ' + error.message + '</p>';
+            }
+        }
+
+        // Run test when page loads
+        window.onload = testWorkerRegistration;
+    </script>
+    <h1>Testing Worker Registration API</h1>
+    <p>Check console and below for results...</p>
+</body>
+</html>
