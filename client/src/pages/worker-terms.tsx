@@ -52,7 +52,7 @@ export default function WorkerTerms() {
         transition={{ duration: 0.3 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
+          <div className="flex justify-between items-center h-16">
             <Link href="/">
               <div className="flex items-center space-x-3 cursor-pointer">
                 <div className="w-12 h-12 rounded-lg overflow-hidden shadow-lg">
@@ -76,42 +76,44 @@ export default function WorkerTerms() {
               </div>
             </Link>
 
-            <div className="hidden md:flex md:ml-10 space-x-8">
-              <Link href="/">
-                <span className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer">
-                  Home
-                </span>
-              </Link>
-              <a href="/#contact" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
-                Contact
-              </a>
-            </div>
+            <div className="flex items-center space-x-8">
+              <div className="hidden md:flex items-center space-x-8">
+                <Link href="/">
+                  <span className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer">
+                    Home
+                  </span>
+                </Link>
+                <a href="/#contact" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
+                  Contact
+                </a>
+              </div>
 
-            <div className="flex items-center space-x-4">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-neutral-700 hover:text-neutral-900">
-                    <Globe className="h-4 w-4" />
-                    <span className="text-sm">EN</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {languages.map((lang) => (
-                    <DropdownMenuItem key={lang.code} className="cursor-pointer">
-                      {lang.name}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <div className="flex items-center space-x-4">
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-neutral-700 hover:text-neutral-900">
+                      <Globe className="h-4 w-4" />
+                      <span className="text-sm">EN</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    {languages.map((lang) => (
+                      <DropdownMenuItem key={lang.code} className="cursor-pointer">
+                        {lang.name}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
 
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="md:hidden bg-neutral-100 p-2 rounded-md"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                {isMobileMenuOpen ? <X className="text-neutral-700" /> : <Menu className="text-neutral-700" />}
-              </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  className="md:hidden bg-neutral-100 p-2 rounded-md"
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                  {isMobileMenuOpen ? <X className="text-neutral-700" /> : <Menu className="text-neutral-700" />}
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -146,7 +148,7 @@ export default function WorkerTerms() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
+            // className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
           >
             <div className="flex items-center mb-8">
               <Link href="/">
@@ -172,110 +174,130 @@ export default function WorkerTerms() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
+              {/* <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+                <h2 className="text-2xl font-bold text-red-800 mb-4">MERI DIDI – TERMS & CONDITIONS FOR WORKERS</h2>
+                <p className="text-red-700 text-sm">
+                  Please read these terms and conditions carefully before registering as a worker on the Meri Didi platform.
+                </p>
+              </div> */}
+
               <div className="space-y-8">
-                <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">1. Definitions</h2>
-                  <ul className="space-y-3 text-neutral-700">
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <strong>Didi:</strong> Refers to a worker registered on the Meri Didi platform who performs domestic services (e.g., cooking, cleaning, caregiving) as a third-party independent contractor.
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <strong>Company:</strong> Aara Green InfoSolutions Pvt. Ltd. ("Meri Didi").
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <strong>Platform:</strong> Meri Didi's mobile application and website through which services are booked and managed.
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <strong>User:</strong> A customer who books services through the Meri Didi platform.
-                    </li>
-                  </ul>
+                <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">1. Definitions</h2>
+                  <div className="grid gap-4">
+                    <div className="bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
+                      <span className="font-semibold text-blue-900">Didi:</span>
+                      <span className="text-blue-800 ml-2">Refers to a worker registered on the Meri Didi platform who performs domestic services (e.g., cooking, cleaning, caregiving) as a third-party independent contractor.</span>
+                    </div>
+                    <div className="bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
+                      <span className="font-semibold text-green-900">Company:</span>
+                      <span className="text-green-800 ml-2">Aara Green InfoSolutions Pvt. Ltd. ("Meri Didi").</span>
+                    </div>
+                    <div className="bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg border border-purple-100">
+                      <span className="font-semibold text-purple-900">Platform:</span>
+                      <span className="text-purple-800 ml-2">Meri Didi's mobile application and website through which services are booked and managed.</span>
+                    </div>
+                    <div className="bg-gradient-to-r from-orange-50 to-white p-4 rounded-lg border border-orange-100">
+                      <span className="font-semibold text-orange-900">User:</span>
+                      <span className="text-orange-800 ml-2">A customer who books services through the Meri Didi platform.</span>
+                    </div>
+                  </div>
                 </section>
 
-                <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">2. Nature of Engagement</h2>
-                  <ul className="space-y-3 text-neutral-700">
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      This is not an employment contract. You (the Didi) are engaged on a contractual, non-employee basis.
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      You are an independent service provider, not entitled to employee benefits like PF, ESI, or paid leave.
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Meri Didi only acts as a facilitator between you and the User.
-                    </li>
-                  </ul>
+                <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">2. Nature of Engagement</h2>
+                  <div className="space-y-4">
+                    <div className="flex items-start bg-gradient-to-r from-yellow-50 to-white p-4 rounded-lg border border-yellow-100">
+                      <span className="inline-block w-3 h-3 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                      <span className="text-neutral-700">This is not an employment contract. You (the Didi) are engaged on a contractual, non-employee basis.</span>
+                    </div>
+                    <div className="flex items-start bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
+                      <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                      <span className="text-neutral-700">You are an independent service provider, not entitled to employee benefits like PF, ESI, or paid leave.</span>
+                    </div>
+                    <div className="flex items-start bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
+                      <span className="inline-block w-3 h-3 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                      <span className="text-neutral-700">Meri Didi only acts as a facilitator between you and the User.</span>
+                    </div>
+                  </div>
                 </section>
 
-                <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">3. Registration & Verification</h2>
-                  <ul className="space-y-3 text-neutral-700">
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Workers must provide genuine documents (Aadhaar, PAN, references, etc.).
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      You agree to mandatory police verification and a background check.
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Misrepresentation or forgery of documents will lead to permanent termination and potential legal action.
-                    </li>
-                  </ul>
+                <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">3. Registration & Verification</h2>
+                  <div className="space-y-4">
+                    <div className="flex items-start bg-gradient-to-r from-indigo-50 to-white p-4 rounded-lg border border-indigo-100">
+                      <span className="inline-block w-3 h-3 bg-indigo-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                      <span className="text-neutral-700">Workers must provide genuine documents (Aadhaar, PAN, references, etc.).</span>
+                    </div>
+                    <div className="flex items-start bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg border border-purple-100">
+                      <span className="inline-block w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                      <span className="text-neutral-700">You agree to mandatory police verification and a background check.</span>
+                    </div>
+                    <div className="flex items-start bg-gradient-to-r from-red-50 to-white p-4 rounded-lg border border-red-100">
+                      <span className="inline-block w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                      <span className="text-neutral-700">Misrepresentation or forgery of documents will lead to permanent termination and potential legal action.</span>
+                    </div>
+                  </div>
                 </section>
 
-                <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">4. Duties & Conduct</h2>
-                  <ul className="space-y-3 text-neutral-700">
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      You must perform tasks only as per the booked service plan (Basic, Standard, or Premium).
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      You must not accept personal work or cash from the customer outside the platform.
-                    </li>
-                    <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <div>
-                        <span>You agree to:</span>
-                        <ul className="mt-2 ml-4 space-y-1 text-sm">
-                          <li>○ Maintain punctuality and hygiene.</li>
-                          <li>○ Wear the uniform (if provided).</li>
-                          <li>○ Maintain respectful, non-abusive conduct at all times.</li>
-                          <li>○ Refrain from asking personal or financial favors from customers.</li>
-                        </ul>
+                <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">4. Duties & Conduct</h2>
+                  <div className="space-y-4">
+                    <div className="flex items-start bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
+                      <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                      <span className="text-neutral-700">You must perform tasks only as per the booked service plan (Basic, Standard, or Premium).</span>
+                    </div>
+                    <div className="flex items-start bg-gradient-to-r from-yellow-50 to-white p-4 rounded-lg border border-yellow-100">
+                      <span className="inline-block w-3 h-3 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                      <span className="text-neutral-700">You must not accept personal work or cash from the customer outside the platform.</span>
+                    </div>
+                    <div className="bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
+                      <span className="text-neutral-700 font-medium mb-3 block">You agree to:</span>
+                      <div className="ml-4 space-y-2">
+                        <div className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                          <span className="text-neutral-600">Maintain punctuality and hygiene.</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                          <span className="text-neutral-600">Wear the uniform (if provided).</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                          <span className="text-neutral-600">Maintain respectful, non-abusive conduct at all times.</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                          <span className="text-neutral-600">Refrain from asking personal or financial Favors from customers.</span>
+                        </div>
                       </div>
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
                 </section>
 
                 <section>
                   <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">5. Payment & Commission</h2>
                   <ul className="space-y-3 text-neutral-700">
                     <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <div>
-                        <span>Payments are released either:</span>
-                        <ul className="mt-2 ml-4 space-y-1 text-sm">
-                          <li>○ Weekly/monthly via the platform, or</li>
-                          <li>○ Daily if agreed, after verification by the supervisor or app log.</li>
-                        </ul>
-                      </div>
+                      <span className="inline-block w-3 h-3 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span>Payments are released either:</span>
+                      <ul className="mt-2 ml-6 space-y-1 text-sm">
+                        <li className="flex items-start">
+                          <span className="inline-block w-2 h-2 bg-primary rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                          Weekly/monthly via the platform.
+                        </li>
+                        <li className="flex items-start">
+                          <span className="inline-block w-2 h-2 bg-primary rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                          Daily if agreed, after verification by the supervisor or app log.
+                        </li>
+                      </ul>
                     </li>
                     <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="inline-block w-3 h-3 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       Commission will be deducted as per your selected plan (Basic/Standard/Premium).
                     </li>
                     <li className="flex items-start">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                      <span className="inline-block w-3 h-3 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
                       Direct cash transactions with customers are prohibited.
                     </li>
                   </ul>
@@ -413,66 +435,77 @@ export default function WorkerTerms() {
                   </div>
                 </section>
 
-                <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">12. Incentives & Penalties</h2>
+                <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">12. Incentives & Penalties</h2>
                   
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <h3 className="font-semibold text-green-800 mb-3">Incentives</h3>
-                      <p className="text-green-700 text-sm mb-2">You may be eligible for rewards based on:</p>
-                      <ul className="space-y-1 text-green-700 text-sm">
-                        <li>• Regular punctuality.</li>
-                        <li>• High service ratings by customers.</li>
-                        <li>• Successful referrals of other workers.</li>
-                      </ul>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-gradient-to-br from-green-50 to-green-25 border border-green-200 rounded-xl p-6 shadow-md">
+                      <h3 className="font-bold text-green-800 mb-4 text-xl">🏆 Incentives</h3>
+                      <p className="text-green-700 mb-4">You may be eligible for rewards based on:</p>
+                      <div className="space-y-3">
+                        <div className="flex items-center bg-white p-3 rounded-lg border border-green-100">
+                          <span className="text-green-600 mr-3">⏰</span>
+                          <span className="text-green-800">Regular punctuality</span>
+                        </div>
+                        <div className="flex items-center bg-white p-3 rounded-lg border border-green-100">
+                          <span className="text-green-600 mr-3">⭐</span>
+                          <span className="text-green-800">High service ratings by customers</span>
+                        </div>
+                        <div className="flex items-center bg-white p-3 rounded-lg border border-green-100">
+                          <span className="text-green-600 mr-3">👥</span>
+                          <span className="text-green-800">Successful referrals of other workers</span>
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                      <h3 className="font-semibold text-red-800 mb-3">Penalties</h3>
-                      <p className="text-red-700 text-sm mb-3">Applicable fines and actions may include:</p>
+                    <div className="bg-gradient-to-br from-red-50 to-red-25 border border-red-200 rounded-xl p-8 shadow-md">
+                      <h3 className="font-bold text-red-800 mb-4 text-xl">⚠️ Penalties</h3>
+                      <p className="text-red-700 mb-4">Applicable fines and actions may include:</p>
                       
-                      <div className="overflow-x-auto">
-                        <table className="w-full text-xs text-red-700">
-                          <thead>
-                            <tr className="border-b border-red-200">
-                              <th className="text-left py-1">Offense</th>
-                              <th className="text-left py-1">Fine</th>
-                              <th className="text-left py-1">Additional Action</th>
+                      <div className="bg-white rounded-lg border border-red-200 overflow-hidden">
+                        <table className="w-full text-sm">
+                          <thead className="bg-red-100">
+                            <tr>
+                              <th className="text-left py-3 px-4 font-semibold text-red-800">Offense</th>
+                              <th className="text-left py-3 px-4 font-semibold text-red-800">Fine</th>
+                              <th className="text-left py-3 px-4 font-semibold text-red-800">Action</th>
                             </tr>
                           </thead>
-                          <tbody className="space-y-1">
-                            <tr className="border-b border-red-100">
-                              <td className="py-1">Late arrival (&gt;20 mins)</td>
-                              <td className="py-1">₹50</td>
-                              <td className="py-1">Verbal warning</td>
+                          <tbody className="text-red-700">
+                            <tr className="hover:bg-red-50">
+                              <td className="py-3 px-4">Late arrival (more than 20 mins)</td>
+                              <td className="py-3 px-4 font-semibold">₹50</td>
+                              <td className="py-3 px-4">Verbal warning</td>
                             </tr>
-                            <tr className="border-b border-red-100">
-                              <td className="py-1">Missed duty without notice</td>
-                              <td className="py-1">₹100</td>
-                              <td className="py-1">May lead to suspension</td>
+                            <tr className="hover:bg-red-50">
+                              <td className="py-3 px-4">Missed duty without notice</td>
+                              <td className="py-3 px-4 font-semibold">₹100</td>
+                              <td className="py-3 px-4">May lead to suspension</td>
                             </tr>
-                            <tr className="border-b border-red-100">
-                              <td className="py-1">Misuse of customer's item</td>
-                              <td className="py-1">₹200</td>
-                              <td className="py-1">Deduction + complaint record</td>
+                            <tr className="hover:bg-red-50">
+                              <td className="py-3 px-4">Misuse of customer's item</td>
+                              <td className="py-3 px-4 font-semibold">₹200</td>
+                              <td className="py-3 px-4">Deduction + complaint record</td>
                             </tr>
-                            <tr className="border-b border-red-100">
-                              <td className="py-1">Verbal abuse / Disrespect</td>
-                              <td className="py-1">₹500</td>
-                              <td className="py-1">Temporary suspension</td>
+                            <tr className="hover:bg-red-50">
+                              <td className="py-3 px-4">Verbal abuse / Disrespect</td>
+                              <td className="py-3 px-4 font-semibold">₹500</td>
+                              <td className="py-3 px-4">Temporary suspension</td>
                             </tr>
-                            <tr>
-                              <td className="py-1">Theft / Assault / Serious breach</td>
-                              <td className="py-1">N/A</td>
-                              <td className="py-1">Immediate termination + FIR under BNS</td>
+                            <tr className="bg-red-50">
+                              <td className="py-3 px-4 font-semibold">Theft / Assault / Serious breach</td>
+                              <td className="py-3 px-4 font-semibold">N/A</td>
+                              <td className="py-3 px-4 font-semibold">Immediate termination + FIR under BNS</td>
                             </tr>
                           </tbody>
                         </table>
                       </div>
                       
-                      <p className="text-red-700 text-xs mt-3 font-medium">
-                        Note: Offenses involving force, abuse, physical harm, or criminal behavior shall be escalated to law enforcement and may result in imprisonment under applicable sections of BNS, 2023.
-                      </p>
+                      <div className="mt-4 p-3 bg-red-100 border border-red-300 rounded-lg">
+                        <p className="text-red-800 text-xs font-medium">
+                          ⚖️ Note: Offenses involving force, abuse, physical harm, or criminal behavior shall be escalated to law enforcement and may result in imprisonment under applicable sections of BNS, 2023.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -504,12 +537,27 @@ export default function WorkerTerms() {
                     <p className="text-blue-800 text-sm leading-relaxed mb-3">
                       Serious offences such as physical assault, criminal intimidation, theft, sexual harassment, or criminal trespass committed by a worker during duty hours shall be liable to legal action and punishment under the BNS, 2023. Relevant sections include but are not limited to:
                     </p>
-                    <ul className="space-y-1 text-blue-700 text-sm">
-                      <li>• Section 119–123: Assault or use of criminal force</li>
-                      <li>• Section 131: Criminal intimidation</li>
-                      <li>• Section 303: Theft</li>
-                      <li>• Section 324: Criminal trespass</li>
-                      <li>• Section 74: Sexual harassment</li>
+                    <ul className="space-y-2 text-blue-700 text-sm">
+                      <li className="flex items-start">
+                        <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                        Section 119–123: Assault or use of criminal force
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                        Section 131: Criminal intimidation
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                        Section 303: Theft
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                        Section 324: Criminal trespass
+                      </li>
+                      <li className="flex items-start">
+                        <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                        Section 74: Sexual harassment
+                      </li>
                     </ul>
                     <p className="text-blue-800 text-sm mt-3 font-medium">
                       In case of such incidents, the Company will support police investigation and provide all necessary worker records and identification to assist legal proceedings.
