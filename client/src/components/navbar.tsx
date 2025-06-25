@@ -45,43 +45,12 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/">
               <div className="flex items-center space-x-3 cursor-pointer">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center overflow-hidden shadow-lg">
-                  <svg 
-                    width="36" 
-                    height="36" 
-                    viewBox="0 0 50 50" 
-                    className="text-primary-foreground drop-shadow-md"
-                  >
-                    <defs>
-                      <linearGradient id="apron-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="white" />
-                        <stop offset="100%" stopColor="#f8f8f8" />
-                      </linearGradient>
-                      <linearGradient id="face-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#ffe0bd" />
-                        <stop offset="100%" stopColor="#ffcd94" />
-                      </linearGradient>
-                      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="1" result="blur" />
-                        <feFlood floodColor="white" floodOpacity="0.3" />
-                        <feComposite in2="blur" operator="in" />
-                        <feComposite in="SourceGraphic" />
-                      </filter>
-                    </defs>
-                    
-                    <path d="M17 22 L33 22 L33 40 L17 40 Z" fill="url(#apron-gradient)" filter="url(#glow)" />
-                    <path d="M20 22 L20 16 L23 13 L27 13 L30 16 L30 22" fill="none" stroke="url(#apron-gradient)" strokeWidth="2" />
-                    
-                    <circle cx="25" cy="13" r="7" fill="url(#face-gradient)" filter="url(#glow)" />
-                    
-                    <path d="M18 13 Q18 7, 25 6 Q32 7, 32 13" fill="#543" />
-                    <path d="M20 13 Q20 9, 25 8 Q30 9, 30 13" fill="#764" className="opacity-80" />
-                    
-                    <circle cx="22" cy="12" r="1.2" fill="#333" />
-                    <circle cx="28" cy="12" r="1.2" fill="#333" />
-                    
-                    <path d="M23 15 Q25 16.5, 27 15" fill="none" stroke="#333" strokeWidth="1" strokeLinecap="round" />
-                  </svg>
+                <div className="w-12 h-12 rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src="/images/logo.jpg" 
+                    alt="Meri Didi Logo" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="flex flex-col">
                   <div className="flex items-baseline">
