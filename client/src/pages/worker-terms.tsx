@@ -608,6 +608,14 @@ export default function WorkerTerms() {
                     </ul>
                   </div>
                 </section>
+
+                {/* Added Refund Policy section */}
+                <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">Refund Policy</h2>
+                  <p className="text-neutral-700 leading-relaxed">
+                    The refund will be initiated only if cancellation is done within 7 days of booking.
+                  </p>
+                </section>
               </div>
             </motion.div>
           </motion.div>
