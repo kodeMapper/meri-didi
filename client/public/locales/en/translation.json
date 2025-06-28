@@ -370,6 +370,38 @@
   "common": {
     "learnMore": "Learn More"
   },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "You can reach our team using our contact form and we will respond within 24 hours.",
+    "form": {
+      "fullName": "Full Name",
+      "emailAddress": "Email Address",
+      "phoneNumber": "Phone Number",
+      "serviceNeeded": "Service Needed",
+      "selectService": "Select Service",
+      "services": {
+        "homeCleaning": "Home Cleaning",
+        "personalChef": "Personal Chef",
+        "seniorCare": "Senior Care",
+        "handyman": "Handyman",
+        "pestControl": "Pest Control",
+        "lawnCare": "Lawn Care",
+        "other": "Other Service"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your requirements...",
+      "sendMessage": "Send Request",
+      "sending": "Sending..."
+    },
+    "successToast": {
+      "title": "Message Sent!",
+      "description": "We've received your message and will contact you soon."
+    },
+    "errorToast": {
+      "title": "Error",
+      "description": "There was a problem sending your message. Please try again later."
+    }
+  },
   "privacyPolicy": {
     "title": "Privacy Policy",
     "backToHome": "Back to Home",

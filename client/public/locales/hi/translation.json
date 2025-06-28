@@ -384,10 +384,14 @@
         "personalChef": "व्यक्तिगत रसोइया",
         "seniorCare": "वरिष्ठ देखभाल",
         "handyman": "मरम्मत कार्य",
+        "pestControl": "कीट नियंत्रण",
+        "lawnCare": "लॉन केयर",
         "other": "अन्य सेवा"
       },
       "message": "संदेश",
-      "submit": "अनुरोध भेजें"
+      "messagePlaceholder": "हमें अपनी आवश्यकताओं के बारे में बताएं...",
+      "sendMessage": "अनुरोध भेजें",
+      "sending": "भेज रहा है..."
     },
     "successToast": {
       "title": "संदेश भेजा गया!",
