@@ -18,16 +18,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "@/lib/animation-utils";
+import { useTranslation } from "react-i18next";
 
 const languages = [
   { code: "en", name: "English" },
-  { code: "es", name: "Español" },
-  { code: "fr", name: "Français" },
-  { code: "de", name: "Deutsch" },
-  { code: "ja", name: "日本語" },
+  { code: "hi", name: "हिन्दी" },
 ];
 
 export default function Footer() {
+  const { t, i18n } = useTranslation();
   return (
     <footer className="bg-neutral-800 text-neutral-300 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,7 +43,7 @@ export default function Footer() {
               <span className="text-lg font-heading font-bold text-white">Meri Didi</span>
             </div>
             <p className="text-sm text-neutral-400 mb-4">
-              India's premier platform connecting service companies with top domestic workers.
+              {t("footer.description")}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-neutral-400 hover:text-white transition-colors">
@@ -63,32 +62,32 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-white font-medium mb-4">Services</h4>
+            <h4 className="text-white font-medium mb-4">{t("footer.services")}</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Home Cleaning</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Personal Chef</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Senior Care</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Handyman</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.homeCleaning")}</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.personalChef")}</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.seniorCare")}</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.handyman")}</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-medium mb-4">Company</h4>
+            <h4 className="text-white font-medium mb-4">{t("footer.company")}</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Support Center</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.aboutUs")}</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.careers")}</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.blog")}</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.supportCenter")}</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-medium mb-4">Legal</h4>
+            <h4 className="text-white font-medium mb-4">{t("footer.legal")}</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/privacy-policy" className="text-neutral-400 hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/worker-terms" className="text-neutral-400 hover:text-white transition-colors">Worker Terms & Conditions</Link></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Disclaimer</a></li>
+              <li><Link href="/privacy-policy" className="text-neutral-400 hover:text-white transition-colors">{t("footer.privacyPolicy")}</Link></li>
+              <li><Link href="/worker-terms" className="text-neutral-400 hover:text-white transition-colors">{t("footer.workerTerms")}</Link></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.cookiePolicy")}</a></li>
+              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.disclaimer")}</a></li>
             </ul>
           </div>
         </div>
@@ -97,19 +96,23 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-neutral-700 flex flex-col md:flex-row justify-between items-center">
           <p className="text-xs text-neutral-500">
-            &copy; {new Date().getFullYear()} Meri Didi. All rights reserved.
+            &copy; {new Date().getFullYear()} Meri Didi. {t("footer.copyright")}
           </p>
           <div className="flex items-center space-x-3 mt-4 md:mt-0">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-neutral-400 hover:text-white text-sm">
                   <Globe className="h-4 w-4" />
-                  <span>English</span>
+                  <span>{i18n.language === 'hi' ? 'हिन्दी' : 'English'}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {languages.map((lang) => (
-                  <DropdownMenuItem key={lang.code} className="cursor-pointer">
+                  <DropdownMenuItem 
+                    key={lang.code} 
+                    className="cursor-pointer"
+                    onClick={() => i18n.changeLanguage(lang.code)}
+                  >
                     {lang.name}
                   </DropdownMenuItem>
                 ))}

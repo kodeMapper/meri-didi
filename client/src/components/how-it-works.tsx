@@ -1,29 +1,32 @@
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
-const steps = [
-  {
-    number: 1,
-    title: "Tell Us What You Need",
-    description: "Share your service requirements and we'll connect you with the right professionals.",
-    imagePosition: "right",
-  },
-  {
-    number: 2,
-    title: "Choose Your Plan",
-    description: "Select from Basic, Standard, or Premium service plans to match your needs and budget.",
-    imagePosition: "left",
-  },
-  {
-    number: 3,
-    title: "Get a Verified Professional",
-    description: "A thoroughly vetted, trained, and uniformed professional will arrive at your doorstep ready to serve.",
-    imagePosition: "right",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export default function HowItWorks() {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      number: 1,
+      titleKey: "howItWorks.steps.step1.title",
+      descriptionKey: "howItWorks.steps.step1.description",
+      imagePosition: "right" as const,
+    },
+    {
+      number: 2,
+      titleKey: "howItWorks.steps.step2.title",
+      descriptionKey: "howItWorks.steps.step2.description",
+      imagePosition: "left" as const,
+    },
+    {
+      number: 3,
+      titleKey: "howItWorks.steps.step3.title",
+      descriptionKey: "howItWorks.steps.step3.description",
+      imagePosition: "right" as const,
+    },
+  ];
+
   return (
     <section id="how-it-works" className="py-20 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,9 +37,9 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-heading font-bold text-neutral-900">How It Works</h2>
+          <h2 className="text-3xl font-heading font-bold text-neutral-900">{t("howItWorks.title")}</h2>
           <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
-            Getting help around the home has never been easier. Follow these simple steps.
+            {t("howItWorks.subtitle")}
           </p>
         </motion.div>
         
@@ -48,8 +51,8 @@ export default function HowItWorks() {
               <Step 
                 key={index}
                 number={step.number}
-                title={step.title}
-                description={step.description}
+                titleKey={step.titleKey}
+                descriptionKey={step.descriptionKey}
                 imagePosition={step.imagePosition}
                 index={index}
               />
@@ -63,13 +66,14 @@ export default function HowItWorks() {
 
 type StepProps = {
   number: number;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   imagePosition: "left" | "right";
   index: number;
 };
 
-function Step({ number, title, description, imagePosition, index }: StepProps) {
+function Step({ number, titleKey, descriptionKey, imagePosition, index }: StepProps) {
+  const { t } = useTranslation();
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -120,8 +124,8 @@ function Step({ number, title, description, imagePosition, index }: StepProps) {
           imagePosition === "right" ? "md:pr-12 text-center md:text-right" : "md:pl-12 text-center md:text-left"
         }`}
       >
-        <h3 className="text-xl font-heading font-semibold text-neutral-900 mb-2">{title}</h3>
-        <p className="text-neutral-700">{description}</p>
+        <h3 className="text-xl font-heading font-semibold text-neutral-900 mb-2">{t(titleKey)}</h3>
+        <p className="text-neutral-700">{t(descriptionKey)}</p>
       </motion.div>
       
       <motion.div variants={itemVariants} className="md:w-16 relative flex justify-center">
@@ -158,7 +162,7 @@ function Step({ number, title, description, imagePosition, index }: StepProps) {
                 </svg>
               )}
             </div>
-            <p className="text-neutral-700 font-medium">Step {number}</p>
+            <p className="text-neutral-700 font-medium">{t("howItWorks.stepLabel", { number })}</p>
           </div>
         </div>
       </motion.div>

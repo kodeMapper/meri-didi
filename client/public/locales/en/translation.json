@@ -1,0 +1,442 @@
+{
+  "navbar": {
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "testimonials": "Testimonials",
+    "security": "Security",
+    "registerWorker": "Register as Worker"
+  },
+  "hero": {
+    "title": "Connect with India's Best Home Service Providers",
+    "subtitle": "Partner with Meri Didi - India's premier platform connecting service companies with top domestic workers and helping workers find quality employment.",
+    "getStarted": "Get Started",
+    "watchDemo": "Watch How It Works",
+    "trustedBy": "Trusted by over 50,000+ families",
+    "services": {
+      "homeCleaning": {
+        "title": "Home Cleaning",
+        "description": "Professional home cleaning services to keep your space spotless."
+      },
+      "homeCooking": {
+        "title": "Home Cooking",
+        "description": "Personal chefs bring restaurant-quality meals to your home."
+      },
+      "seniorCare": {
+        "title": "Senior Care",
+        "description": "Compassionate caregivers for elderly family members."
+      },
+      "handymanServices": {
+        "title": "Handyman Services",
+        "description": "Skilled professionals for all your home repair needs."
+      },
+      "lawnCare": {
+        "title": "Lawn Care",
+        "description": "Keep your yard beautiful with professional lawn services."
+      },
+      "pestControl": {
+        "title": "Pest Control",
+        "description": "Effective solutions for all types of pest problems."
+      }
+    }
+  },
+  "features": {
+    "title": "Services For Your Home",
+    "subtitle": "Quality services delivered by vetted professionals to keep your home running smoothly.",
+    "services": {
+      "brooming": {
+        "title": "Brooming",
+        "description": "Professional floor sweeping to keep your home dust-free and clean."
+      },
+      "mopping": {
+        "title": "Mopping", 
+        "description": "Thorough floor mopping service for spotless and hygienic floors."
+      },
+      "dishwashing": {
+        "title": "Dishwashing",
+        "description": "Complete kitchen cleanup and professional dishwashing service."
+      },
+      "bathroomCleaning": {
+        "title": "Bathroom Cleaning",
+        "description": "Deep cleaning and sanitization for all bathroom areas."
+      },
+      "dusting": {
+        "title": "Dusting",
+        "description": "Careful dusting of furniture, electronics, and decorative items."
+      },
+      "elderCare": {
+        "title": "Elder Care",
+        "description": "Compassionate and professional care for elderly family members."
+      },
+      "babysitting": {
+        "title": "Babysitting",
+        "description": "Reliable and caring babysitting services for your peace of mind."
+      },
+      "pestControl": {
+        "title": "Pest Control",
+        "description": "Safe and effective pest elimination and prevention services."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Getting help around the home has never been easier. Follow these simple steps.",
+    "stepLabel": "Step {{number}}",
+    "steps": {
+      "step1": {
+        "title": "Tell Us What You Need",
+        "description": "Share your service requirements and we'll connect you with the right professionals."
+      },
+      "step2": {
+        "title": "Choose Your Plan",
+        "description": "Select from Basic, Standard, or Premium service plans to match your needs and budget."
+      },
+      "step3": {
+        "title": "Get a Verified Professional",
+        "description": "A thoroughly vetted, trained, and uniformed professional will arrive at your doorstep ready to serve."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Hear from people who have transformed their homes and lives with our services.",
+    "videoSectionTitle": "Video Testimonials",
+    "workersSectionTitle": "Meet Our Verified Workers",
+    "workers": {
+      "yearsExp": "Years Exp.",
+      "onTime": "On Time",
+      "homes": "Homes",
+      "0": {
+        "name": "Preeti Singh",
+        "role": "Cleaning Expert",
+        "intro": "Hi! I'm trained in hygiene & care. Happy to serve!",
+        "awardType": "Worker of the Week"
+      },
+      "1": {
+        "name": "Rajesh Kumar",
+        "role": "Senior Chef",
+        "intro": "Cooking is my passion. I bring restaurant quality to your home!",
+        "awardType": "Top Rated"
+      },
+      "2": {
+        "name": "Meera Patel",
+        "role": "Elder Care Specialist",
+        "intro": "I treat every senior with the love and respect they deserve.",
+        "awardType": "Compassion Award"
+      },
+      "3": {
+        "name": "Vikram Sharma",
+        "role": "Handyman Professional",
+        "intro": "No repair too big or small, I fix it all with a smile!",
+        "awardType": "Most Reliable"
+      }
+    },
+    "video": {
+      "0": {
+        "name": "Sarah Johnson",
+        "role": "Working Mom",
+        "content": "The cleaning service has completely transformed my home life. I no longer stress about finding time to clean between work and family commitments. The professionals are thorough and trustworthy."
+      },
+      "1": {
+        "name": "David Chen",
+        "role": "Tech Executive",
+        "content": "As someone who works long hours, having a personal chef once a week has been life-changing. The meals are delicious and I'm eating healthier than ever. Well worth the investment!"
+      },
+      "2": {
+        "name": "Maria Rodriguez",
+        "role": "Healthcare Professional",
+        "content": "I use the senior care services for my mother, and I couldn't be more satisfied. The caregivers are compassionate and professional. Mom looks forward to their visits."
+      },
+      "3": {
+        "name": "James Wilson",
+        "role": "Remote Worker",
+        "content": "The handyman service saved me so much time and frustration. They handled multiple issues in one visit that would have taken me weeks to figure out on my own."
+      },
+      "4": {
+        "name": "Emma Thompson",
+        "role": "Business Owner",
+        "content": "I've tried several home service companies, but this one stands out for reliability and quality. The lawn care team is exceptional and my yard has never looked better."
+      },
+      "5": {
+        "name": "Robert Garcia",
+        "role": "Attorney",
+        "content": "The pest control service was efficient and effective. They identified the source of our problem quickly and used environmentally friendly solutions. Highly recommend."
+      }
+    },
+    "trustBadges": {
+      "verified": {
+        "title": "100% Verified",
+        "description": "All workers verified and background-checked"
+      },
+      "homes": {
+        "title": "250,000+ Homes",
+        "description": "Trusted by households across India"
+      },
+      "satisfaction": {
+        "title": "Satisfaction Guaranteed",
+        "description": "100% money-back if you're not satisfied"
+      }
+    }
+  },
+  "security": {
+    "title": "Your Safety Is Our Top Priority",
+    "subtitle": "We follow a rigorous 6-step verification process to ensure all workers on our platform are trustworthy and reliable.",
+    "steps": {
+      "0": {
+        "title": "Database Check",
+        "description": "Worker information is cross-referenced with national databases"
+      },
+      "1": {
+        "title": "ID Verification",
+        "description": "Government-issued IDs are authenticated and validated"
+      },
+      "2": {
+        "title": "Face Match",
+        "description": "Biometric verification ensures identity authenticity"
+      },
+      "3": {
+        "title": "Address Verification",
+        "description": "Physical address verification through on-site visits"
+      },
+      "4": {
+        "title": "Background Check",
+        "description": "Complete background verification by authorized agencies"
+      },
+      "5": {
+        "title": "Final Approval",
+        "description": "Only approved workers are allowed to join our platform"
+      }
+    },
+    "hygieneProtocol": {
+      "title": "Worker Hygiene Protocol",
+      "description": "Every worker follows our strict hygiene guidelines to ensure your safety",
+      "items": {
+        "uniform": {
+          "title": "Uniform",
+          "description": "Clean, pressed uniform daily"
+        },
+        "handwash": {
+          "title": "Handwash",
+          "description": "Regular handwashing protocol"
+        },
+        "mask": {
+          "title": "Mask",
+          "description": "Fresh mask changed regularly"
+        },
+        "gloves": {
+          "title": "Gloves",
+          "description": "Fresh gloves for each task"
+        },
+        "sanitizer": {
+          "title": "Sanitizer",
+          "description": "Regular sanitization"
+        }
+      }
+    },
+    "workersKit": {
+      "title": "What's in a Worker's Kit?",
+      "items": {
+        "duster": {
+          "title": "Duster",
+          "description": "Microfiber for dust-free surfaces"
+        },
+        "mop": {
+          "title": "Mop",
+          "description": "Advanced cleaning technology"
+        },
+        "ecoSpray": {
+          "title": "Eco Spray",
+          "description": "Environment-friendly cleaning"
+        },
+        "tools": {
+          "title": "Tools",
+          "description": "Professional-grade equipment"
+        }
+      }
+    },
+    "whyTrust": {
+      "title": "Why Trust Meri Didi?"
+    },
+    "trust": {
+      "0": {
+        "title": "Police-verified staff",
+        "description": "100% of our staff undergo police verification"
+      },
+      "1": {
+        "title": "Uniformed professionals",
+        "description": "All workers wear proper uniforms and carry ID cards"
+      },
+      "2": {
+        "title": "100% service guarantee",
+        "description": "We stand behind our service quality promise"
+      },
+      "3": {
+        "title": "Daily feedback",
+        "description": "Transparent feedback system for continuous improvement"
+      },
+      "4": {
+        "title": "Punctual workers",
+        "description": "Our workers arrive on time, every time"
+      },
+      "5": {
+        "title": "Transparent pricing",
+        "description": "No hidden fees or surprise charges"
+      }
+    },
+    "verifiedWorkers": {
+      "title": "Verified Workers",
+      "value": "100%"
+    }
+  },
+  "transformation": {
+    "title": "See The Transformation",
+    "subtitle": "Witness the dramatic before and after results of our professional services",
+    "comparisons": {
+      "0": {
+        "title": "Home Cleaning",
+        "before": {
+          "alt": "Before - Messy living room"
+        },
+        "after": {
+          "alt": "After - Clean, organized living room"
+        }
+      },
+      "1": {
+        "title": "Kitchen Organization",
+        "before": {
+          "alt": "Before - Cluttered kitchen"
+        },
+        "after": {
+          "alt": "After - Organized kitchen"
+        }
+      }
+    },
+    "stats": {
+      "0": {
+        "label": "Average time saved weekly"
+      },
+      "1": {
+        "label": "Customer satisfaction rate"
+      },
+      "2": {
+        "label": "Longer-lasting cleanliness"
+      }
+    }
+  },
+  "cta": {
+    "title": "Download the Meri Didi App",
+    "subtitle": "Get instant access to verified professionals, exclusive offers, and seamless booking experience right from your phone.",
+    "getStarted": "Get Started Today",
+    "googlePlay": {
+      "getItOn": "GET IT ON",
+      "title": "Google Play"
+    },
+    "appStore": {
+      "downloadOn": "Download on the",
+      "title": "App Store"
+    },
+    "stats": {
+      "users": {
+        "title": "Joined by 10,000+ users",
+        "description": "in the last month"
+      }
+    },
+    "verifiedProfessionals": "Verified Professionals",
+    "scanToDownload": "Scan to download",
+    "instantBooking": "Instant Booking"
+  },
+  "footer": {
+    "description": "India's premier platform connecting service companies with top domestic workers.",
+    "services": "Services",
+    "homeCleaning": "Home Cleaning",
+    "personalChef": "Personal Chef",
+    "seniorCare": "Senior Care",
+    "handyman": "Handyman",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "blog": "Blog",
+    "supportCenter": "Support Center",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "workerTerms": "Worker Terms & Conditions",
+    "cookiePolicy": "Cookie Policy",
+    "disclaimer": "Disclaimer",
+    "copyright": "All rights reserved."
+  },
+  "common": {
+    "learnMore": "Learn More"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "backToHome": "Back to Home",
+    "lastUpdated": "Last updated: December 15, 2024",
+    "sections": {
+      "overview": {
+        "title": "Overview",
+        "content": "At Meri Didi, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform, mobile application, and related services."
+      },
+      "informationWeCollect": {
+        "title": "Information We Collect",
+        "personalInfo": {
+          "title": "Personal Information",
+          "content": "We collect information that you provide directly to us, such as when you create an account, book a service, or contact us for support."
+        },
+        "automaticInfo": {
+          "title": "Automatically Collected Information",
+          "content": "We automatically collect certain information when you use our services, including device information, usage data, and location information."
+        }
+      },
+      "howWeUseInfo": {
+        "title": "How We Use Your Information",
+        "content": "We use the information we collect to provide, maintain, and improve our services, process transactions, and communicate with you."
+      },
+      "informationSharing": {
+        "title": "Information Sharing and Disclosure",
+        "content": "We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy."
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "content": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction."
+      },
+      "yourRights": {
+        "title": "Your Rights and Choices",
+        "content": "You have certain rights regarding your personal information, including the right to access, update, or delete your information."
+      },
+      "contactUs": {
+        "title": "Contact Us",
+        "content": "If you have any questions about this Privacy Policy, please contact us."
+      }
+    }
+  },
+  "workerTerms": {
+    "title": "Worker Terms & Conditions",
+    "backToHome": "Back to Home",
+    "lastUpdated": "Last updated: December 15, 2024",
+    "sections": {
+      "overview": {
+        "title": "Overview",
+        "content": "These Terms and Conditions govern your use of the Meri Didi platform as a service provider. By registering as a worker, you agree to these terms."
+      },
+      "eligibility": {
+        "title": "Eligibility Requirements",
+        "content": "To work through our platform, you must meet certain eligibility criteria including age requirements, background checks, and skill verification."
+      },
+      "responsibilities": {
+        "title": "Worker Responsibilities",
+        "content": "As a registered worker, you agree to provide quality services, maintain professionalism, and comply with all applicable laws and regulations."
+      },
+      "payment": {
+        "title": "Payment Terms",
+        "content": "Details about how and when you will be paid for services rendered through the platform."
+      },
+      "termination": {
+        "title": "Termination",
+        "content": "Either party may terminate this agreement under certain conditions as outlined in this section."
+      },
+      "contactUs": {
+        "title": "Contact Us",
+        "content": "If you have any questions about these Terms, please contact us."
+      }
+    }
+  }
+}

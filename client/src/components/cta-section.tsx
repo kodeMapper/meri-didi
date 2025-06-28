@@ -1,8 +1,10 @@
 
 import { motion } from "framer-motion";
 import { AppleIcon, Smartphone, QrCode, User, Check } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function CTASection() {
+  const { t } = useTranslation();
   return (
     <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,10 +18,10 @@ export default function CTASection() {
             className="space-y-6"
           >
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-neutral-900 leading-tight">
-              Download the Meri Didi App
+              {t("cta.title")}
             </h2>
             <p className="text-lg text-neutral-600">
-              Get instant access to verified professionals, exclusive offers, and seamless booking experience right from your phone.
+              {t("cta.subtitle")}
             </p>
 
             {/* Download Buttons */}
@@ -32,8 +34,8 @@ export default function CTASection() {
               >
                 <Smartphone size={24} />
                 <div>
-                  <div className="text-xs">GET IT ON</div>
-                  <div className="text-sm font-semibold">Google Play</div>
+                  <div className="text-xs">{t("cta.googlePlay.getItOn")}</div>
+                  <div className="text-sm font-semibold">{t("cta.googlePlay.title")}</div>
                 </div>
               </motion.a>
               
@@ -45,8 +47,8 @@ export default function CTASection() {
               >
                 <AppleIcon size={24} />
                 <div>
-                  <div className="text-xs">Download on the</div>
-                  <div className="text-sm font-semibold">App Store</div>
+                  <div className="text-xs">{t("cta.appStore.downloadOn")}</div>
+                  <div className="text-sm font-semibold">{t("cta.appStore.title")}</div>
                 </div>
               </motion.a>
             </div>
@@ -68,8 +70,8 @@ export default function CTASection() {
                   ))}
                 </div>
                 <div>
-                  <p className="font-semibold">Joined by 10,000+ users</p>
-                  <p className="text-sm text-neutral-500">in the last month</p>
+                  <p className="font-semibold">{t("cta.stats.users.title")}</p>
+                  <p className="text-sm text-neutral-500">{t("cta.stats.users.description")}</p>
                 </div>
               </div>
               
@@ -78,7 +80,7 @@ export default function CTASection() {
                 whileHover={{ y: -2 }}
               >
                 <Check className="text-primary" size={16} />
-                <span>Verified Professionals</span>
+                <span>{t("cta.verifiedProfessionals")}</span>
               </motion.div>
             </div>
           </motion.div>
@@ -150,7 +152,7 @@ export default function CTASection() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <QrCode size={80} className="text-neutral-800" />
-                <p className="text-xs text-center mt-2 text-neutral-600">Scan to download</p>
+                <p className="text-xs text-center mt-2 text-neutral-600">{t("cta.scanToDownload")}</p>
               </motion.div>
 
               {/* Features Badge */}
@@ -161,7 +163,7 @@ export default function CTASection() {
               >
                 <div className="flex items-center space-x-2">
                   <Check className="text-primary" size={16} />
-                  <span className="text-sm">Instant Booking</span>
+                  <span className="text-sm">{t("cta.instantBooking")}</span>
                 </div>
               </motion.div>
             </div>

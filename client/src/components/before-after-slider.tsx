@@ -1,13 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 type BeforeAfterSliderProps = {
-  title: string;
-  beforeAlt: string;
-  afterAlt: string;
+  titleKey: string;
+  beforeAltKey: string;
+  afterAltKey: string;
 };
 
-export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: BeforeAfterSliderProps) {
+export default function BeforeAfterSlider({ titleKey, beforeAltKey, afterAltKey }: BeforeAfterSliderProps) {
+  const { t } = useTranslation();
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -63,7 +65,7 @@ export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: Before
       <div className="w-full h-full bg-gradient-to-r from-yellow-50 to-white">
         <div className="w-full h-full flex items-center justify-center">
           <div className="p-4 text-center">
-            <h3 className="font-medium text-neutral-900">{afterAlt}</h3>
+            <h3 className="font-medium text-neutral-900">{t(afterAltKey)}</h3>
             <div className="mt-2 w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center">
               <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
@@ -81,7 +83,7 @@ export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: Before
         <div className="w-full h-full bg-gradient-to-r from-neutral-200 to-neutral-100">
           <div className="w-full h-full flex items-center justify-center">
             <div className="p-4 text-center">
-              <h3 className="font-medium text-neutral-900">{beforeAlt}</h3>
+              <h3 className="font-medium text-neutral-900">{t(beforeAltKey)}</h3>
               <div className="mt-2 w-16 h-16 rounded-full bg-red-100 mx-auto flex items-center justify-center">
                 <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -105,7 +107,7 @@ export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: Before
       </motion.div>
       
       <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium">
-        {title}
+        {t(titleKey)}
       </div>
     </div>
   );

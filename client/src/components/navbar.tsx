@@ -9,16 +9,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTranslation } from "react-i18next";
 
 const languages = [
   { code: "en", name: "English" },
-  { code: "es", name: "Español" },
-  { code: "fr", name: "Français" },
-  { code: "de", name: "Deutsch" },
-  { code: "ja", name: "日本語" },
+  { code: "hi", name: "हिन्दी" },
 ];
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -68,16 +67,16 @@ export default function Navbar() {
 
             <div className="hidden md:flex md:ml-10 space-x-8">
               <a href="#features" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
-                Features
+                {t("navbar.features")}
               </a>
               <a href="#how-it-works" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
-                How It Works
+                {t("navbar.howItWorks")}
               </a>
               <a href="#testimonials" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
-                Testimonials
+                {t("navbar.testimonials")}
               </a>
               <a href="#security" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
-                Security
+                {t("navbar.security")}
               </a>
             </div>
           </div>
@@ -87,12 +86,16 @@ export default function Navbar() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-neutral-700 hover:text-neutral-900">
                   <Globe className="h-4 w-4" />
-                  <span className="text-sm">EN</span>
+                  <span className="text-sm">{i18n.language === 'hi' ? 'HI' : 'EN'}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {languages.map((lang) => (
-                  <DropdownMenuItem key={lang.code} className="cursor-pointer">
+                  <DropdownMenuItem 
+                    key={lang.code} 
+                    className="cursor-pointer"
+                    onClick={() => i18n.changeLanguage(lang.code)}
+                  >
                     {lang.name}
                   </DropdownMenuItem>
                 ))}
@@ -103,7 +106,7 @@ export default function Navbar() {
               <Button 
                 className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-md hover:shadow-lg"
               >
-                Register as Worker
+                {t("navbar.registerWorker")}
               </Button>
             </Link>
             
@@ -130,21 +133,21 @@ export default function Navbar() {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="#features" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
-              Features
+              {t("navbar.features")}
             </a>
             <a href="#how-it-works" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
-              How It Works
+              {t("navbar.howItWorks")}
             </a>
             <a href="#testimonials" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
-              Testimonials
+              {t("navbar.testimonials")}
             </a>
             <a href="#security" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
-              Security
+              {t("navbar.security")}
             </a>
             <div className="pt-4 pb-3 border-t border-neutral-200">
               <Link href="/register-worker">
                 <div className="block px-3 py-2 mt-1 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer">
-                  Register as Worker
+                  {t("navbar.registerWorker")}
                 </div>
               </Link>
             </div>

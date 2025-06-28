@@ -4,49 +4,52 @@ import { ArrowRight, PlayCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedServiceCard from "./animated-service-card";
 import { Link } from "wouter";
+import { useTranslation } from "react-i18next";
 
 // Service professional data
-const serviceProfessionals = [
+const getServiceProfessionals = (t: any) => [
   {
     id: 1,
-    title: "Home Cleaning",
-    description: "Professional home cleaning services to keep your space spotless.",
+    title: t("hero.services.homeCleaning.title"),
+    description: t("hero.services.homeCleaning.description"),
     icon: "broom",
   },
   {
     id: 2,
-    title: "Home Cooking",
-    description: "Personal chefs bring restaurant-quality meals to your home.",
+    title: t("hero.services.homeCooking.title"),
+    description: t("hero.services.homeCooking.description"),
     icon: "utensils",
   },
   {
     id: 3,
-    title: "Senior Care",
-    description: "Compassionate caregivers for elderly family members.",
+    title: t("hero.services.seniorCare.title"),
+    description: t("hero.services.seniorCare.description"),
     icon: "heart",
   },
   {
     id: 4,
-    title: "Handyman Services",
-    description: "Skilled professionals for all your home repair needs.",
+    title: t("hero.services.handymanServices.title"),
+    description: t("hero.services.handymanServices.description"),
     icon: "tools",
   },
   {
     id: 5,
-    title: "Lawn Care",
-    description: "Keep your yard beautiful with professional lawn services.",
+    title: t("hero.services.lawnCare.title"),
+    description: t("hero.services.lawnCare.description"),
     icon: "leaf",
   },
   {
     id: 6,
-    title: "Pest Control",
-    description: "Effective solutions for all types of pest problems.",
+    title: t("hero.services.pestControl.title"),
+    description: t("hero.services.pestControl.description"),
     icon: "bug",
   },
 ];
 
 // Carousel component for service professionals
 function ServiceCarousel() {
+  const { t } = useTranslation();
+  const serviceProfessionals = getServiceProfessionals(t);
   const [current, setCurrent] = useState(0);
   
   useEffect(() => {
@@ -96,7 +99,7 @@ function ServiceCarousel() {
       
       <div className="absolute bottom-4 left-0 right-0 flex justify-center">
         <div className="flex space-x-2">
-          {serviceProfessionals.map((_, index) => (
+          {serviceProfessionals.map((_: any, index: number) => (
             <button
               key={index}
               className={`w-2 h-2 rounded-full ${index === current ? "bg-primary" : "bg-neutral-300"}`}
@@ -110,6 +113,8 @@ function ServiceCarousel() {
 }
 
 export default function HeroSection() {
+  const { t } = useTranslation();
+  
   return (
     <section className="pt-32 pb-20 bg-gradient-to-b from-primary/10 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,10 +126,10 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-neutral-900 leading-tight">
-              Connect with India's Best Home Service Providers
+              {t("hero.title")}
             </h1>
             <p className="mt-4 text-lg text-neutral-700 max-w-md">
-              Partner with Meri Didi - India's premier platform connecting service companies with top domestic workers and helping workers find quality employment.
+              {t("hero.subtitle")}
             </p>
             
             <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -132,7 +137,7 @@ export default function HeroSection() {
                 <Button
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 rounded-md font-medium transition-colors shadow-md hover:shadow-lg flex items-center justify-center h-12"
                 >
-                  <span>Register as Worker</span>
+                  <span>{t("navbar.registerWorker")}</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -142,7 +147,7 @@ export default function HeroSection() {
                 className="bg-white hover:bg-neutral-100 text-neutral-800 border border-neutral-300 px-6 py-3 rounded-md font-medium transition-colors flex items-center justify-center h-12"
               >
                 <PlayCircle className="mr-2 h-4 w-4" />
-                <span>Watch How It Works</span>
+                <span>{t("hero.watchDemo")}</span>
               </Button>
             </div>
             

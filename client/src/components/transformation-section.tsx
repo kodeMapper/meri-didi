@@ -2,39 +2,41 @@ import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BeforeAfterSlider from "./before-after-slider";
+import { useTranslation } from "react-i18next";
 
 const comparisons = [
   {
     id: 1,
-    title: "Home Cleaning",
+    titleKey: "transformation.comparisons.0.title",
     before: {
       src: "https://i.pinimg.com/736x/10/05/a4/1005a4951893b9cc2313fb83101e3f75.jpg",
-      alt: "Before - Messy living room",
+      altKey: "transformation.comparisons.0.before.alt",
     },
     after: {
       src: "https://puracy.com/cdn/shop/articles/sidekix-media-8qNuR1lIv_k-unsplash.jpg?v=1729510800",
-      alt: "After - Clean, organized living room",
+      altKey: "transformation.comparisons.0.after.alt",
     },
   },
   {
     id: 2,
-    title: "Kitchen Organization",
+    titleKey: "transformation.comparisons.1.title",
     before: {
-      alt: "Before - Cluttered kitchen",
+      altKey: "transformation.comparisons.1.before.alt",
     },
     after: {
-      alt: "After - Organized kitchen",
+      altKey: "transformation.comparisons.1.after.alt",
     },
   },
 ];
 
 const stats = [
-  { value: "4.8 hrs", label: "Average time saved weekly" },
-  { value: "98%", label: "Customer satisfaction rate" },
-  { value: "3x", label: "Longer-lasting cleanliness" },
+  { value: "4.8 hrs", labelKey: "transformation.stats.0.label" },
+  { value: "98%", labelKey: "transformation.stats.1.label" },
+  { value: "3x", labelKey: "transformation.stats.2.label" },
 ];
 
 export default function TransformationSection() {
+  const { t } = useTranslation();
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -77,9 +79,9 @@ export default function TransformationSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-heading font-bold text-neutral-900">See The Transformation</h2>
+          <h2 className="text-3xl font-heading font-bold text-neutral-900">{t("transformation.title")}</h2>
           <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
-            Witness the dramatic before and after results of our professional services.
+            {t("transformation.subtitle")}
           </p>
         </motion.div>
 
@@ -93,9 +95,9 @@ export default function TransformationSection() {
           {comparisons.map((comparison) => (
             <motion.div key={comparison.id} variants={itemVariants}>
               <BeforeAfterSlider 
-                title={comparison.title}
-                beforeAlt={comparison.before.alt}
-                afterAlt={comparison.after.alt}
+                titleKey={comparison.titleKey}
+                beforeAltKey={comparison.before.altKey}
+                afterAltKey={comparison.after.altKey}
               />
             </motion.div>
           ))}
@@ -119,7 +121,7 @@ export default function TransformationSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="text-4xl font-bold text-secondary mb-2">{stat.value}</div>
-                <p className="text-neutral-700">{stat.label}</p>
+                <p className="text-neutral-700">{t(stat.labelKey)}</p>
               </motion.div>
             ))}
           </div>

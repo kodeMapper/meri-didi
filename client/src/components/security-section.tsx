@@ -1,80 +1,83 @@
 import { motion } from "framer-motion";
 import { Shield, CheckCircle, BadgeCheck, Lock, UserCheck, Star, Award, Sparkles, Clock, Smile } from "lucide-react";
 import { fadeUpVariants, staggerContainer, pulseVariants, bounceVariants } from "@/lib/animation-utils";
+import { useTranslation } from "react-i18next";
 
 const securitySteps = [
   {
-    title: "Database Check",
-    description: "Worker information is cross-referenced with national databases",
+    titleKey: "security.steps.0.title",
+    descriptionKey: "security.steps.0.description",
     icon: Shield,
   },
   {
-    title: "ID Verification",
-    description: "Government-issued IDs are authenticated and validated",
+    titleKey: "security.steps.1.title",
+    descriptionKey: "security.steps.1.description",
     icon: BadgeCheck,
   },
   {
-    title: "Face Match",
-    description: "Biometric verification ensures identity authenticity",
+    titleKey: "security.steps.2.title",
+    descriptionKey: "security.steps.2.description",
     icon: UserCheck,
   },
   {
-    title: "Address Verification",
-    description: "Physical address verification through on-site visits",
+    titleKey: "security.steps.3.title",
+    descriptionKey: "security.steps.3.description",
     icon: CheckCircle,
   },
   {
-    title: "Background Check",
-    description: "Complete background verification by authorized agencies",
+    titleKey: "security.steps.4.title",
+    descriptionKey: "security.steps.4.description",
     icon: Lock,
   },
   {
-    title: "Final Approval",
-    description: "Only approved workers are allowed to join our platform",
+    titleKey: "security.steps.5.title",
+    descriptionKey: "security.steps.5.description",
     icon: Star,
   },
 ];
 
 const trustBuildingFeatures = [
   {
-    title: "Police-verified staff",
-    description: "100% of our staff undergo police verification",
+    titleKey: "security.trust.0.title",
+    descriptionKey: "security.trust.0.description",
     icon: Shield,
     color: "bg-blue-500",
   },
   {
-    title: "Uniformed professionals",
-    description: "All workers wear proper uniforms and carry ID cards",
+    titleKey: "security.trust.1.title",
+    descriptionKey: "security.trust.1.description",
     icon: UserCheck,
     color: "bg-green-500",
   },
   {
-    title: "100% service guarantee",
-    description: "We stand behind our service quality promise",
+    titleKey: "security.trust.2.title",
+    descriptionKey: "security.trust.2.description",
     icon: Award,
     color: "bg-yellow-500",
   },
   {
-    title: "Daily feedback",
-    description: "Transparent feedback system for continuous improvement",
+    titleKey: "security.trust.3.title",
+    descriptionKey: "security.trust.3.description",
     icon: Star,
     color: "bg-purple-500",
   },
   {
-    title: "Punctual workers",
-    description: "Our workers arrive on time, every time",
+    titleKey: "security.trust.4.title",
+    descriptionKey: "security.trust.4.description",
     icon: Clock,
     color: "bg-red-500",
   },
   {
-    title: "Transparent pricing",
-    description: "No hidden fees or surprise charges",
+    titleKey: "security.trust.5.title",
+    descriptionKey: "security.trust.5.description",
     icon: Sparkles,
     color: "bg-indigo-500",
   },
 ];
 
 export default function SecuritySection() {
+  const { t } = useTranslation();
+  
   return (
     <section id="security" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,10 +89,10 @@ export default function SecuritySection() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Your Safety Is Our Top Priority
+            {t("security.title")}
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            We follow a rigorous 6-step verification process to ensure all workers on our platform are trustworthy and reliable.
+            {t("security.subtitle")}
           </p>
         </motion.div>
 
@@ -110,8 +113,8 @@ export default function SecuritySection() {
                 <div className="w-8 h-8 rounded-full bg-primary text-white font-bold flex items-center justify-center absolute -top-3 -right-3 border-2 border-white">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-neutral-600">{step.description}</p>
+                <h3 className="text-xl font-semibold mb-2">{t(step.titleKey)}</h3>
+                <p className="text-neutral-600">{t(step.descriptionKey)}</p>
               </div>
             ))}
           </div>
@@ -127,10 +130,10 @@ export default function SecuritySection() {
             className="text-center mb-10"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
-              Worker Hygiene Protocol
+              {t("security.hygieneProtocol.title")}
             </h3>
             <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              Every worker follows our strict hygiene guidelines to ensure your safety
+              {t("security.hygieneProtocol.description")}
             </p>
           </motion.div>
 
@@ -143,8 +146,8 @@ export default function SecuritySection() {
                   <path d="M12 17V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </div>
-              <h4 className="font-semibold">Uniform</h4>
-              <p className="text-sm text-center text-neutral-600">Clean, pressed uniform daily</p>
+              <h4 className="font-semibold">{t("security.hygieneProtocol.items.uniform.title")}</h4>
+              <p className="text-sm text-center text-neutral-600">{t("security.hygieneProtocol.items.uniform.description")}</p>
             </div>
 
             <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
@@ -157,8 +160,8 @@ export default function SecuritySection() {
                   <path d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" strokeWidth="2"/>
                 </svg>
               </div>
-              <h4 className="font-semibold">Handwash</h4>
-              <p className="text-sm text-center text-neutral-600">Regular handwashing protocol</p>
+              <h4 className="font-semibold">{t("security.hygieneProtocol.items.handwash.title")}</h4>
+              <p className="text-sm text-center text-neutral-600">{t("security.hygieneProtocol.items.handwash.description")}</p>
             </div>
 
             <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
@@ -169,8 +172,8 @@ export default function SecuritySection() {
                   <path d="M16 11V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </div>
-              <h4 className="font-semibold">Mask</h4>
-              <p className="text-sm text-center text-neutral-600">Fresh mask changed regularly</p>
+              <h4 className="font-semibold">{t("security.hygieneProtocol.items.mask.title")}</h4>
+              <p className="text-sm text-center text-neutral-600">{t("security.hygieneProtocol.items.mask.description")}</p>
             </div>
 
             <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
@@ -183,8 +186,8 @@ export default function SecuritySection() {
                   <path d="M12 15.5H14.5M7 11.5V9M17 11.5V9M16.5 7L7.5 7M14 4L18 7H6L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </div>
-              <h4 className="font-semibold">Gloves</h4>
-              <p className="text-sm text-center text-neutral-600">Fresh gloves for each task</p>
+              <h4 className="font-semibold">{t("security.hygieneProtocol.items.gloves.title")}</h4>
+              <p className="text-sm text-center text-neutral-600">{t("security.hygieneProtocol.items.gloves.description")}</p>
             </div>
 
             <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
@@ -198,8 +201,8 @@ export default function SecuritySection() {
                   <path d="M2.5 13C6 18 18 18 21.5 13" stroke="currentColor" strokeWidth="2"/>
                 </svg>
               </div>
-              <h4 className="font-semibold">Sanitizer</h4>
-              <p className="text-sm text-center text-neutral-600">Regular sanitization</p>
+              <h4 className="font-semibold">{t("security.hygieneProtocol.items.sanitizer.title")}</h4>
+              <p className="text-sm text-center text-neutral-600">{t("security.hygieneProtocol.items.sanitizer.description")}</p>
             </div>
           </div>
         </div>
@@ -212,7 +215,7 @@ export default function SecuritySection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-2xl font-bold mb-6 text-center">What's in a Worker's Kit?</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center">{t("security.workersKit.title")}</h3>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <motion.div 
@@ -228,8 +231,8 @@ export default function SecuritySection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 9h14v10a2 2 0 01-2 2H7a2 2 0 01-2-2V9z" />
                 </svg>
               </div>
-              <h4 className="font-semibold">Duster</h4>
-              <p className="text-sm text-neutral-600">Microfiber for dust-free surfaces</p>
+              <h4 className="font-semibold">{t("security.workersKit.items.duster.title")}</h4>
+              <p className="text-sm text-neutral-600">{t("security.workersKit.items.duster.description")}</p>
             </motion.div>
 
             <motion.div 
@@ -244,8 +247,8 @@ export default function SecuritySection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
               </div>
-              <h4 className="font-semibold">Mop</h4>
-              <p className="text-sm text-neutral-600">Advanced cleaning technology</p>
+              <h4 className="font-semibold">{t("security.workersKit.items.mop.title")}</h4>
+              <p className="text-sm text-neutral-600">{t("security.workersKit.items.mop.description")}</p>
             </motion.div>
 
             <motion.div 
@@ -260,8 +263,8 @@ export default function SecuritySection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
               </div>
-              <h4 className="font-semibold">Eco Spray</h4>
-              <p className="text-sm text-neutral-600">Environment-friendly cleaning</p>
+              <h4 className="font-semibold">{t("security.workersKit.items.ecoSpray.title")}</h4>
+              <p className="text-sm text-neutral-600">{t("security.workersKit.items.ecoSpray.description")}</p>
             </motion.div>
 
             <motion.div 
@@ -276,8 +279,8 @@ export default function SecuritySection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h4 className="font-semibold">Tools</h4>
-              <p className="text-sm text-neutral-600">Professional-grade equipment</p>
+              <h4 className="font-semibold">{t("security.workersKit.items.tools.title")}</h4>
+              <p className="text-sm text-neutral-600">{t("security.workersKit.items.tools.description")}</p>
             </motion.div>
           </div>
         </motion.div>
@@ -290,7 +293,7 @@ export default function SecuritySection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-10">Why Trust Meri Didi?</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-10">{t("security.whyTrust.title")}</h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {trustBuildingFeatures.map((feature, index) => (
@@ -312,8 +315,8 @@ export default function SecuritySection() {
                   <feature.icon className="w-6 h-6 text-white" />
                 </motion.div>
                 <div>
-                  <h4 className="font-bold mb-1">{feature.title}</h4>
-                  <p className="text-neutral-600 text-sm">{feature.description}</p>
+                  <h4 className="font-bold mb-1">{t(feature.titleKey)}</h4>
+                  <p className="text-neutral-600 text-sm">{t(feature.descriptionKey)}</p>
                 </div>
               </motion.div>
             ))}
@@ -330,16 +333,16 @@ export default function SecuritySection() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
-              <h3 className="text-2xl font-bold mb-3">We're here when you need us most</h3>
+              <h3 className="text-2xl font-bold mb-3">{t("security.resolution.title")}</h3>
               <p className="text-neutral-700">
-                Every worker on our platform is police-verified, thoroughly background-checked, and continuously monitored to ensure the highest standards of service and safety.
+                {t("security.resolution.description")}
               </p>
             </div>
             <div className="flex-shrink-0 bg-white p-5 rounded-xl shadow-md flex items-center justify-center">
               <Shield className="w-12 h-12 text-primary mr-4" />
               <div>
-                <p className="text-sm text-neutral-500">Verified Workers</p>
-                <p className="text-2xl font-bold">100%</p>
+                <p className="text-sm text-neutral-500">{t("security.verifiedWorkers.title")}</p>
+                <p className="text-2xl font-bold">{t("security.verifiedWorkers.value")}</p>
               </div>
             </div>
           </div>

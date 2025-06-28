@@ -10,16 +10,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTranslation } from "react-i18next";
 
 const languages = [
   { code: "en", name: "English" },
-  { code: "es", name: "Español" },
-  { code: "fr", name: "Français" },
-  { code: "de", name: "Deutsch" },
-  { code: "ja", name: "日本語" },
+  { code: "hi", name: "हिन्दी" },
 ];
 
 export default function PrivacyPolicy() {
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -93,12 +92,16 @@ export default function PrivacyPolicy() {
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-neutral-700 hover:text-neutral-900">
                       <Globe className="h-4 w-4" />
-                      <span className="text-sm">EN</span>
+                      <span className="text-sm">{i18n.language === 'hi' ? 'HI' : 'EN'}</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {languages.map((lang) => (
-                      <DropdownMenuItem key={lang.code} className="cursor-pointer">
+                      <DropdownMenuItem 
+                        key={lang.code} 
+                        className="cursor-pointer"
+                        onClick={() => i18n.changeLanguage(lang.code)}
+                      >
                         {lang.name}
                       </DropdownMenuItem>
                     ))}
@@ -154,7 +157,7 @@ export default function PrivacyPolicy() {
               <Link href="/">
                 <Button variant="ghost" size="sm" className="mr-4 text-neutral-600 hover:text-neutral-900">
                   <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Home
+                  {t("privacyPolicy.backToHome")}
                 </Button>
               </Link>
             </div>
@@ -165,7 +168,7 @@ export default function PrivacyPolicy() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              Privacy Policy
+              {t("privacyPolicy.title")}
             </motion.h1>
 
             <motion.div 

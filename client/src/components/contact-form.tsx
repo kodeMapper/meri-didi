@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -25,6 +26,7 @@ type FormData = z.infer<typeof formSchema>;
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -44,16 +46,16 @@ export default function ContactForm() {
       await apiRequest("POST", "/api/contact", data);
       
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
+        title: t("contact.successToast.title"),
+        description: t("contact.successToast.description"),
         variant: "default",
       });
       
       form.reset();
     } catch (error) {
       toast({
-        title: "Error sending message",
-        description: "Please try again later.",
+        title: t("contact.errorToast.title"),
+        description: t("contact.errorToast.description"),
         variant: "destructive",
       });
     } finally {
@@ -71,9 +73,9 @@ export default function ContactForm() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-heading font-bold text-neutral-900">Contact Us</h2>
+          <h2 className="text-3xl font-heading font-bold text-neutral-900">{t("contact.title")}</h2>
           <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
-            Have questions or ready to book a service? Send us a message and we'll get back to you promptly.
+            {t("contact.subtitle")}
           </p>
         </motion.div>
         
@@ -93,7 +95,7 @@ export default function ContactForm() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel>{t("contact.form.fullName")}</FormLabel>
                         <FormControl>
                           <Input placeholder="John Doe" {...field} />
                         </FormControl>
@@ -107,7 +109,7 @@ export default function ContactForm() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel>{t("contact.form.emailAddress")}</FormLabel>
                         <FormControl>
                           <Input placeholder="john.doe@example.com" {...field} />
                         </FormControl>
@@ -121,7 +123,7 @@ export default function ContactForm() {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone Number</FormLabel>
+                        <FormLabel>{t("contact.form.phoneNumber")}</FormLabel>
                         <FormControl>
                           <Input placeholder="(123) 456-7890" {...field} />
                         </FormControl>
@@ -135,19 +137,19 @@ export default function ContactForm() {
                     name="service"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Service Needed</FormLabel>
+                        <FormLabel>{t("contact.form.serviceNeeded")}</FormLabel>
                         <FormControl>
                           <select
                             {...field}
                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                           >
-                            <option value="">Select a service</option>
-                            <option value="cleaning">Home Cleaning</option>
-                            <option value="cooking">Personal Chef</option>
-                            <option value="senior-care">Senior Care</option>
-                            <option value="handyman">Handyman</option>
-                            <option value="lawn-care">Lawn Care</option>
-                            <option value="pest-control">Pest Control</option>
+                            <option value="">{t("contact.form.selectService")}</option>
+                            <option value="cleaning">{t("contact.form.services.homeCleaning")}</option>
+                            <option value="cooking">{t("contact.form.services.personalChef")}</option>
+                            <option value="senior-care">{t("contact.form.services.seniorCare")}</option>
+                            <option value="handyman">{t("contact.form.services.handyman")}</option>
+                            <option value="lawn-care">{t("contact.form.services.lawnCare")}</option>
+                            <option value="pest-control">{t("contact.form.services.pestControl")}</option>
                           </select>
                         </FormControl>
                         <FormMessage />
@@ -160,11 +162,10 @@ export default function ContactForm() {
                   control={form.control}
                   name="message"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message</FormLabel>
+                    <FormItem>                        <FormLabel>{t("contact.form.message")}</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="Tell us about your needs..." 
+                          placeholder={t("contact.form.messagePlaceholder")} 
                           className="min-h-[120px]"
                           {...field}
                         />
@@ -185,11 +186,11 @@ export default function ContactForm() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      Sending...
+                      {t("contact.form.sending")}
                     </span>
                   ) : (
                     <span className="flex items-center">
-                      Send Message
+                      {t("contact.form.sendMessage")}
                       <Send className="ml-2 h-4 w-4" />
                     </span>
                   )}

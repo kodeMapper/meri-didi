@@ -10,49 +10,17 @@ import {
   TrendingUp,
   Star 
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { Trash2, Droplet, Utensils, Bath, Feather, Heart, Bug } from "lucide-react";
 
-const features = [
-  {
-    icon: <Trash2 className="text-secondary text-xl" />,
-    title: "Brooming",
-    description: "Professional floor sweeping to keep your home dust-free and clean."
-  },
-  {
-    icon: <Droplet className="text-secondary text-xl" />,
-    title: "Mopping",
-    description: "Thorough floor mopping service for spotless and hygienic floors."
-  },
-  {
-    icon: <Utensils className="text-secondary text-xl" />,
-    title: "Dishwashing",
-    description: "Complete kitchen cleanup and professional dishwashing service."
-  },
-  {
-    icon: <Bath className="text-secondary text-xl" />,
-    title: "Bathroom Cleaning",
-    description: "Deep bathroom sanitization and cleaning service."
-  },
-  {
-    icon: <Feather className="text-secondary text-xl" />,
-    title: "Dusting",
-    description: "Thorough dusting of furniture, fixtures, and surfaces."
-  },
-  {
-    icon: <Heart className="text-secondary text-xl" />,
-    title: "Elder Care",
-    description: "Compassionate and professional care for elderly family members."
-  },
-  
-];
-
-const FeatureCard = ({ icon, title, description, index }: { 
+const FeatureCard = ({ icon, titleKey, descriptionKey, index }: { 
   icon: React.ReactNode; 
-  title: string; 
-  description: string;
+  titleKey: string; 
+  descriptionKey: string;
   index: number;
 }) => {
+  const { t } = useTranslation();
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -86,15 +54,50 @@ const FeatureCard = ({ icon, title, description, index }: {
       <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
         {icon}
       </div>
-      <h3 className="text-xl font-heading font-semibold text-neutral-900 mb-2">{title}</h3>
+      <h3 className="text-xl font-heading font-semibold text-neutral-900 mb-2">{t(titleKey)}</h3>
       <p className="text-neutral-700">
-        {description}
+        {t(descriptionKey)}
       </p>
     </motion.div>
   );
 };
 
 export default function FeaturesSection() {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: <Trash2 className="text-secondary text-xl" />,
+      titleKey: "features.services.brooming.title",
+      descriptionKey: "features.services.brooming.description"
+    },
+    {
+      icon: <Droplet className="text-secondary text-xl" />,
+      titleKey: "features.services.mopping.title",
+      descriptionKey: "features.services.mopping.description"
+    },
+    {
+      icon: <Utensils className="text-secondary text-xl" />,
+      titleKey: "features.services.dishwashing.title",
+      descriptionKey: "features.services.dishwashing.description"
+    },
+    {
+      icon: <Bath className="text-secondary text-xl" />,
+      titleKey: "features.services.bathroomCleaning.title",
+      descriptionKey: "features.services.bathroomCleaning.description"
+    },
+    {
+      icon: <Feather className="text-secondary text-xl" />,
+      titleKey: "features.services.dusting.title",
+      descriptionKey: "features.services.dusting.description"
+    },
+    {
+      icon: <Heart className="text-secondary text-xl" />,
+      titleKey: "features.services.elderCare.title",
+      descriptionKey: "features.services.elderCare.description"
+    },
+  ];
+
   return (
     <section id="features" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,9 +112,9 @@ export default function FeaturesSection() {
               <Star className="text-secondary h-6 w-6" />
             </div>
           </div>
-          <h2 className="text-3xl font-heading font-bold text-neutral-900">Services For Your Home</h2>
+          <h2 className="text-3xl font-heading font-bold text-neutral-900">{t("features.title")}</h2>
           <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
-            Quality services delivered by vetted professionals to keep your home running smoothly.
+            {t("features.subtitle")}
           </p>
         </motion.div>
         
@@ -121,8 +124,8 @@ export default function FeaturesSection() {
               key={index}
               index={index}
               icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
+              titleKey={feature.titleKey}
+              descriptionKey={feature.descriptionKey}
             />
           ))}
         </div>
