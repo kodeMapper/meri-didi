@@ -285,6 +285,10 @@
     "verifiedWorkers": {
       "title": "Verified Workers",
       "value": "100%"
+    },
+    "resolution": {
+      "title": "Our Resolution Promise",
+      "description": "We are committed to resolving any issues quickly and effectively. If you ever face a problem with our service, our dedicated support team is available 24/7 to help you find the right solution."
     }
   },
   "transformation": {
