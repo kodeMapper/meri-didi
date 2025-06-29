@@ -79,11 +79,11 @@ export default function WorkerTerms() {
               <div className="hidden md:flex items-center space-x-8">
                 <Link href="/">
                   <span className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer">
-                    Home
+                    {t("navbar.home")}
                   </span>
                 </Link>
                 <a href="/#contact" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
-                  Contact
+                  {t("navbar.contact")}
                 </a>
               </div>
 
@@ -133,11 +133,11 @@ export default function WorkerTerms() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link href="/">
                 <span className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 cursor-pointer">
-                  Home
+                  {t("navbar.home")}
                 </span>
               </Link>
               <a href="/#contact" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
-                Contact
+                {t("navbar.contact")}
               </a>
             </div>
           </motion.div>
@@ -194,59 +194,59 @@ export default function WorkerTerms() {
 
               <div className="space-y-8">
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">1. Definitions</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.definitions.title")}</h2>
                   <div className="grid gap-4">
                     <div className="bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
-                      <span className="font-semibold text-blue-900">Didi:</span>
-                      <span className="text-blue-800 ml-2">Refers to a worker registered on the Meri Didi platform who performs domestic services (e.g., cooking, cleaning, caregiving) as a third-party independent contractor.</span>
+                      <span className="font-semibold text-blue-900">{t("workerTerms.sections.definitions.didi.label")}</span>
+                      <span className="text-blue-800 ml-2">{t("workerTerms.sections.definitions.didi.description")}</span>
                     </div>
                     <div className="bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
-                      <span className="font-semibold text-green-900">Company:</span>
-                      <span className="text-green-800 ml-2">Aara Green InfoSolutions Pvt. Ltd. ("Meri Didi").</span>
+                      <span className="font-semibold text-green-900">{t("workerTerms.sections.definitions.company.label")}</span>
+                      <span className="text-green-800 ml-2">{t("workerTerms.sections.definitions.company.description")}</span>
                     </div>
                     <div className="bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg border border-purple-100">
-                      <span className="font-semibold text-purple-900">Platform:</span>
-                      <span className="text-purple-800 ml-2">Meri Didi's mobile application and website through which services are booked and managed.</span>
+                      <span className="font-semibold text-purple-900">{t("workerTerms.sections.definitions.platform.label")}</span>
+                      <span className="text-purple-800 ml-2">{t("workerTerms.sections.definitions.platform.description")}</span>
                     </div>
                     <div className="bg-gradient-to-r from-orange-50 to-white p-4 rounded-lg border border-orange-100">
-                      <span className="font-semibold text-orange-900">User:</span>
-                      <span className="text-orange-800 ml-2">A customer who books services through the Meri Didi platform.</span>
+                      <span className="font-semibold text-orange-900">{t("workerTerms.sections.definitions.user.label")}</span>
+                      <span className="text-orange-800 ml-2">{t("workerTerms.sections.definitions.user.description")}</span>
                     </div>
                   </div>
                 </section>
 
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">2. Nature of Engagement</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.engagement.title")}</h2>
                   <div className="space-y-4">
                     <div className="flex items-start bg-gradient-to-r from-yellow-50 to-white p-4 rounded-lg border border-yellow-100">
                       <span className="inline-block w-3 h-3 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">This is not an employment contract. You (the Didi) are engaged on a contractual, non-employee basis.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.engagement.notEmployment")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
                       <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">You are an independent service provider, not entitled to employee benefits like PF, ESI, or paid leave.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.engagement.independentProvider")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
                       <span className="inline-block w-3 h-3 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">Meri Didi only acts as a facilitator between you and the User.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.engagement.facilitator")}</span>
                     </div>
                   </div>
                 </section>
 
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">3. Registration & Verification</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.registration.title")}</h2>
                   <div className="space-y-4">
                     <div className="flex items-start bg-gradient-to-r from-indigo-50 to-white p-4 rounded-lg border border-indigo-100">
                       <span className="inline-block w-3 h-3 bg-indigo-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">Workers must provide genuine documents (Aadhaar, PAN, references, etc.).</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.registration.genuineDocuments")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg border border-purple-100">
                       <span className="inline-block w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">You agree to mandatory police verification and a background check.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.registration.policeVerification")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-red-50 to-white p-4 rounded-lg border border-red-100">
                       <span className="inline-block w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">Misrepresentation or forgery of documents will lead to permanent termination and potential legal action.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.registration.consequences")}</span>
                     </div>
                   </div>
                 </section>
@@ -645,10 +645,10 @@ export default function WorkerTerms() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-lg font-heading font-bold text-white">Meri Didi</span>
+              <span className="text-lg font-heading font-bold text-white">{t("footer.companyName")}</span>
             </div>
             <p className="text-xs text-neutral-500">
-              &copy; {new Date().getFullYear()} Meri Didi. All rights reserved.
+              {t("footer.copyright", { year: new Date().getFullYear() })}
             </p>
           </div>
         </div>
