@@ -31,7 +31,7 @@ export default function DeleteUserAccount() {
               <Link href="/">
                 <Button variant="ghost" size="sm" className="mr-4 text-neutral-600 hover:text-neutral-900">
                   <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Home
+                  {t('deleteUserAccount.backToHome')}
                 </Button>
               </Link>
             </div>
@@ -50,7 +50,7 @@ export default function DeleteUserAccount() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              Delete Your Account
+              {t('deleteUserAccount.title')}
             </motion.h1>
 
             <motion.div 
@@ -62,32 +62,32 @@ export default function DeleteUserAccount() {
               <div className="bg-white rounded-xl shadow-lg p-8 border border-neutral-100">
                 <div className="flex items-center mb-6">
                   <UserX className="h-8 w-8 text-red-600 mr-3" />
-                  <h2 className="text-2xl font-bold text-neutral-900">Meri Didi Account Deletion</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900">{t('deleteUserAccount.pageTitle')}</h2>
                 </div>
                 
                 <p className="text-neutral-700 mb-8 leading-relaxed">
-                  Aara Green Infosolutions Private Limited respects your privacy and gives you full control over your account. If you no longer wish to use the Meri Didi app, you can request to permanently delete your account.
+                  {t('deleteUserAccount.intro')}
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                     <div className="flex items-center mb-4">
                       <Mail className="h-6 w-6 text-blue-600 mr-2" />
-                      <h3 className="text-xl font-semibold text-blue-900">How to Request Account Deletion</h3>
+                      <h3 className="text-xl font-semibold text-blue-900">{t('deleteUserAccount.howToRequest.title')}</h3>
                     </div>
-                    <p className="text-blue-800 mb-4">To delete your account, please follow these steps:</p>
+                    <p className="text-blue-800 mb-4">{t('deleteUserAccount.howToRequest.description')}</p>
                     <ul className="space-y-3 text-blue-700">
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        Send an email to: <strong>support@merididi.com</strong>
+                        {t('deleteUserAccount.howToRequest.step1')}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        Use the subject line: <strong>"Delete My Account – Meri Didi"</strong>
+                        {t('deleteUserAccount.howToRequest.step2')}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        Include your registered mobile number in the email
+                        {t('deleteUserAccount.howToRequest.step3')}
                       </li>
                     </ul>
                   </div>
@@ -95,24 +95,24 @@ export default function DeleteUserAccount() {
                   <div className="bg-red-50 border border-red-200 rounded-lg p-6">
                     <div className="flex items-center mb-4">
                       <AlertTriangle className="h-6 w-6 text-red-600 mr-2" />
-                      <h3 className="text-xl font-semibold text-red-900">What Happens When You Delete Your Account</h3>
+                      <h3 className="text-xl font-semibold text-red-900">{t('deleteUserAccount.whatHappens.title')}</h3>
                     </div>
                     <ul className="space-y-2 text-red-700">
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        Your account will be permanently deactivated
+                        {t('deleteUserAccount.whatHappens.item1')}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        You will no longer be able to log in to the Meri Didi app
+                        {t('deleteUserAccount.whatHappens.item2')}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        Your profile and booking access will be disabled
+                        {t('deleteUserAccount.whatHappens.item3')}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        Some data may be retained only as required by law or for fraud prevention and audit purposes
+                        {t('deleteUserAccount.whatHappens.item4')}
                       </li>
                     </ul>
                   </div>
@@ -121,24 +121,24 @@ export default function DeleteUserAccount() {
                 <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-6">
                   <div className="flex items-center mb-3">
                     <Shield className="h-6 w-6 text-orange-600 mr-2" />
-                    <h3 className="text-xl font-semibold text-orange-900">Important Notes</h3>
+                    <h3 className="text-xl font-semibold text-orange-900">{t('deleteUserAccount.importantNotes.title')}</h3>
                   </div>
                   <ul className="space-y-3 text-orange-800">
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <strong>Account deletion is permanent and cannot be undone</strong>
+                      {t('deleteUserAccount.importantNotes.note1')}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      If you plan to return to the Meri Didi platform in the future, you will need to create a new account
+                      {t('deleteUserAccount.importantNotes.note2')}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      If you also wish to delete your personal data (e.g., address, location history, etc.), please include that request in the same email
+                      {t('deleteUserAccount.importantNotes.note3')}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      If you have any questions or need help, contact us at <strong>support@merididi.com</strong>
+                      {t('deleteUserAccount.importantNotes.note4')}
                     </li>
                   </ul>
                 </div>
@@ -147,11 +147,11 @@ export default function DeleteUserAccount() {
                   <div className="flex items-start">
                     <AlertTriangle className="h-5 w-5 text-yellow-600 mr-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-yellow-900 mb-1">Before You Delete Your Account</h4>
+                      <h4 className="font-semibold text-yellow-900 mb-1">{t('deleteUserAccount.beforeDelete.title')}</h4>
                       <p className="text-yellow-800 text-sm">
-                        Consider if you just want to delete your personal data instead. You can delete your data while keeping your account active. 
+                        {t('deleteUserAccount.beforeDelete.description')}
                         <Link href="/delete-user-data" className="underline hover:text-yellow-900 ml-1">
-                          Learn more about data deletion →
+                          {t('deleteUserAccount.beforeDelete.link')}
                         </Link>
                       </p>
                     </div>
@@ -159,8 +159,8 @@ export default function DeleteUserAccount() {
                 </div>
 
                 <div className="text-center mt-8 pt-6 border-t border-neutral-200">
-                  <p className="text-neutral-600 mb-2">Thank you for using Meri Didi.</p>
-                  <p className="text-sm text-neutral-500">— Team Aara Green Infosolutions Private Limited</p>
+                  <p className="text-neutral-600 mb-2">{t('deleteUserAccount.thankYou')}</p>
+                  <p className="text-sm text-neutral-500">{t('deleteUserAccount.teamSignature')}</p>
                 </div>
               </div>
             </motion.div>

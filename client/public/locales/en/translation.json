@@ -606,11 +606,82 @@
       "termination": {
         "title": "Termination",
         "content": "Either party may terminate this agreement under certain conditions as outlined in this section."
-      },
-      "contactUs": {
+      },        "contactUs": {
         "title": "Contact Us",
         "content": "If you have any questions about these Terms, please contact us."
       }
     }
+  },
+  "deleteUserData": {
+    "backToHome": "Back to Home",
+    "title": "Delete Your Personal Data",
+    "pageTitle": "Meri Didi Data Deletion",
+    "intro": "At Aara Green Infosolutions Private Limited, we value your privacy and give you the option to delete your personal data while keeping your Meri Didi account active.",
+    "howToRequest": {
+      "title": "How to Request Data Deletion",
+      "description": "To request the deletion of your personal data:",
+      "step1": "Send an email to: <strong>support@merididi.com</strong>",
+      "step2": "Use the subject line: <strong>\"Delete My Data – Meri Didi\"</strong>",
+      "step3": "Include your registered mobile number in the email"
+    },
+    "whatDataDeleted": {
+      "title": "What Data Will Be Deleted",
+      "description": "We will delete the following data from our systems:",
+      "item1": "Your name, profile photo, and saved addresses",
+      "item2": "Your booking and service history",
+      "item3": "Any location or activity data associated with your usage"
+    },
+    "dataRetained": {
+      "title": "What Data May Be Retained",
+      "description": "Some data may be retained even after your request:",
+      "item1": "Anonymized usage records that cannot be linked back to you",
+      "item2": "Any data required by law, regulatory obligations, or fraud prevention measures"
+    },
+    "timeline": {
+      "title": "Timeline",
+      "description": "We will complete your data deletion request within <strong>7 business days</strong> from the date we receive your email."
+    },
+    "importantNotes": {
+      "title": "Important Notes",
+      "note1": "This does not delete your account. You will still be able to log in to the Meri Didi app.",
+      "note2": "If you would like to delete your account along with your data, please mention that clearly in your email.",
+      "note3": "For any concerns or questions, feel free to contact us at <strong>support@merididi.com</strong>."
+    },
+    "thankYou": "Thank you for using Meri Didi.",
+    "teamSignature": "— Team Aara Green Infosolutions Private Limited"
+  },
+  "deleteUserAccount": {
+    "backToHome": "Back to Home",
+    "title": "Delete Your Account",
+    "pageTitle": "Meri Didi Account Deletion",
+    "intro": "Aara Green Infosolutions Private Limited respects your privacy and gives you full control over your account. If you no longer wish to use the Meri Didi app, you can request to permanently delete your account.",
+    "howToRequest": {
+      "title": "How to Request Account Deletion",
+      "description": "To delete your account, please follow these steps:",
+      "step1": "Send an email to: <strong>support@merididi.com</strong>",
+      "step2": "Use the subject line: <strong>\"Delete My Account – Meri Didi\"</strong>",
+      "step3": "Include your registered mobile number in the email"
+    },
+    "whatHappens": {
+      "title": "What Happens When You Delete Your Account",
+      "item1": "Your account will be permanently deactivated",
+      "item2": "You will no longer be able to log in to the Meri Didi app",
+      "item3": "Your profile and booking access will be disabled",
+      "item4": "Some data may be retained only as required by law or for fraud prevention and audit purposes"
+    },
+    "importantNotes": {
+      "title": "Important Notes",
+      "note1": "<strong>Account deletion is permanent and cannot be undone</strong>",
+      "note2": "If you plan to return to the Meri Didi platform in the future, you will need to create a new account",
+      "note3": "If you also wish to delete your personal data (e.g., address, location history, etc.), please include that request in the same email",
+      "note4": "If you have any questions or need help, contact us at <strong>support@merididi.com</strong>"
+    },
+    "beforeDelete": {
+      "title": "Before You Delete Your Account",
+      "description": "Consider if you just want to delete your personal data instead. You can delete your data while keeping your account active.",
+      "link": "Learn more about data deletion →"
+    },
+    "thankYou": "Thank you for using Meri Didi.",
+    "teamSignature": "— Team Aara Green Infosolutions Private Limited"
   }
 }
