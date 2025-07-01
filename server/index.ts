@@ -54,7 +54,8 @@ app.use((req, res, next) => {
   next();
 });
 
-(async () => {
+// Initialize the app
+async function initializeApp() {
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -72,17 +73,29 @@ app.use((req, res, next) => {
     await setupVite(app, server);
   } else {
     // For production mode serving static files:
-    const distPath = path.resolve(__dirname, '../dist/public'); // or '../client/dist' depending on your choice
+    const distPath = path.resolve(__dirname, '../dist/public');
     app.use(express.static(distPath));
     app.get('*', (_req, res) => {
       res.sendFile(path.resolve(distPath, 'index.html'));
     });
   }
 
-  // Use environment variable PORT if available, otherwise default to 5000
-  // this serves both the API and the client.
-  const port = process.env.PORT ? parseInt(process.env.PORT) : 5000;
-  server.listen(port, "127.0.0.1", () => {
-    log(`serving on port ${port}`);
-  });
-})();
+  return server;
+}
+
+// For development, run as traditional server
+if (require.main === module) {
+  (async () => {
+    const server = await initializeApp();
+    const port = process.env.PORT ? parseInt(process.env.PORT) : 5000;
+    server.listen(port, "127.0.0.1", () => {
+      log(`serving on port ${port}`);
+    });
+  })();
+} else {
+  // For Vercel, export the Express app
+  initializeApp();
+}
+
+// Export for Vercel
+export default app;
