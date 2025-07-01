@@ -16,33 +16,21 @@ const getServiceProfessionals = (t: any) => [
   },
   {
     id: 2,
-    title: t("hero.services.homeCooking.title"),
-    description: t("hero.services.homeCooking.description"),
+    title: t("hero.services.cooking.title"),
+    description: t("hero.services.cooking.description"),
     icon: "utensils",
   },
   {
     id: 3,
-    title: t("hero.services.seniorCare.title"),
-    description: t("hero.services.seniorCare.description"),
+    title: t("hero.services.elderlyCare.title"),
+    description: t("hero.services.elderlyCare.description"),
     icon: "heart",
   },
   {
     id: 4,
-    title: t("hero.services.handymanServices.title"),
-    description: t("hero.services.handymanServices.description"),
-    icon: "tools",
-  },
-  {
-    id: 5,
-    title: t("hero.services.lawnCare.title"),
-    description: t("hero.services.lawnCare.description"),
-    icon: "leaf",
-  },
-  {
-    id: 6,
-    title: t("hero.services.pestControl.title"),
-    description: t("hero.services.pestControl.description"),
-    icon: "bug",
+    title: t("hero.services.babyCare.title"),
+    description: t("hero.services.babyCare.description"),
+    icon: "baby",
   },
 ];
 
@@ -126,11 +114,10 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-neutral-900 leading-tight">
-              {t("hero.title")}
+              <span className="text-lg md:text-xl font-normal text-neutral-600 block mb-2">{t("hero.introText")}</span>
+              <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-600 bg-clip-text text-transparent font-black tracking-tight text-5xl md:text-6xl drop-shadow-sm">{t("hero.highlightText")}</span>
+              <span className="text-base md:text-lg font-normal text-neutral-600 block mt-3">{t("hero.supportingText")}</span>
             </h1>
-            <p className="mt-4 text-lg text-neutral-700 max-w-md">
-              {t("hero.subtitle")}
-            </p>
             
             <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link href="/register-worker">
@@ -159,9 +146,7 @@ export default function HeroSection() {
                   </div>
                 ))}
               </div>
-              <p className="text-sm text-neutral-600">
-                Trusted by <span className="font-semibold">10,000+</span> households
-              </p>
+              <p className="text-sm text-neutral-600" dangerouslySetInnerHTML={{ __html: t("hero.trustedBy") }}></p>
             </div>
           </motion.div>
           

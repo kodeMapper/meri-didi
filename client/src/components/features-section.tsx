@@ -2,17 +2,13 @@ import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { 
-  TimerReset, 
-  Tag, 
-  Globe, 
-  Clock, 
-  ShieldCheck, 
-  TrendingUp,
-  Star 
+  Star,
+  Home,
+  Utensils, 
+  Heart, 
+  UserCheck 
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-
-import { Trash2, Droplet, Utensils, Bath, Feather, Heart, Bug } from "lucide-react";
 
 const FeatureCard = ({ icon, titleKey, descriptionKey, index }: { 
   icon: React.ReactNode; 
@@ -67,34 +63,24 @@ export default function FeaturesSection() {
 
   const features = [
     {
-      icon: <Trash2 className="text-secondary text-xl" />,
-      titleKey: "features.services.brooming.title",
-      descriptionKey: "features.services.brooming.description"
-    },
-    {
-      icon: <Droplet className="text-secondary text-xl" />,
-      titleKey: "features.services.mopping.title",
-      descriptionKey: "features.services.mopping.description"
+      icon: <Home className="text-secondary text-xl" />,
+      titleKey: "features.services.homeCleaning.title",
+      descriptionKey: "features.services.homeCleaning.description"
     },
     {
       icon: <Utensils className="text-secondary text-xl" />,
-      titleKey: "features.services.dishwashing.title",
-      descriptionKey: "features.services.dishwashing.description"
-    },
-    {
-      icon: <Bath className="text-secondary text-xl" />,
-      titleKey: "features.services.bathroomCleaning.title",
-      descriptionKey: "features.services.bathroomCleaning.description"
-    },
-    {
-      icon: <Feather className="text-secondary text-xl" />,
-      titleKey: "features.services.dusting.title",
-      descriptionKey: "features.services.dusting.description"
+      titleKey: "features.services.cooking.title",
+      descriptionKey: "features.services.cooking.description"
     },
     {
       icon: <Heart className="text-secondary text-xl" />,
-      titleKey: "features.services.elderCare.title",
-      descriptionKey: "features.services.elderCare.description"
+      titleKey: "features.services.elderlyCare.title",
+      descriptionKey: "features.services.elderlyCare.description"
+    },
+    {
+      icon: <UserCheck className="text-secondary text-xl" />,
+      titleKey: "features.services.babyCare.title",
+      descriptionKey: "features.services.babyCare.description"
     },
   ];
 
@@ -118,7 +104,7 @@ export default function FeaturesSection() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <FeatureCard 
               key={index}

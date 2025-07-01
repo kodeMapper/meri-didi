@@ -102,6 +102,14 @@ export default function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            <Button 
+              onClick={() => window.open('https://forms.gle/kmiQkgtBdhrssNhy7', '_blank')}
+              variant="outline"
+              className="hidden md:block bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300 px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm hover:shadow-md"
+            >
+              {t("navbar.referDidi")}
+            </Button>
+
             <Link href="/register-worker">
               <Button 
                 className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-md hover:shadow-lg"
@@ -145,6 +153,13 @@ export default function Navbar() {
               {t("navbar.security")}
             </a>
             <div className="pt-4 pb-3 border-t border-neutral-200">
+              <Button 
+                onClick={() => window.open('https://forms.gle/kmiQkgtBdhrssNhy7', '_blank')}
+                variant="outline"
+                className="block w-full px-3 py-2 mt-1 mb-2 rounded-md text-base font-medium bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300 cursor-pointer"
+              >
+                {t("navbar.referDidi")}
+              </Button>
               <Link href="/register-worker">
                 <div className="block px-3 py-2 mt-1 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer">
                   {t("navbar.registerWorker")}

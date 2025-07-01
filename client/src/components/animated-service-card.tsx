@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 import { 
   Utensils, 
-  Fan, 
+  Home, 
   Heart, 
-  Bolt, 
-  Bug, 
-  Leaf
+  UserCheck
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type AnimatedServiceCardProps = {
   title: string;
@@ -15,22 +14,19 @@ type AnimatedServiceCardProps = {
 };
 
 export default function AnimatedServiceCard({ title, description, icon }: AnimatedServiceCardProps) {
+  const { t } = useTranslation();
   const getIcon = () => {
     switch (icon) {
       case "utensils":
         return <Utensils className="h-6 w-6 text-primary" />;
       case "broom":
-        return <Fan className="h-6 w-6 text-primary" />;
+        return <Home className="h-6 w-6 text-primary" />;
       case "heart":
         return <Heart className="h-6 w-6 text-primary" />;
-      case "tools":
-        return <Bolt className="h-6 w-6 text-primary" />;
-      case "bug":
-        return <Bug className="h-6 w-6 text-primary" />;
-      case "leaf":
-        return <Leaf className="h-6 w-6 text-primary" />;
+      case "baby":
+        return <UserCheck className="h-6 w-6 text-primary" />;
       default:
-        return <Fan className="h-6 w-6 text-primary" />;
+        return <Home className="h-6 w-6 text-primary" />;
     }
   };
 
@@ -52,7 +48,7 @@ export default function AnimatedServiceCard({ title, description, icon }: Animat
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        Learn More
+        {t("hero.learnMore")}
       </motion.button>
     </motion.div>
   );

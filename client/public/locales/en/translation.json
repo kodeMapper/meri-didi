@@ -4,38 +4,34 @@
     "howItWorks": "How It Works",
     "testimonials": "Testimonials",
     "security": "Security",
-    "registerWorker": "Register as Worker"
+    "registerWorker": "Register as Worker",
+    "referDidi": "Refer a Didi"
   },
   "hero": {
-    "title": "Connect with India's Best Home Service Providers",
-    "subtitle": "Partner with Meri Didi - India's premier platform connecting service companies with top domestic workers and helping workers find quality employment.",
+    "title": "Introducing Nagpur's First Trusted House Help - Trained and Verified Didi's for your lovely home",
+    "introText": "Introducing",
+    "highlightText": "Nagpur's First Trusted House Help",
+    "supportingText": "Trained and Verified Didi's for your lovely home",
     "getStarted": "Get Started",
     "watchDemo": "Watch How It Works",
-    "trustedBy": "Trusted by over 50,000+ families",
+    "learnMore": "Learn More",
+    "trustedBy": "Trusted by <span class=\"font-semibold\">10,000+</span> households",
     "services": {
       "homeCleaning": {
         "title": "Home Cleaning",
         "description": "Professional home cleaning services to keep your space spotless."
       },
-      "homeCooking": {
-        "title": "Home Cooking",
-        "description": "Personal chefs bring restaurant-quality meals to your home."
+      "cooking": {
+        "title": "Cooking",
+        "description": "Expert cooking services bringing delicious homemade meals to your table."
       },
-      "seniorCare": {
-        "title": "Senior Care",
-        "description": "Compassionate caregivers for elderly family members."
+      "elderlyCare": {
+        "title": "Elderly Care",
+        "description": "Compassionate and professional care for elderly family members."
       },
-      "handymanServices": {
-        "title": "Handyman Services",
-        "description": "Skilled professionals for all your home repair needs."
-      },
-      "lawnCare": {
-        "title": "Lawn Care",
-        "description": "Keep your yard beautiful with professional lawn services."
-      },
-      "pestControl": {
-        "title": "Pest Control",
-        "description": "Effective solutions for all types of pest problems."
+      "babyCare": {
+        "title": "Baby Care",
+        "description": "Safe and nurturing baby care services for your peace of mind."
       }
     }
   },
@@ -43,37 +39,21 @@
     "title": "Services For Your Home",
     "subtitle": "Quality services delivered by vetted professionals to keep your home running smoothly.",
     "services": {
-      "brooming": {
-        "title": "Brooming",
-        "description": "Professional floor sweeping to keep your home dust-free and clean."
+      "homeCleaning": {
+        "title": "Home Cleaning",
+        "description": "Professional home cleaning services to keep your space spotless and hygienic."
       },
-      "mopping": {
-        "title": "Mopping", 
-        "description": "Thorough floor mopping service for spotless and hygienic floors."
+      "cooking": {
+        "title": "Cooking", 
+        "description": "Expert cooking services bringing delicious homemade meals to your table."
       },
-      "dishwashing": {
-        "title": "Dishwashing",
-        "description": "Complete kitchen cleanup and professional dishwashing service."
-      },
-      "bathroomCleaning": {
-        "title": "Bathroom Cleaning",
-        "description": "Deep cleaning and sanitization for all bathroom areas."
-      },
-      "dusting": {
-        "title": "Dusting",
-        "description": "Careful dusting of furniture, electronics, and decorative items."
-      },
-      "elderCare": {
-        "title": "Elder Care",
+      "elderlyCare": {
+        "title": "Elderly Care",
         "description": "Compassionate and professional care for elderly family members."
       },
-      "babysitting": {
-        "title": "Babysitting",
-        "description": "Reliable and caring babysitting services for your peace of mind."
-      },
-      "pestControl": {
-        "title": "Pest Control",
-        "description": "Safe and effective pest elimination and prevention services."
+      "babyCare": {
+        "title": "Baby Care",
+        "description": "Safe and nurturing baby care services for your peace of mind."
       }
     }
   },
