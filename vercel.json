@@ -5,6 +5,13 @@
       "runtime": "@vercel/node@3.0.7"
     }
   },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist/public" }
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
@@ -12,14 +19,13 @@
     },
     {
       "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|json|txt|xml|map))",
-      "dest": "/dist/public/$1"
+      "dest": "/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/public/index.html"
+      "dest": "/index.html"
     }
   ],
-  "buildCommand": "npm run build",
   "env": {
     "NODE_VERSION": "18"
   }
