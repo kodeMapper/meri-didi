@@ -79,15 +79,15 @@ export default function DeleteUserData() {
                     <ul className="space-y-3 text-blue-700">
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {t('deleteUserData.howToRequest.step1')}
+                        <span dangerouslySetInnerHTML={{ __html: t('deleteUserData.howToRequest.step1') }} />
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {t('deleteUserData.howToRequest.step2')}
+                        <span dangerouslySetInnerHTML={{ __html: t('deleteUserData.howToRequest.step2') }} />
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {t('deleteUserData.howToRequest.step3')}
+                        <span dangerouslySetInnerHTML={{ __html: t('deleteUserData.howToRequest.step3') }} />
                       </li>
                     </ul>
                   </div>
@@ -136,7 +136,7 @@ export default function DeleteUserData() {
                     <h3 className="text-xl font-semibold text-purple-900">{t('deleteUserData.timeline.title')}</h3>
                   </div>
                   <p className="text-purple-800">
-                    {t('deleteUserData.timeline.description')}
+                    <span dangerouslySetInnerHTML={{ __html: t('deleteUserData.timeline.description') }} />
                   </p>
                 </div>
 
@@ -153,7 +153,7 @@ export default function DeleteUserData() {
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      {t('deleteUserData.importantNotes.note3')}
+                      <span dangerouslySetInnerHTML={{ __html: t('deleteUserData.importantNotes.note3') }} />
                     </li>
                   </ul>
                 </div>

@@ -79,15 +79,15 @@ export default function DeleteUserAccount() {
                     <ul className="space-y-3 text-blue-700">
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {t('deleteUserAccount.howToRequest.step1')}
+                        <span dangerouslySetInnerHTML={{ __html: t('deleteUserAccount.howToRequest.step1') }} />
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {t('deleteUserAccount.howToRequest.step2')}
+                        <span dangerouslySetInnerHTML={{ __html: t('deleteUserAccount.howToRequest.step2') }} />
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        {t('deleteUserAccount.howToRequest.step3')}
+                        <span dangerouslySetInnerHTML={{ __html: t('deleteUserAccount.howToRequest.step3') }} />
                       </li>
                     </ul>
                   </div>
@@ -126,7 +126,7 @@ export default function DeleteUserAccount() {
                   <ul className="space-y-3 text-orange-800">
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      {t('deleteUserAccount.importantNotes.note1')}
+                      <span dangerouslySetInnerHTML={{ __html: t('deleteUserAccount.importantNotes.note1') }} />
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -138,7 +138,7 @@ export default function DeleteUserAccount() {
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      {t('deleteUserAccount.importantNotes.note4')}
+                      <span dangerouslySetInnerHTML={{ __html: t('deleteUserAccount.importantNotes.note4') }} />
                     </li>
                   </ul>
                 </div>
