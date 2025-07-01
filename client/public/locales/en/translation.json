@@ -4,9 +4,7 @@
     "howItWorks": "How It Works",
     "testimonials": "Testimonials",
     "security": "Security",
-    "registerWorker": "Register as Worker",
-    "home": "Home",
-    "contact": "Contact"
+    "registerWorker": "Register as Worker"
   },
   "hero": {
     "title": "Connect with India's Best Home Service Providers",
@@ -367,6 +365,8 @@
     "workerTerms": "Worker Terms & Conditions",
     "cookiePolicy": "Cookie Policy",
     "disclaimer": "Disclaimer",
+    "deleteData": "Delete My Data",
+    "deleteAccount": "Delete My Account",
     "copyright": "All rights reserved."
   },
   "common": {
@@ -464,65 +464,67 @@
           "title": "Automated technologies or interactions",
           "description": "Each time you visit the Platform or use the Services, we will automatically collect Technical Data about your equipment, browsing actions, and patterns. We collect this personal data by using cookies, web beacons, pixel tags, server logs, and other similar technologies. We may also receive Technical Data about you if you visit other websites or apps that employ our cookies."
         },
-        "thirdParties": {
+        "thirdPartySources": {
           "title": "Third parties or publicly available sources",
           "description": "We will receive personal data about you from various third parties:",
           "items": {
             "analyticsProviders": "Technical data from analytics providers such as Facebook and advertising networks",
-            "serviceProviders": "Identity and profile-related Data and Contact Data from service professionals, publicly available sources, etc.",
+            "publicSources": "Identity and profile-related Data and Contact Data from service professionals, publicly available sources, etc.",
             "affiliateEntities": "Personal data about you from our affiliate entities"
           }
         },
-        "thirdPartyAnalytics": "We may also use 3rd-party browser and mobile analytics services including but not limited to Google Analytics, Hotjar, GetSiteControl, Mixpanel, Leadsquared, Wistia, YouTube and Drift on the Services. These services use Data Collection Tools to help us analyze your use of the Services, including information like the third-party website you arrive from, how often you visit, events within the Services, usage and performance data. We use this data to improve the Services, better understand how the Services perform on different devices and provide information that may be of interest to you.",
-        "businessPartners": "We may also obtain both personal and non-personal information about you from advertising companies, and ads network, business partners, contractors and other third parties and add it to our account information or other information we have collected. Examples of such information that we may receive include: updated delivery and address information, purchase history, and additional demographic information. We may combine this information with information we collect through our Platform or from other sources.",
-        "signInServices": "You may optionally provide us with this information through third-party sign-in services such as but not limited to Facebook, LinkedIn, and Google. In such cases, we procure and store any information about you that is made available to us through these sign-in services.",
-        "userDataCollection": "We collect user data including personal information and sensitive personal information to operate effectively and provide you with the best experiences with our services. You provide some of this information directly, such as when you create an account, make a purchase, or contact us for support. We get some of your information, such as your IP address, by recording how you interact with our services. We may also get information about you from our business partners or other third parties.",
-        "automaticCollection": "We may receive and collect certain personal information automatically, as outlined elsewhere in this Policy, and including analytics regarding our Websites and Apps, information your Internet browser automatically sends when you visit our Websites and Apps, and information collected by cookies. We may collect personal information that can identify you such as your name and email address, and other information that does not identify you."
+        "additionalInfo": {
+          "para1": "We may also use 3rd-party browser and mobile analytics services including but not limited to Google Analytics, Hotjar, GetSiteControl, Mixpanel, Leadsquared, Wistia, YouTube and Drift on the Services. These services use Data Collection Tools to help us analyze your use of the Services, including information like the third-party website you arrive from, how often you visit, events within the Services, usage and performance data. We use this data to improve the Services, better understand how the Services perform on different devices and provide information that may be of interest to you.",
+          "para2": "We may also obtain both personal and non-personal information about you from advertising companies, and ads network, business partners, contractors and other third parties and add it to our account information or other information we have collected. Examples of such information that we may receive include: updated delivery and address information, purchase history, and additional demographic information. We may combine this information with information we collect through our Platform or from other sources.",
+          "para3": "You may optionally provide us with this information through third-party sign-in services such as but not limited to Facebook, LinkedIn, and Google. In such cases, we procure and store any information about you that is made available to us through these sign-in services.",
+          "para4": "We collect user data including personal information and sensitive personal information to operate effectively and provide you with the best experiences with our services. You provide some of this information directly, such as when you create an account, make a purchase, or contact us for support. We get some of your information, such as your IP address, by recording how you interact with our services. We may also get information about you from our business partners or other third parties.",
+          "para5": "We may receive and collect certain personal information automatically, as outlined elsewhere in this Policy, and including analytics regarding our Websites and Apps, information your Internet browser automatically sends when you visit our Websites and Apps, and information collected by cookies. We may collect personal information that can identify you such as your name and email address, and other information that does not identify you."
+        }
       },
-      "whatWeDo": {
+      "howWeUseInfo": {
         "title": "5. WHAT WE DO WITH THE INFORMATION WE GATHER",
         "intro": "We will only use your personal data when the law allows us to. Most commonly, we will use your personal data where we need to provide you with the Services, enable you to use the Helper services, or where we need to comply with a legal obligation. We use your personal data for the following purposes: We require this information to understand your needs and provide you with a better service, and in particular for the following reasons:",
         "purposes": {
           "verifyIdentity": "To verify your identity to register you as a user, and create your user account with us on the Platform",
           "provideServices": "To provide the Services to you",
-          "enableHelper": "To enable the provision of Helper services to you",
+          "enableHelperServices": "To enable the provision of Helper services to you",
           "monitorTrends": "To monitor trends, and/or to personalize your experience",
           "improveFunctionality": "To improve the functionality of our Services based on the information and feedback we receive from you",
-          "customerService": "To improve customer service to more effectively respond to your Service requests, support needs, and/or your orders of Helper services",
+          "improveCustomerService": "To improve customer service to more effectively respond to your Service requests, support needs, and/or your orders of Helper services",
           "trackTransactions": "To track transactions and process payments",
           "improveProducts": "To improve our products and services, business and delivery models",
           "sendPromotional": "To periodically send promotional emails about new products, special offers or other information which we think you may find interesting using the email address which you have provided, and/or to provide you offers / invites / coupons of the Services, Helper services and/or third party products and services",
           "marketResearch": "To use your information to contact you for market research purposes. We may contact you by email, phone, fax, in person, or mail. We may use the information to customize the website according to your interests",
-          "facilitateHelper": "To assist with the facilitation of the Helper services offered to you, including to send you information and updates about the Helper services you have availed",
-          "marketServices": "To market and advertise the Services to you",
+          "facilitateHelperServices": "To assist with the facilitation of the Helper services offered to you, including to send you information and updates about the Helper services you have availed",
+          "marketAdvertise": "To market and advertise the Services to you",
           "manageBusiness": "To manage our business and in any other way we may describe when you provide the information",
           "notifyUpdates": "To use the information you provided to occasionally notify you about the product or services and other valuable updates to personalize your shopping transactions (if you prefer that we not contact you in this manner please follow the Opt-Out instructions elsewhere in this Policy)"
         }
       },
       "cookies": {
         "title": "6. COOKIES",
-        "intro": "Cookies are alphanumeric identifiers or small files that we transfer to your device through your web browser/mobile device to enable our systems to recognise your browser and to provide features such as 'Recommended for You', personalised advertisements on other websites. Cookies can be either session cookies or persistent cookies. A session cookie expires when you close your browser and is used to make it easier for you to navigate our website. A persistent cookie remains on your hard drive for an extended period.",
-        "dataCollection": {
+        "definition": "Cookies are alphanumeric identifiers or small files that we transfer to your device through your web browser/mobile device to enable our systems to recognise your browser and to provide features such as 'Recommended for You', personalised advertisements on other websites. Cookies can be either session cookies or persistent cookies. A session cookie expires when you close your browser and is used to make it easier for you to navigate our website. A persistent cookie remains on your hard drive for an extended period.",
+        "dataCollectionTools": {
           "title": "Cookies and Data Collection Tools:",
-          "content": "We and other service providers we use (such as Google Analytics, third party advertisers, etc) may use server log files and automated data collection tools like cookies, tags, scripts, customized links, device or browser fingerprints, and web beacons (\"Data Collection Tools\") when you interact with/use/access the Services. These Data Collection Tools may automatically track and collect certain information including System Data and Usage Data when you use the Services."
+          "description": "We and other service providers we use (such as Google Analytics, third party advertisers, etc) may use server log files and automated data collection tools like cookies, tags, scripts, customized links, device or browser fingerprints, and web beacons (\"Data Collection Tools\") when you interact with/use/access the Services. These Data Collection Tools may automatically track and collect certain information including System Data and Usage Data when you use the Services."
         },
         "management": {
           "title": "Cookie Management:",
-          "content": "Most browsers allow you to prevent them from accepting new cookies or disable cookies altogether. Each browser is different; so, check the 'help' menu of your browser to learn how to change your cookie preferences. Since cookies allow you to take advantage of some of the website's essential features, we recommend that you leave them turned on. If you choose to decline cookies, you may not be able to use other interactive features on our Website."
+          "description": "Most browsers allow you to prevent them from accepting new cookies or disable cookies altogether. Each browser is different; so, check the 'help' menu of your browser to learn how to change your cookie preferences. Since cookies allow you to take advantage of some of the website's essential features, we recommend that you leave them turned on. If you choose to decline cookies, you may not be able to use other interactive features on our Website."
         },
         "purposes": {
           "title": "Cookies enable us to do various things including:",
           "items": {
-            "estimateUsage": "To estimate our users' size and usage pattern.",
+            "estimateUsers": "To estimate our users' size and usage pattern.",
             "storePreferences": "To store information about your preferences, and allow us to customize our website according to your interests.",
             "speedSearches": "To speed up your searches.",
-            "distinguish": "To help us distinguish you from other users of the Platform, understand and save your preferences for future visits.",
-            "recognize": "To recognize you when you return to our website.",
+            "distinguishUsers": "To help us distinguish you from other users of the Platform, understand and save your preferences for future visits.",
+            "recognizeUser": "To recognize you when you return to our website.",
             "analytics": "Provide general internal analytics.",
             "studyTraffic": "Study traffic patterns in order to improve Website performance and customize your experience.",
             "security": "Support security measures, such as requiring re-login into the website after a certain time period has elapsed.",
             "saveCredentials": "Save your username and password, if you login to our Website, so that we can process the saved information and quickly log you into the Website.",
-            "fraud": "Assist in identifying possible fraudulent activities."
+            "fraudDetection": "Assist in identifying possible fraudulent activities."
           }
         }
       },
@@ -532,288 +534,82 @@
       },
       "yourRights": {
         "title": "8. YOUR RIGHTS",
-        "items": {
-          "inaccurate": {
-            "title": "Inaccurate User Information",
-            "content": "You have the right to update or correct your information provided under Clause 3. When you use our Services, we will on a best efforts basis, try to provide you with the ability to access and correct inaccurate or deficient data, subject to legal requirements."
-          },
-          "optOut": {
-            "title": "Opting-out of Marketing and Promotional Communications",
-            "content": "When we send you marketing and promotional content through email, we make best efforts to provide you with the ability to opt-out of such communications by using the opt-out instructions provided in such emails. You understand and acknowledge that it may take us up to 7 (seven) working days to give effect to your opt-out request. Please note that we may still send you emails about your user account or any services you have requested or received from us."
-          }
+        "inaccurateInfo": {
+          "title": "Inaccurate User Information",
+          "content": "You have the right to update or correct your information provided under Clause 3. When you use our Services, we will on a best efforts basis, try to provide you with the ability to access and correct inaccurate or deficient data, subject to legal requirements."
+        },
+        "optOut": {
+          "title": "Opting-out of Marketing and Promotional Communications",
+          "content": "When we send you marketing and promotional content through email, we make best efforts to provide you with the ability to opt-out of such communications by using the opt-out instructions provided in such emails. You understand and acknowledge that it may take us up to 7 (seven) working days to give effect to your opt-out request. Please note that we may still send you emails about your user account or any services you have requested or received from us."
         }
       },
-      "obligations": {
+      "obligation": {
         "title": "9. OBLIGATION",
         "intro": "You agree that you will not host, display, upload, modify, publish, transmit, store, update or share any information that-",
-        "items": {
-          "noRight": "belongs to another person and to which you do not have any right;",
+        "prohibitions": {
+          "belongsToOther": "belongs to another person and to which you do not have any right;",
           "defamatory": "is defamatory, obscene, pornographic, paedophilic, invasive of another's privacy, including bodily privacy, insulting or harassing on the basis of gender, libellous, racially or ethnically objectionable, relating or encouraging money laundering or gambling, or otherwise inconsistent with or contrary to the laws in force;",
-          "harmfulChild": "is harmful to child;",
+          "harmfulToChild": "is harmful to child;",
           "infringes": "infringes any patent, trademark, copyright or other proprietary rights;",
           "violatesLaw": "violates any law for the time being in force;",
           "deceives": "deceives or misleads the addressee about the origin of the message or knowingly and intentionally communicates any information which is patently false or misleading in nature but may reasonably be perceived as a fact;",
           "impersonates": "impersonates another person;",
-          "threatens": "threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with foreign States, or public order, or causes incitement to the commission of any cognisable offence or prevents investigation of any offence or is insulting other nation;",
-          "virus": "contains software virus or any other computer code, file or program designed to interrupt, destroy or limit the functionality of any computer resource;",
-          "falseUntrue": "is patently false and untrue, and is written or published in any form, with the intent to mislead or harass a person, entity or agency for financial gain or to cause any injury to any person."
+          "threatensSecurity": "threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with foreign States, or public order, or causes incitement to the commission of any cognisable offence or prevents investigation of any offence or is insulting other nation;",
+          "containsVirus": "contains software virus or any other computer code, file or program designed to interrupt, destroy or limit the functionality of any computer resource;",
+          "patentlyFalse": "is patently false and untrue, and is written or published in any form, with the intent to mislead or harass a person, entity or agency for financial gain or to cause any injury to any person."
         },
         "termination": "MeriDiDi shall have the right to terminate your access or usage rights if you do not comply with rules and regulations, Privacy Policy or user agreement for access or usage of the computer resource of such intermediary or if the information shared does not comply with the above obligation."
       },
-      "transfers": {
+      "transfersDisclosures": {
         "title": "10. TRANSFERS AND DISCLOSURES OF YOUR PERSONAL DATA",
-        "intro": "Your information, including Personal Data, may be transferred to – and maintained on – computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction. We share your personal information as necessary to provide the services you request, including sharing information with third party service providers; when required by law; to protect rights and safety, and with your consent.",
-        "shareWith": "We may share personal information with:",
-        "items": {
-          "authorizedProviders": {
-            "title": "Authorized service providers:",
-            "content": "We may share your personal information with our authorized service providers that perform certain services on our behalf. These services may include fulfilling orders, processing credit card payments, delivering packages, providing customer service and marketing assistance, performing business and sales analysis, data analysis, supporting our Platform functionality, and supporting contests, promotions, sweepstakes, surveys and other features offered through our Platform. These service providers may have access to personal information needed to perform their functions but are not permitted to share or use such information for any other purposes."
-          },
-          "businessPartners": {
-            "title": "Business partners:",
-            "content": "When you make purchases or engage in promotions offered through our Platform, we may share personal information with the businesses with which we partner to offer you those products, services, promotions, contests and/or sweepstakes. When you elect to engage in a particular merchant's offer or program, you authorize us to provide your email address and other information to that merchant."
-          },
-          "thirdPartyAdvertisers": {
-            "title": "Third parties' advertisers on our Platform:",
-            "content": "We may allow third-parties, advertising companies, and ad networks, to display advertisements on our Websites and Apps. These companies also may use tracking technologies, such as cookies, to collect information about users who view or interact with their advertisements. They may collect information about where you, or others who are using your computer, saw and/or clicked on the advertisements they deliver, and possibly associate this information with your subsequent visits to the advertised websites. They also may combine this information with other personal information they collect from you or from other third parties."
-          }
-        }
+        "intro": "Your information, including Personal Data, may be transferred to – and maintained on – computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction. We share your personal information as necessary to provide the services you request, including sharing information with third party service providers; when required by law; to protect rights and safety, and with your consent."
       },
-      "accountDeletion": {
-        "title": "11. DELETION OF ACCOUNT",
-        "content": "Notwithstanding anything contained in the policy, you may terminate your relation with MeriDiDi and delete your personal data stored with MeriDiDi by sending an email to support@MeriDiDi.com. We may take up to 30 (Thirty) working days to process your request and provide you confirmation through email. Once your account is deleted, you will lose access to all services. For avoidance of doubt, it is hereby clarified that all data with respect to transactions performed by you on the platform will be retained in accordance with applicable law."
-      },
-      "externalLinks": {
-        "title": "12. LINKS TO OTHER WEBSITES",
-        "content": "Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this Privacy Policy. You should exercise caution and look at the privacy statement applicable to the website in question. We will not sell, distribute or lease your personal information to third parties unless we have your prior permission or are required by law to do so. We may use your personal information to send you promotional information about third parties which we think you may find interesting if you tell us that you wish this to happen. You may request details of personal information which we hold about you for a small fee. If you would like a softcopy of the information about you, please write to support@MeriDiDi.com. If you believe that any information, we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect."
-      },
-      "dataRetention": {
-        "title": "13. DATA RETENTION AND STORAGE",
-        "intro": "MeriDiDi takes your data privacy seriously. Here's how we manage the storage and retention of your information:",
-        "items": {
-          "retentionPeriod": {
-            "title": "Retention Period:",
-            "content": "You agree and acknowledge that your personal data will continue to be stored and retained by us for as long as necessary to fulfil our stated purpose(s) and for a reasonable period after the termination of your account on the platform or access to the services to comply with our legal rights and obligations."
-          },
-          "aggregatedData": {
-            "title": "Aggregated Data:",
-            "content": "In some circumstances, we may aggregate your personal data (so that it can no longer be associated with you) for research or statistical purposes, in which case we may use this information indefinitely without further notice to you."
-          },
-          "securityMeasures": {
-            "title": "Security Measures:",
-            "content": "MeriDiDi will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy. Your information collected by us may be stored by us or our affiliates, business partners, suppliers and subcontractors. Information may also be stored in or outside India. Your information shall be stored only for the period necessary for purposes specified hereinabove."
-          },
-          "userConsent": {
-            "title": "User Consent:",
-            "content": "By visiting, accessing and/or using the Website and/or submitting your information, you consent to such storage of your information, including your Personal Information and Usage Data."
-          }
-        }
-      },
-      "disputeResolution": {
-        "title": "14. DISPUTE RESOLUTION FOR CUSTOMER / THIRD PARTY",
-        "content": "Customers / Third Party with inquiries or complaints about the processing of their personal information shall bring the matter to the attention of the Grievance Officer/Customer Care in writing. Any disputes concerning the processing of the personal information of non-employees shall be resolved through alternative dispute resolution mechanisms such as mediation, arbitration, conciliation etc."
-      },
-      "contactUs": {
-        "title": "15. CONTACTING US",
-        "content": "If there are any questions regarding this Policy you may contact us using the information on the 'Contact Us' page on MeriDiDi' website, or reach out to our Grievance Officer."
-      },
-      "grievanceOfficer": {
-        "title": "16. GRIEVANCE OFFICER",
-        "content": "MeriDiDi has appointed a grievance officer/Customer Care in accordance with the Information Technology (Reasonable Security Practices and procedures and sensitive personal data or information) Rules, 2011. Any grievance or complaint may be intimated to the customer care via e-mail at support@MeriDiDi.com. Redressal of the complaint shall be within a period of one (1) month. However, MeriDiDi will aim to redress/deal with the grievance/complaint in a timely manner."
+      "deletionOfAccount": {
+        "title": "11. DELETION OF ACCOUNT"
       }
     },
+    "lastUpdated": "Last updated:",
+    "effectiveImmediately": "This Privacy Policy is effective immediately and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.",
+    "grievanceOfficer": {
+      "title": "16. GRIEVANCE OFFICER",
+      "content": "MeriDiDi has appointed a grievance officer/Customer Care in accordance with the Information Technology (Reasonable Security Practices and procedures and sensitive personal data or information) Rules, 2011. Any grievance or complaint may be intimated to the customer care via e-mail at support@MeriDiDi.com. Redressal of the complaint shall be within a period of one (1) month. However, MeriDiDi will aim to redress/deal with the grievance/complaint in a timely manner."
+    },
     "footer": {
-      "lastUpdated": "Last updated:",
-      "effectiveNotice": "This Privacy Policy is effective immediately and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.",
       "copyright": "All rights reserved."
+    },
+    "navigation": {
+      "home": "Home",
+      "contact": "Contact"
     }
   },
   "workerTerms": {
     "title": "Worker Terms & Conditions",
     "backToHome": "Back to Home",
+    "lastUpdated": "Last updated: December 15, 2024",
     "sections": {
-      "definitions": {
-        "title": "1. Definitions",
-        "didi": {
-          "label": "Didi:",
-          "description": "Refers to a worker registered on the Meri Didi platform who performs domestic services (e.g., cooking, cleaning, caregiving) as a third-party independent contractor."
-        },
-        "company": {
-          "label": "Company:",
-          "description": "Aara Green InfoSolutions Pvt. Ltd. (\"Meri Didi\")."
-        },
-        "platform": {
-          "label": "Platform:",
-          "description": "Meri Didi's mobile application and website through which services are booked and managed."
-        },
-        "user": {
-          "label": "User:",
-          "description": "A customer who books services through the Meri Didi platform."
-        }
+      "overview": {
+        "title": "Overview",
+        "content": "These Terms and Conditions govern your use of the Meri Didi platform as a service provider. By registering as a worker, you agree to these terms."
       },
-      "engagement": {
-        "title": "2. Nature of Engagement",
-        "notEmployment": "This is not an employment contract. You (the Didi) are engaged on a contractual, non-employee basis.",
-        "independentProvider": "You are an independent service provider, not entitled to employee benefits like PF, ESI, or paid leave.",
-        "facilitator": "Meri Didi only acts as a facilitator between you and the User."
+      "eligibility": {
+        "title": "Eligibility Requirements",
+        "content": "To work through our platform, you must meet certain eligibility criteria including age requirements, background checks, and skill verification."
       },
-      "registration": {
-        "title": "3. Registration & Verification",
-        "genuineDocuments": "Workers must provide genuine documents (Aadhaar, PAN, references, etc.).",
-        "policeVerification": "You agree to mandatory police verification and a background check.",
-        "consequences": "Misrepresentation or forgery of documents will lead to permanent termination and potential legal action."
-      },
-      "duties": {
-        "title": "4. Duties & Conduct",
-        "servicePlan": "You must perform tasks only as per the booked service plan (Basic, Standard, or Premium).",
-        "noPrivateWork": "You must not accept personal work or cash from the customer outside the platform.",
-        "agreeToTitle": "You agree to:",
-        "agreeTo": {
-          "punctuality": "Maintain punctuality and hygiene.",
-          "uniform": "Wear the uniform (if provided).",
-          "respectful": "Maintain respectful, non-abusive conduct at all times.",
-          "noFavors": "Refrain from asking personal or financial Favors from customers."
-        }
+      "responsibilities": {
+        "title": "Worker Responsibilities",
+        "content": "As a registered worker, you agree to provide quality services, maintain professionalism, and comply with all applicable laws and regulations."
       },
       "payment": {
-        "title": "5. Payment & Commission",
-        "paymentsReleased": "Payments are released either:",
-        "weeklyMonthly": "Weekly/monthly via the platform.",
-        "daily": "Daily if agreed, after verification by the supervisor or app log.",
-        "commission": "Commission will be deducted as per your selected plan (Basic/Standard/Premium).",
-        "noCash": "Direct cash transactions with customers are prohibited."
-      },
-      "training": {
-        "title": "6. Training & Uniform",
-        "trainingFee": "A one-time training fee and uniform fee is chargeable, as disclosed during onboarding.",
-        "uniformWear": "Uniform must be worn during every assigned job unless informed otherwise."
+        "title": "Payment Terms",
+        "content": "Details about how and when you will be paid for services rendered through the platform."
       },
       "termination": {
-        "title": "7. Termination of Service",
-        "warning": "Your services can be terminated immediately, and legal action may be initiated if you:",
-        "reasons": {
-          "missedDuties": "Repeatedly miss duties without valid reason.",
-          "rudeAbusive": "Are rude, abusive, or violent towards customers or their families.",
-          "theftAssault": "Engage in theft, harassment, physical assault, or breach of trust.",
-          "misuseProperty": "Misuse customer belongings or enter restricted areas without permission.",
-          "privateJobs": "Accept private jobs from users without Company knowledge.",
-          "confidentiality": "Violate confidentiality, misuse customer data, or threaten safety."
-        },
-        "important": "Important:",
-        "legalAction": "Serious offences such as physical assault, harassment, theft, or criminal trespassing shall be reported to the police and are liable to be punished under the Bhartiya Nyaya Sanhita (BNS), 2023."
+        "title": "Termination",
+        "content": "Either party may terminate this agreement under certain conditions as outlined in this section."
       },
-      "leave": {
-        "title": "8. Leave & Absence",
-        "suddenLeave": "Sudden leave must be informed at least 24 hours in advance.",
-        "uninformedAbsence": "Uninformed absence beyond 2 days can lead to replacement or blacklisting.",
-        "longLeave": "Long leave (over 3 days) must be pre-approved by your supervisor."
-      },
-      "confidentiality": {
-        "title": "9. Confidentiality",
-        "noDisclosure": "You agree not to disclose customer address, family details, financial information, or any sensitive data to outsiders.",
-        "violationConsequences": "Violation of data privacy rules will result in termination and legal action under the IT Act, 2000."
-      },
-      "safety": {
-        "title": "10. Safety & Dispute Handling",
-        "refuseUnsafe": "You have the right to refuse work in unsafe environments (e.g., harassment, locked doors, aggressive pets).",
-        "reportUnsafe": "Report any unsafe condition or misbehaviour to the Meri Didi support team immediately.",
-        "companySupport": "The Company will provide support and mediation in case of disputes."
-      },
-      "prohibited": {
-        "title": "11. Prohibited Conduct",
-        "warning": "Workers must not:",
-        "items": {
-          "photos": "Take photos, videos, or recordings inside the customer's house.",
-          "useProperty": "Use customer's property without explicit permission.",
-          "substances": "Smoke, consume alcohol, or chew tobacco on duty.",
-          "unauthorizedPersons": "Bring unauthorized persons or children to the job site.",
-          "misbehaviour": "Engage in misbehaviour, threats, or any act that causes discomfort to the customer."
-        },
-        "consequences": "In case of any such misconduct, the Company reserves the right to involve the police. Serious offenses will be dealt with as per the BNS. Customers are advised to report such instances to our support helpline immediately, and not directly confront the worker."
-      },
-      "incentives": {
-        "title": "12. Incentives & Penalties",
-        "incentivesTitle": "Incentives",
-        "eligibleRewards": "You may be eligible for rewards based on:",
-        "punctuality": "Regular punctuality",
-        "ratings": "High service ratings by customers",
-        "referrals": "Successful referrals of other workers",
-        "penaltiesTitle": "Penalties",
-        "applicableFines": "Applicable fines and actions may include:",
-        "table": {
-          "offense": "Offense",
-          "fine": "Fine",
-          "action": "Action",
-          "rows": {
-            "late": {
-              "offense": "Late arrival (more than 20 mins)",
-              "fine": "₹50",
-              "action": "Verbal warning"
-            },
-            "missed": {
-              "offense": "Missed duty without notice",
-              "fine": "₹100",
-              "action": "May lead to suspension"
-            },
-            "misuse": {
-              "offense": "Misuse of customer's item",
-              "fine": "₹200",
-              "action": "Deduction + complaint record"
-            },
-            "abuse": {
-              "offense": "Verbal abuse / Disrespect",
-              "fine": "₹500",
-              "action": "Temporary suspension"
-            },
-            "serious": {
-              "offense": "Theft / Assault / Serious breach",
-              "fine": "N/A",
-              "action": "Immediate termination + FIR under BNS"
-            }
-          }
-        },
-        "legalNote": "Note: Offenses involving force, abuse, physical harm, or criminal behavior shall be escalated to law enforcement and may result in imprisonment under applicable sections of BNS, 2023."
-      },
-      "dispute": {
-        "title": "13. Dispute Resolution",
-        "handledBySupervisor": "Disputes between Didi and customer will first be handled by the supervisor team.",
-        "arbitration": "If unresolved, arbitration will be conducted as per the Arbitration & Conciliation Act, 1996.",
-        "jurisdiction": "Legal jurisdiction: Nagpur, Maharashtra."
-      },
-      "legal": {
-        "title": "14. Legal & Compliance Issues",
-        "governed": "This agreement is governed by the Indian Contract Act, 1872 and applicable Indian laws including the Bharatiya Nyaya Sanhita (BNS), 2023, IT Act, 2000, and the POSH Act, 2013.",
-        "seriousOffences": "Serious offences such as physical assault, criminal intimidation, theft, sexual harassment, or criminal trespass committed by a worker during duty hours shall be liable to legal action and punishment under the BNS, 2023. Relevant sections include but are not limited to:",
-        "sections": {
-          "assault": "Section 119–123: Assault or use of criminal force",
-          "intimidation": "Section 131: Criminal intimidation",
-          "theft": "Section 303: Theft",
-          "trespass": "Section 324: Criminal trespass",
-          "harassment": "Section 74: Sexual harassment"
-        },
-        "companyCooperation": "In case of such incidents, the Company will support police investigation and provide all necessary worker records and identification to assist legal proceedings."
-      },
-      "protection": {
-        "title": "15. Worker Protection & Grievance Redressal",
-        "workerRights": "Workers have the right to refuse unsafe or harassing work environments under the Labour Code on Occupational Safety and the POSH Act. They must immediately report such incidents to the company helpline within 24 hours.",
-        "customerAdvice": "Customers are advised to contact the Meri Didi support team in case of any worker misconduct. Serious incidents should be reported directly to the local police. The Company will cooperate fully with law enforcement."
-      },
-      "wage": {
-        "title": "16. Wage Transparency & Payment",
-        "transparency": "All payments to workers will be made through the platform or direct bank transfer to ensure transparency. Workers shall not be paid below the local minimum wage applicable in their job category. No cash transactions are allowed with customers."
-      },
-      "acceptance": {
-        "title": "17. Acceptance of Terms",
-        "confirmation": "By signing the registration form or joining the platform, you confirm that:",
-        "items": {
-          "understood": "You have understood and accepted these terms.",
-          "comply": "You will comply with Meri Didi's rules and instructions.",
-          "authorize": "You authorize the company to act as a facilitator for your services and payments."
-        }
-      },
-      "refund": {
-        "title": "Refund Policy",
-        "policy": "The refund will be initiated only if cancellation is done within 7 days of booking."
+      "contactUs": {
+        "title": "Contact Us",
+        "content": "If you have any questions about these Terms, please contact us."
       }
     }
   }

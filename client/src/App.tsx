@@ -9,6 +9,8 @@ import NotFound from "@/pages/not-found";
 import RegisterWorker from "@/pages/register-worker";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import WorkerTerms from "@/pages/worker-terms";
+import DeleteUserData from "@/pages/delete-user-data";
+import DeleteUserAccount from "@/pages/delete-user-account";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
 
@@ -19,6 +21,8 @@ function Router() {
       <Route path="/register-worker" component={RegisterWorker} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/worker-terms" component={WorkerTerms} />
+      <Route path="/delete-user-data" component={DeleteUserData} />
+      <Route path="/delete-user-account" component={DeleteUserAccount} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>

@@ -88,6 +88,8 @@ export default function Footer() {
               <li><Link href="/worker-terms" className="text-neutral-400 hover:text-white transition-colors">{t("footer.workerTerms")}</Link></li>
               <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.cookiePolicy")}</a></li>
               <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.disclaimer")}</a></li>
+              <li><Link href="/delete-user-data" className="text-neutral-400 hover:text-white transition-colors">{t("footer.deleteData")}</Link></li>
+              <li><Link href="/delete-user-account" className="text-neutral-400 hover:text-white transition-colors">{t("footer.deleteAccount")}</Link></li>
             </ul>
           </div>
         </div>
