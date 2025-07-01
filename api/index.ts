@@ -1,7 +1,12 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import express from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { z } from 'zod';
+
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Copy the schema definitions locally
 const insertContactSchema = z.object({
@@ -157,11 +162,11 @@ const initializeApp = async () => {
     res.status(status).json({ message });
   });
 
-  // For production mode serving static files
-  const distPath = path.resolve(__dirname, '../dist/public');
-  app.use(express.static(distPath));
+  // For SPA routing - serve index.html for non-API routes
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(distPath, 'index.html'));
+    // For Vercel, we'll let the static files be handled by the routes in vercel.json
+    // This is just a fallback for SPA routing
+    res.status(404).json({ message: 'Route not found' });
   });
   
   appInitialized = true;
