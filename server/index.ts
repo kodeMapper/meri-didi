@@ -54,8 +54,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Initialize the app
-async function initializeApp() {
+(async () => {
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -80,22 +79,10 @@ async function initializeApp() {
     });
   }
 
-  return server;
-}
-
-// For development, run as traditional server
-if (require.main === module) {
-  (async () => {
-    const server = await initializeApp();
-    const port = process.env.PORT ? parseInt(process.env.PORT) : 5000;
-    server.listen(port, "127.0.0.1", () => {
-      log(`serving on port ${port}`);
-    });
-  })();
-} else {
-  // For Vercel, export the Express app
-  initializeApp();
-}
-
-// Export for Vercel
-export default app;
+  // Use environment variable PORT if available, otherwise default to 5000
+  // this serves both the API and the client.
+  const port = process.env.PORT ? parseInt(process.env.PORT) : 5000;
+  server.listen(port, "127.0.0.1", () => {
+    log(`serving on port ${port}`);
+  });
+})();
