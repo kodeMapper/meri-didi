@@ -14,15 +14,15 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server/index.ts" 
+      "dest": "server/index.ts"
     },
     {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|json))",
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|json|txt|xml))",
       "dest": "dist/public/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/public/index.html"
+      "dest": "server/index.ts"
     }
   ]
 }
