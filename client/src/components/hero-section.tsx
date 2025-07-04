@@ -104,8 +104,15 @@ export default function HeroSection() {
   const { t } = useTranslation();
   
   return (
-    <section className="pt-32 pb-20 bg-gradient-to-b from-primary/10 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen flex items-center pt-16 pb-20 bg-gradient-to-br from-primary/5 via-purple-50/30 to-blue-50/20 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-400/20 to-red-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/10 to-transparent rounded-full blur-2xl animate-float" style={{ animationDelay: '4s' }}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="flex flex-col md:flex-row items-center">
           <motion.div 
             className="md:w-1/2 mb-10 md:mb-0"
@@ -115,7 +122,7 @@ export default function HeroSection() {
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-neutral-900 leading-tight">
               <span className="text-lg md:text-xl font-normal text-neutral-600 block mb-2">{t("hero.introText")}</span>
-              <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-600 bg-clip-text text-transparent font-black tracking-tight text-5xl md:text-6xl drop-shadow-sm">{t("hero.highlightText")}</span>
+              <span className="gradient-text font-black tracking-tight text-5xl md:text-7xl drop-shadow-lg block my-4">{t("hero.highlightText")}</span>
               <span className="text-base md:text-lg font-normal text-neutral-600 block mt-3">{t("hero.supportingText")}</span>
             </h1>
             
