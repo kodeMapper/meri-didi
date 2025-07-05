@@ -30,6 +30,28 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    const scrollContainer = document.getElementById('main-scroll-container');
+    
+    if (element && scrollContainer) {
+      const elementTop = element.offsetTop;
+      scrollContainer.scrollTo({
+        top: elementTop,
+        behavior: 'smooth'
+      });
+    } else if (element) {
+      // Fallback to normal scroll if scroll container not found
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    
+    // Close mobile menu after clicking
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
@@ -65,19 +87,37 @@ export default function Navbar() {
               </div>
             </Link>
 
-            <div className="hidden md:flex md:ml-10 space-x-8">
-              <a href="#features" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
+            <div className="hidden md:flex md:ml-6 space-x-3">
+              <button 
+                onClick={() => scrollToSection('features')}
+                className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer"
+              >
                 {t("navbar.features")}
-              </a>
-              <a href="#how-it-works" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
+              </button>
+              <button 
+                onClick={() => scrollToSection('how-it-works')}
+                className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer"
+              >
                 {t("navbar.howItWorks")}
-              </a>
-              <a href="#testimonials" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
+              </button>
+              <button 
+                onClick={() => scrollToSection('testimonials')}
+                className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer"
+              >
                 {t("navbar.testimonials")}
-              </a>
-              <a href="#security" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
+              </button>
+              <button 
+                onClick={() => scrollToSection('security')}
+                className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer"
+              >
                 {t("navbar.security")}
-              </a>
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer"
+              >
+                {t("navbar.contact")}
+              </button>
             </div>
           </div>
 
@@ -140,18 +180,36 @@ export default function Navbar() {
           transition={{ duration: 0.3 }}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#features" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
+            <button 
+              onClick={() => scrollToSection('features')}
+              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50"
+            >
               {t("navbar.features")}
-            </a>
-            <a href="#how-it-works" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
+            </button>
+            <button 
+              onClick={() => scrollToSection('how-it-works')}
+              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50"
+            >
               {t("navbar.howItWorks")}
-            </a>
-            <a href="#testimonials" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
+            </button>
+            <button 
+              onClick={() => scrollToSection('testimonials')}
+              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50"
+            >
               {t("navbar.testimonials")}
-            </a>
-            <a href="#security" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
+            </button>
+            <button 
+              onClick={() => scrollToSection('security')}
+              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50"
+            >
               {t("navbar.security")}
-            </a>
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50"
+            >
+              {t("navbar.contact")}
+            </button>
             <div className="pt-4 pb-3 border-t border-neutral-200">
               <Button 
                 onClick={() => window.open('https://forms.gle/kmiQkgtBdhrssNhy7', '_blank')}
