@@ -84,9 +84,10 @@ function ServiceCarousel() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
           
           {/* Text content */}
-          <div className="relative z-10 text-center text-white p-6 w-full">
+          <div className="relative z-10 text-center text-white pb-4 px-6 w-full">
             <motion.h3 
-              className="text-2xl font-heading font-bold mb-2"
+              className="text-3xl font-extrabold mb-2 text-yellow-300 drop-shadow-[2px_2px_4px_rgba(0,0,0,0.9)]"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), -1px -1px 2px rgba(0,0,0,0.7)' }}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 }}
@@ -94,7 +95,8 @@ function ServiceCarousel() {
               {serviceProfessionals[current].title}
             </motion.h3>
             <motion.p 
-              className="text-gray-100 text-base leading-relaxed"
+              className="text-white text-base leading-relaxed font-medium drop-shadow-[1px_1px_2px_rgba(0,0,0,0.8)] mb-4"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.9)' }}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -102,25 +104,30 @@ function ServiceCarousel() {
               {serviceProfessionals[current].description}
             </motion.p>
             <motion.button
-              className="mt-4 px-6 py-2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-md text-sm font-medium transition-all border border-white/30"
+              className="px-6 py-2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-md text-sm font-medium transition-all border border-white/30"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              Learn More
+              {t("hero.learnMore")}
             </motion.button>
           </div>
         </motion.div>
       </AnimatePresence>
       
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+      {/* Navigation dots moved outside and below the image */}
+      <div className="mt-4 flex justify-center">
         <div className="flex space-x-2">
           {serviceProfessionals.map((_: any, index: number) => (
             <button
               key={index}
-              className={`w-2 h-2 rounded-full ${index === current ? "bg-primary" : "bg-neutral-300"}`}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === current 
+                  ? "bg-primary shadow-lg scale-110" 
+                  : "bg-gray-700 hover:bg-gray-600 shadow-md"
+              }`}
               onClick={() => setCurrent(index)}
             />
           ))}
