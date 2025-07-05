@@ -28,8 +28,14 @@ const languages = [
 export default function Footer() {
   const { t, i18n } = useTranslation();
   return (
-    <footer className="bg-neutral-800 text-neutral-300 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="min-h-screen flex items-center py-12 bg-gradient-to-br from-neutral-900 via-slate-800 to-neutral-900 text-neutral-300 relative overflow-hidden snap-start">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">

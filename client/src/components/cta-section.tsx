@@ -6,8 +6,15 @@ import { useTranslation } from "react-i18next";
 export default function CTASection() {
   const { t } = useTranslation();
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen flex items-center py-20 bg-gradient-to-br from-slate-100 via-gray-50 to-zinc-100 relative overflow-hidden snap-start">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-slate-400 to-gray-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-r from-gray-400 to-zinc-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-r from-zinc-400 to-slate-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div

@@ -28,8 +28,15 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-neutral-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="min-h-screen flex items-center py-20 bg-gradient-to-br from-purple-50/20 via-neutral-50 to-blue-50/30 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-40 left-16 w-80 h-80 bg-gradient-to-r from-primary/8 to-purple-400/8 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-40 right-16 w-72 h-72 bg-gradient-to-r from-blue-400/8 to-secondary/8 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/3 right-1/3 transform w-64 h-64 bg-gradient-to-r from-purple-400/5 to-transparent rounded-full blur-2xl animate-float" style={{ animationDelay: '7s' }}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}

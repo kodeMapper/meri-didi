@@ -258,8 +258,15 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-neutral-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="min-h-screen flex items-center py-20 bg-gradient-to-br from-orange-100 via-amber-50 to-yellow-100 relative overflow-hidden snap-start">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-16"

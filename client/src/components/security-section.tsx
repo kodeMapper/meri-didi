@@ -79,8 +79,15 @@ export default function SecuritySection() {
   const { t } = useTranslation();
   
   return (
-    <section id="security" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="security" className="min-h-screen flex items-center py-20 bg-gradient-to-br from-green-100 via-emerald-50 to-teal-100 relative overflow-hidden snap-start">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}

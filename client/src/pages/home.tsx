@@ -53,13 +53,25 @@ export default function Home() {
     return () => document.removeEventListener('click', handleScrollToAnchor);
   }, []);
 
+  // Ensure page starts at the top
+  useEffect(() => {
+    // Reset scroll position on page load
+    const scrollContainer = document.getElementById('main-scroll-container');
+    if (scrollContainer) {
+      // Force immediate scroll to top without animation
+      scrollContainer.scrollTo({ top: 0, behavior: 'instant' });
+      
+      // Also reset window scroll position as a backup
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="relative">
       <Navbar />
       
-      <main>
+      <div id="main-scroll-container" className="snap-y snap-mandatory overflow-y-auto h-screen">
         <HeroSection />
-        
         <FeaturesSection />
         <HowItWorks />
         <TransformationSection />
@@ -67,9 +79,8 @@ export default function Home() {
         <SecuritySection />
         <ContactForm />
         <CTASection />
-      </main>
-      
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

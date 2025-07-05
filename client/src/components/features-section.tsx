@@ -85,8 +85,15 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section id="features" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" className="min-h-screen flex items-center py-20 bg-gradient-to-br from-blue-100 via-white to-purple-100 relative overflow-hidden snap-start">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-32 right-20 w-72 h-72 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-32 left-20 w-64 h-64 bg-gradient-to-r from-purple-500/20 to-primary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-blue-500/15 to-transparent rounded-full blur-2xl animate-float" style={{ animationDelay: '6s' }}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}

@@ -141,7 +141,7 @@ export default function HeroSection() {
   const { t } = useTranslation();
   
   return (
-    <section className="min-h-screen flex items-center pt-16 pb-20 bg-gradient-to-br from-primary/5 via-purple-50/30 to-blue-50/20 relative overflow-hidden">
+    <section className="min-h-screen flex items-center pt-16 pb-20 bg-gradient-to-br from-primary/5 via-purple-50/30 to-blue-50/20 relative overflow-hidden snap-start">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-float"></div>
