@@ -10,6 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTranslation } from "react-i18next";
 
 const languages = [
   { code: "en", name: "English" },
@@ -17,6 +18,7 @@ const languages = [
 ];
 
 export default function WorkerTerms() {
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -77,11 +79,11 @@ export default function WorkerTerms() {
               <div className="hidden md:flex items-center space-x-8">
                 <Link href="/">
                   <span className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all cursor-pointer">
-                    Home
+                    {t("navbar.home")}
                   </span>
                 </Link>
                 <a href="/#contact" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
-                  Contact
+                  {t("navbar.contact")}
                 </a>
               </div>
 
@@ -90,12 +92,16 @@ export default function WorkerTerms() {
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-neutral-700 hover:text-neutral-900">
                       <Globe className="h-4 w-4" />
-                      <span className="text-sm">EN</span>
+                      <span className="text-sm">{i18n.language === 'hi' ? 'HI' : 'EN'}</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {languages.map((lang) => (
-                      <DropdownMenuItem key={lang.code} className="cursor-pointer">
+                      <DropdownMenuItem 
+                        key={lang.code} 
+                        className="cursor-pointer"
+                        onClick={() => i18n.changeLanguage(lang.code)}
+                      >
                         {lang.name}
                       </DropdownMenuItem>
                     ))}
@@ -127,11 +133,11 @@ export default function WorkerTerms() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Link href="/">
                 <span className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 cursor-pointer">
-                  Home
+                  {t("navbar.home")}
                 </span>
               </Link>
               <a href="/#contact" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
-                Contact
+                {t("navbar.contact")}
               </a>
             </div>
           </motion.div>
@@ -151,7 +157,7 @@ export default function WorkerTerms() {
               <Link href="/">
                 <Button variant="ghost" size="sm" className="mr-4 text-neutral-600 hover:text-neutral-900">
                   <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Home
+                  {t("workerTerms.backToHome")}
                 </Button>
               </Link>
             </div>
@@ -170,7 +176,7 @@ export default function WorkerTerms() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              Terms & Conditions for Workers
+              {t("workerTerms.title")}
             </motion.h1>
 
             <motion.div 
@@ -188,92 +194,92 @@ export default function WorkerTerms() {
 
               <div className="space-y-8">
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">1. Definitions</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.definitions.title")}</h2>
                   <div className="grid gap-4">
                     <div className="bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
-                      <span className="font-semibold text-blue-900">Didi:</span>
-                      <span className="text-blue-800 ml-2">Refers to a worker registered on the Meri Didi platform who performs domestic services (e.g., cooking, cleaning, caregiving) as a third-party independent contractor.</span>
+                      <span className="font-semibold text-blue-900">{t("workerTerms.sections.definitions.didi.label")}</span>
+                      <span className="text-blue-800 ml-2">{t("workerTerms.sections.definitions.didi.description")}</span>
                     </div>
                     <div className="bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
-                      <span className="font-semibold text-green-900">Company:</span>
-                      <span className="text-green-800 ml-2">Aara Green InfoSolutions Pvt. Ltd. ("Meri Didi").</span>
+                      <span className="font-semibold text-green-900">{t("workerTerms.sections.definitions.company.label")}</span>
+                      <span className="text-green-800 ml-2">{t("workerTerms.sections.definitions.company.description")}</span>
                     </div>
                     <div className="bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg border border-purple-100">
-                      <span className="font-semibold text-purple-900">Platform:</span>
-                      <span className="text-purple-800 ml-2">Meri Didi's mobile application and website through which services are booked and managed.</span>
+                      <span className="font-semibold text-purple-900">{t("workerTerms.sections.definitions.platform.label")}</span>
+                      <span className="text-purple-800 ml-2">{t("workerTerms.sections.definitions.platform.description")}</span>
                     </div>
                     <div className="bg-gradient-to-r from-orange-50 to-white p-4 rounded-lg border border-orange-100">
-                      <span className="font-semibold text-orange-900">User:</span>
-                      <span className="text-orange-800 ml-2">A customer who books services through the Meri Didi platform.</span>
+                      <span className="font-semibold text-orange-900">{t("workerTerms.sections.definitions.user.label")}</span>
+                      <span className="text-orange-800 ml-2">{t("workerTerms.sections.definitions.user.description")}</span>
                     </div>
                   </div>
                 </section>
 
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">2. Nature of Engagement</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.engagement.title")}</h2>
                   <div className="space-y-4">
                     <div className="flex items-start bg-gradient-to-r from-yellow-50 to-white p-4 rounded-lg border border-yellow-100">
                       <span className="inline-block w-3 h-3 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">This is not an employment contract. You (the Didi) are engaged on a contractual, non-employee basis.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.engagement.notEmployment")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
                       <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">You are an independent service provider, not entitled to employee benefits like PF, ESI, or paid leave.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.engagement.independentProvider")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
                       <span className="inline-block w-3 h-3 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">Meri Didi only acts as a facilitator between you and the User.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.engagement.facilitator")}</span>
                     </div>
                   </div>
                 </section>
 
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">3. Registration & Verification</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.registration.title")}</h2>
                   <div className="space-y-4">
                     <div className="flex items-start bg-gradient-to-r from-indigo-50 to-white p-4 rounded-lg border border-indigo-100">
                       <span className="inline-block w-3 h-3 bg-indigo-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">Workers must provide genuine documents (Aadhaar, PAN, references, etc.).</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.registration.genuineDocuments")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg border border-purple-100">
                       <span className="inline-block w-3 h-3 bg-purple-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">You agree to mandatory police verification and a background check.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.registration.policeVerification")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-red-50 to-white p-4 rounded-lg border border-red-100">
                       <span className="inline-block w-3 h-3 bg-red-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">Misrepresentation or forgery of documents will lead to permanent termination and potential legal action.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.registration.consequences")}</span>
                     </div>
                   </div>
                 </section>
 
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">4. Duties & Conduct</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.duties.title")}</h2>
                   <div className="space-y-4">
                     <div className="flex items-start bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
                       <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">You must perform tasks only as per the booked service plan (Basic, Standard, or Premium).</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.duties.servicePlan")}</span>
                     </div>
                     <div className="flex items-start bg-gradient-to-r from-yellow-50 to-white p-4 rounded-lg border border-yellow-100">
                       <span className="inline-block w-3 h-3 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                      <span className="text-neutral-700">You must not accept personal work or cash from the customer outside the platform.</span>
+                      <span className="text-neutral-700">{t("workerTerms.sections.duties.noPrivateWork")}</span>
                     </div>
                     <div className="bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
-                      <span className="text-neutral-700 font-medium mb-3 block">You agree to:</span>
+                      <span className="text-neutral-700 font-medium mb-3 block">{t("workerTerms.sections.duties.agreeToTitle")}</span>
                       <div className="ml-4 space-y-2">
                         <div className="flex items-center">
                           <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                          <span className="text-neutral-600">Maintain punctuality and hygiene.</span>
+                          <span className="text-neutral-600">{t("workerTerms.sections.duties.agreeTo.punctuality")}</span>
                         </div>
                         <div className="flex items-center">
                           <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                          <span className="text-neutral-600">Wear the uniform (if provided).</span>
+                          <span className="text-neutral-600">{t("workerTerms.sections.duties.agreeTo.uniform")}</span>
                         </div>
                         <div className="flex items-center">
                           <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                          <span className="text-neutral-600">Maintain respectful, non-abusive conduct at all times.</span>
+                          <span className="text-neutral-600">{t("workerTerms.sections.duties.agreeTo.respectful")}</span>
                         </div>
                         <div className="flex items-center">
                           <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                          <span className="text-neutral-600">Refrain from asking personal or financial Favors from customers.</span>
+                          <span className="text-neutral-600">{t("workerTerms.sections.duties.agreeTo.noFavors")}</span>
                         </div>
                       </div>
                     </div>
@@ -281,226 +287,226 @@ export default function WorkerTerms() {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">5. Payment & Commission</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.payment.title")}</h2>
                   <ul className="space-y-3 text-neutral-700">
                     <li className="flex items-start">
                       <span className="inline-block w-3 h-3 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span>Payments are released either:</span>
+                      <span>{t("workerTerms.sections.payment.paymentsReleased")}</span>
                       <ul className="mt-2 ml-6 space-y-1 text-sm">
                         <li className="flex items-start">
                           <span className="inline-block w-2 h-2 bg-primary rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                          Weekly/monthly via the platform.
+                          {t("workerTerms.sections.payment.weeklyMonthly")}
                         </li>
                         <li className="flex items-start">
                           <span className="inline-block w-2 h-2 bg-primary rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                          Daily if agreed, after verification by the supervisor or app log.
+                          {t("workerTerms.sections.payment.daily")}
                         </li>
                       </ul>
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-3 h-3 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Commission will be deducted as per your selected plan (Basic/Standard/Premium).
+                      {t("workerTerms.sections.payment.commission")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-3 h-3 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Direct cash transactions with customers are prohibited.
+                      {t("workerTerms.sections.payment.noCash")}
                     </li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">6. Training & Uniform</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.training.title")}</h2>
                   <ul className="space-y-3 text-neutral-700">
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      A one-time training fee and uniform fee is chargeable, as disclosed during onboarding.
+                      {t("workerTerms.sections.training.trainingFee")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Uniform must be worn during every assigned job unless informed otherwise.
+                      {t("workerTerms.sections.training.uniformWear")}
                     </li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-red-500 pl-4">7. Termination of Service</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-red-500 pl-4">{t("workerTerms.sections.termination.title")}</h2>
                   <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-                    <p className="text-red-800 font-medium mb-3">Your services can be terminated immediately, and legal action may be initiated if you:</p>
+                    <p className="text-red-800 font-medium mb-3">{t("workerTerms.sections.termination.warning")}</p>
                     <ul className="space-y-2 text-red-700 text-sm">
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Repeatedly miss duties without valid reason.
+                        {t("workerTerms.sections.termination.reasons.missedDuties")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Are rude, abusive, or violent towards customers or their families.
+                        {t("workerTerms.sections.termination.reasons.rudeAbusive")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Engage in theft, harassment, physical assault, or breach of trust.
+                        {t("workerTerms.sections.termination.reasons.theftAssault")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Misuse customer belongings or enter restricted areas without permission.
+                        {t("workerTerms.sections.termination.reasons.misuseProperty")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Accept private jobs from users without Company knowledge.
+                        {t("workerTerms.sections.termination.reasons.privateJobs")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Violate confidentiality, misuse customer data, or threaten safety.
+                        {t("workerTerms.sections.termination.reasons.confidentiality")}
                       </li>
                     </ul>
                   </div>
                   <p className="text-neutral-700 leading-relaxed text-sm bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                    <strong>Important:</strong> Serious offences such as physical assault, harassment, theft, or criminal trespassing shall be reported to the police and are liable to be punished under the Bhartiya Nyaya Sanhita (BNS), 2023.
+                    <strong>{t("workerTerms.sections.termination.important")}</strong> {t("workerTerms.sections.termination.legalAction")}
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">8. Leave & Absence</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.leave.title")}</h2>
                   <ul className="space-y-3 text-neutral-700">
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Sudden leave must be informed at least 24 hours in advance.
+                      {t("workerTerms.sections.leave.suddenLeave")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Uninformed absence beyond 2 days can lead to replacement or blacklisting.
+                      {t("workerTerms.sections.leave.uninformedAbsence")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Long leave (over 3 days) must be pre-approved by your supervisor.
+                      {t("workerTerms.sections.leave.longLeave")}
                     </li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">9. Confidentiality</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.confidentiality.title")}</h2>
                   <ul className="space-y-3 text-neutral-700">
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      You agree not to disclose customer address, family details, financial information, or any sensitive data to outsiders.
+                      {t("workerTerms.sections.confidentiality.noDisclosure")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Violation of data privacy rules will result in termination and legal action under the IT Act, 2000.
+                      {t("workerTerms.sections.confidentiality.violationConsequences")}
                     </li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">10. Safety & Dispute Handling</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.safety.title")}</h2>
                   <ul className="space-y-3 text-neutral-700">
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      You have the right to refuse work in unsafe environments (e.g., harassment, locked doors, aggressive pets).
+                      {t("workerTerms.sections.safety.refuseUnsafe")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Report any unsafe condition or misbehaviour to the Meri Didi support team immediately.
+                      {t("workerTerms.sections.safety.reportUnsafe")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      The Company will provide support and mediation in case of disputes.
+                      {t("workerTerms.sections.safety.companySupport")}
                     </li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-red-500 pl-4">11. Prohibited Conduct</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-red-500 pl-4">{t("workerTerms.sections.prohibited.title")}</h2>
                   <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <p className="text-red-800 font-medium mb-3">Workers must not:</p>
+                    <p className="text-red-800 font-medium mb-3">{t("workerTerms.sections.prohibited.warning")}</p>
                     <ul className="space-y-2 text-red-700 text-sm">
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Take photos, videos, or recordings inside the customer's house.
+                        {t("workerTerms.sections.prohibited.items.photos")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Use customer's property without explicit permission.
+                        {t("workerTerms.sections.prohibited.items.useProperty")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Smoke, consume alcohol, or chew tobacco on duty.
+                        {t("workerTerms.sections.prohibited.items.substances")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Bring unauthorized persons or children to the job site.
+                        {t("workerTerms.sections.prohibited.items.unauthorizedPersons")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        Engage in misbehaviour, threats, or any act that causes discomfort to the customer.
+                        {t("workerTerms.sections.prohibited.items.misbehaviour")}
                       </li>
                     </ul>
                     <p className="text-red-700 text-sm mt-3 font-medium">
-                      In case of any such misconduct, the Company reserves the right to involve the police. Serious offenses will be dealt with as per the BNS. Customers are advised to report such instances to our support helpline immediately, and not directly confront the worker.
+                      {t("workerTerms.sections.prohibited.consequences")}
                     </p>
                   </div>
                 </section>
 
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">12. Incentives & Penalties</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.incentives.title")}</h2>
                   
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="bg-gradient-to-br from-green-50 to-green-25 border border-green-200 rounded-xl p-6 shadow-md">
-                      <h3 className="font-bold text-green-800 mb-4 text-xl">🏆 Incentives</h3>
-                      <p className="text-green-700 mb-4">You may be eligible for rewards based on:</p>
+                      <h3 className="font-bold text-green-800 mb-4 text-xl">🏆 {t("workerTerms.sections.incentives.incentivesTitle")}</h3>
+                      <p className="text-green-700 mb-4">{t("workerTerms.sections.incentives.eligibleRewards")}</p>
                       <div className="space-y-3">
                         <div className="flex items-center bg-white p-3 rounded-lg border border-green-100">
                           <span className="text-green-600 mr-3">⏰</span>
-                          <span className="text-green-800">Regular punctuality</span>
+                          <span className="text-green-800">{t("workerTerms.sections.incentives.punctuality")}</span>
                         </div>
                         <div className="flex items-center bg-white p-3 rounded-lg border border-green-100">
                           <span className="text-green-600 mr-3">⭐</span>
-                          <span className="text-green-800">High service ratings by customers</span>
+                          <span className="text-green-800">{t("workerTerms.sections.incentives.ratings")}</span>
                         </div>
                         <div className="flex items-center bg-white p-3 rounded-lg border border-green-100">
                           <span className="text-green-600 mr-3">👥</span>
-                          <span className="text-green-800">Successful referrals of other workers</span>
+                          <span className="text-green-800">{t("workerTerms.sections.incentives.referrals")}</span>
                         </div>
                       </div>
                     </div>
 
                     <div className="bg-gradient-to-br from-red-50 to-red-25 border border-red-200 rounded-xl p-8 shadow-md">
-                      <h3 className="font-bold text-red-800 mb-4 text-xl">⚠️ Penalties</h3>
-                      <p className="text-red-700 mb-4">Applicable fines and actions may include:</p>
+                      <h3 className="font-bold text-red-800 mb-4 text-xl">⚠️ {t("workerTerms.sections.incentives.penaltiesTitle")}</h3>
+                      <p className="text-red-700 mb-4">{t("workerTerms.sections.incentives.applicableFines")}</p>
                       
                       <div className="bg-white rounded-lg border border-red-200 overflow-hidden">
                         <table className="w-full text-sm">
                           <thead className="bg-red-100">
                             <tr>
-                              <th className="text-left py-3 px-4 font-semibold text-red-800">Offense</th>
-                              <th className="text-left py-3 px-4 font-semibold text-red-800">Fine</th>
-                              <th className="text-left py-3 px-4 font-semibold text-red-800">Action</th>
+                              <th className="text-left py-3 px-4 font-semibold text-red-800">{t("workerTerms.sections.incentives.table.offense")}</th>
+                              <th className="text-left py-3 px-4 font-semibold text-red-800">{t("workerTerms.sections.incentives.table.fine")}</th>
+                              <th className="text-left py-3 px-4 font-semibold text-red-800">{t("workerTerms.sections.incentives.table.action")}</th>
                             </tr>
                           </thead>
                           <tbody className="text-red-700">
                             <tr className="hover:bg-red-50">
-                              <td className="py-3 px-4">Late arrival (more than 20 mins)</td>
-                              <td className="py-3 px-4 font-semibold">₹50</td>
-                              <td className="py-3 px-4">Verbal warning</td>
+                              <td className="py-3 px-4">{t("workerTerms.sections.incentives.table.rows.late.offense")}</td>
+                              <td className="py-3 px-4 font-semibold">{t("workerTerms.sections.incentives.table.rows.late.fine")}</td>
+                              <td className="py-3 px-4">{t("workerTerms.sections.incentives.table.rows.late.action")}</td>
                             </tr>
                             <tr className="hover:bg-red-50">
-                              <td className="py-3 px-4">Missed duty without notice</td>
-                              <td className="py-3 px-4 font-semibold">₹100</td>
-                              <td className="py-3 px-4">May lead to suspension</td>
+                              <td className="py-3 px-4">{t("workerTerms.sections.incentives.table.rows.missed.offense")}</td>
+                              <td className="py-3 px-4 font-semibold">{t("workerTerms.sections.incentives.table.rows.missed.fine")}</td>
+                              <td className="py-3 px-4">{t("workerTerms.sections.incentives.table.rows.missed.action")}</td>
                             </tr>
                             <tr className="hover:bg-red-50">
-                              <td className="py-3 px-4">Misuse of customer's item</td>
-                              <td className="py-3 px-4 font-semibold">₹200</td>
-                              <td className="py-3 px-4">Deduction + complaint record</td>
+                              <td className="py-3 px-4">{t("workerTerms.sections.incentives.table.rows.misuse.offense")}</td>
+                              <td className="py-3 px-4 font-semibold">{t("workerTerms.sections.incentives.table.rows.misuse.fine")}</td>
+                              <td className="py-3 px-4">{t("workerTerms.sections.incentives.table.rows.misuse.action")}</td>
                             </tr>
                             <tr className="hover:bg-red-50">
-                              <td className="py-3 px-4">Verbal abuse / Disrespect</td>
-                              <td className="py-3 px-4 font-semibold">₹500</td>
-                              <td className="py-3 px-4">Temporary suspension</td>
+                              <td className="py-3 px-4">{t("workerTerms.sections.incentives.table.rows.abuse.offense")}</td>
+                              <td className="py-3 px-4 font-semibold">{t("workerTerms.sections.incentives.table.rows.abuse.fine")}</td>
+                              <td className="py-3 px-4">{t("workerTerms.sections.incentives.table.rows.abuse.action")}</td>
                             </tr>
                             <tr className="bg-red-50">
-                              <td className="py-3 px-4 font-semibold">Theft / Assault / Serious breach</td>
-                              <td className="py-3 px-4 font-semibold">N/A</td>
-                              <td className="py-3 px-4 font-semibold">Immediate termination + FIR under BNS</td>
+                              <td className="py-3 px-4 font-semibold">{t("workerTerms.sections.incentives.table.rows.serious.offense")}</td>
+                              <td className="py-3 px-4 font-semibold">{t("workerTerms.sections.incentives.table.rows.serious.fine")}</td>
+                              <td className="py-3 px-4 font-semibold">{t("workerTerms.sections.incentives.table.rows.serious.action")}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -508,7 +514,7 @@ export default function WorkerTerms() {
                       
                       <div className="mt-4 p-3 bg-red-100 border border-red-300 rounded-lg">
                         <p className="text-red-800 text-xs font-medium">
-                          ⚖️ Note: Offenses involving force, abuse, physical harm, or criminal behavior shall be escalated to law enforcement and may result in imprisonment under applicable sections of BNS, 2023.
+                          ⚖️ {t("workerTerms.sections.incentives.legalNote")}
                         </p>
                       </div>
                     </div>
@@ -516,99 +522,99 @@ export default function WorkerTerms() {
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">13. Dispute Resolution</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.dispute.title")}</h2>
                   <ul className="space-y-3 text-neutral-700">
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Disputes between Didi and customer will first be handled by the supervisor team.
+                      {t("workerTerms.sections.dispute.handledBySupervisor")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      If unresolved, arbitration will be conducted as per the Arbitration & Conciliation Act, 1996.
+                      {t("workerTerms.sections.dispute.arbitration")}
                     </li>
                     <li className="flex items-start">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      Legal jurisdiction: Nagpur, Maharashtra.
+                      {t("workerTerms.sections.dispute.jurisdiction")}
                     </li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">14. Legal & Compliance Issues</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.legal.title")}</h2>
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                     <p className="text-blue-800 text-sm leading-relaxed mb-3">
-                      This agreement is governed by the Indian Contract Act, 1872 and applicable Indian laws including the Bharatiya Nyaya Sanhita (BNS), 2023, IT Act, 2000, and the POSH Act, 2013.
+                      {t("workerTerms.sections.legal.governed")}
                     </p>
                     <p className="text-blue-800 text-sm leading-relaxed mb-3">
-                      Serious offences such as physical assault, criminal intimidation, theft, sexual harassment, or criminal trespass committed by a worker during duty hours shall be liable to legal action and punishment under the BNS, 2023. Relevant sections include but are not limited to:
+                      {t("workerTerms.sections.legal.seriousOffences")}
                     </p>
                     <ul className="space-y-2 text-blue-700 text-sm">
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                        Section 119–123: Assault or use of criminal force
+                        {t("workerTerms.sections.legal.sections.assault")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                        Section 131: Criminal intimidation
+                        {t("workerTerms.sections.legal.sections.intimidation")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                        Section 303: Theft
+                        {t("workerTerms.sections.legal.sections.theft")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                        Section 324: Criminal trespass
+                        {t("workerTerms.sections.legal.sections.trespass")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
-                        Section 74: Sexual harassment
+                        {t("workerTerms.sections.legal.sections.harassment")}
                       </li>
                     </ul>
                     <p className="text-blue-800 text-sm mt-3 font-medium">
-                      In case of such incidents, the Company will support police investigation and provide all necessary worker records and identification to assist legal proceedings.
+                      {t("workerTerms.sections.legal.companyCooperation")}
                     </p>
                   </div>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">15. Worker Protection & Grievance Redressal</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.protection.title")}</h2>
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                     <p className="text-green-800 text-sm leading-relaxed mb-3">
-                      Workers have the right to refuse unsafe or harassing work environments under the Labour Code on Occupational Safety and the POSH Act. They must immediately report such incidents to the company helpline within 24 hours.
+                      {t("workerTerms.sections.protection.workerRights")}
                     </p>
                     <p className="text-green-800 text-sm leading-relaxed">
-                      Customers are advised to contact the Meri Didi support team in case of any worker misconduct. Serious incidents should be reported directly to the local police. The Company will cooperate fully with law enforcement.
+                      {t("workerTerms.sections.protection.customerAdvice")}
                     </p>
                   </div>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">16. Wage Transparency & Payment</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.wage.title")}</h2>
                   <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                     <p className="text-yellow-800 text-sm leading-relaxed">
-                      All payments to workers will be made through the platform or direct bank transfer to ensure transparency. Workers shall not be paid below the local minimum wage applicable in their job category. No cash transactions are allowed with customers.
+                      {t("workerTerms.sections.wage.transparency")}
                     </p>
                   </div>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">17. Acceptance of Terms</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4 border-l-4 border-primary pl-4">{t("workerTerms.sections.acceptance.title")}</h2>
                   <div className="bg-neutral-50 border border-neutral-200 rounded-lg p-4">
                     <p className="text-neutral-800 text-sm leading-relaxed mb-3">
-                      By signing the registration form or joining the platform, you confirm that:
+                      {t("workerTerms.sections.acceptance.confirmation")}
                     </p>
                     <ul className="space-y-2 text-neutral-700 text-sm">
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-neutral-400 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        You have understood and accepted these terms.
+                        {t("workerTerms.sections.acceptance.items.understood")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-neutral-400 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        You will comply with Meri Didi's rules and instructions.
+                        {t("workerTerms.sections.acceptance.items.comply")}
                       </li>
                       <li className="flex items-start">
                         <span className="inline-block w-2 h-2 bg-neutral-400 rounded-full mt-1.5 mr-3 flex-shrink-0"></span>
-                        You authorize the company to act as a facilitator for your services and payments.
+                        {t("workerTerms.sections.acceptance.items.authorize")}
                       </li>
                     </ul>
                   </div>
@@ -616,9 +622,9 @@ export default function WorkerTerms() {
 
                 {/* Added Refund Policy section */}
                 <section className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">Refund Policy</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-6 border-l-4 border-primary pl-4 bg-gradient-to-r from-primary/5 to-transparent py-2">{t("workerTerms.sections.refund.title")}</h2>
                   <p className="text-neutral-700 leading-relaxed">
-                    The refund will be initiated only if cancellation is done within 7 days of booking.
+                    {t("workerTerms.sections.refund.policy")}
                   </p>
                 </section>
               </div>
@@ -639,10 +645,10 @@ export default function WorkerTerms() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-lg font-heading font-bold text-white">Meri Didi</span>
+              <span className="text-lg font-heading font-bold text-white">{t("footer.companyName")}</span>
             </div>
             <p className="text-xs text-neutral-500">
-              &copy; {new Date().getFullYear()} Meri Didi. All rights reserved.
+              {t("footer.copyright", { year: new Date().getFullYear() })}
             </p>
           </div>
         </div>
