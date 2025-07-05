@@ -221,17 +221,36 @@
   scroll-behavior: smooth;
   height: 100vh;
   overflow-y: auto;
+  scroll-padding-top: 0;
 }
 
+/* Smooth scroll behavior with slower transitions */
+#main-scroll-container {
+  scroll-behavior: smooth;
+}
+
+/* Custom smooth scrolling for browsers that support it */
+@media (prefers-reduced-motion: no-preference) {
+  #main-scroll-container {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Make scroll snapping less aggressive */
 #main-scroll-container section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-margin-top: 0;
+  transition: transform 0.3s ease-out;
 }
 
-/* Ensure proper viewport behavior */
+/* Slow down scroll wheel for smoother experience */
+#main-scroll-container {
+  scroll-padding: 0;
+  overscroll-behavior: contain;
+}
+
+/* Ensure proper viewport behavior - allow footer to be visible */
 html, body {
-  overflow: hidden;
-  height: 100vh;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }

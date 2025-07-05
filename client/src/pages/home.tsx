@@ -9,6 +9,9 @@ import HowItWorks from "@/components/how-it-works";
 import TransformationSection from "@/components/transformation-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import SecuritySection from "@/components/security-section";
+import HygieneProtocolSection from "@/components/hygiene-protocol-section";
+import WorkersKitSection from "@/components/workers-kit-section";
+import TrustSection from "@/components/trust-section";
 import CTASection from "@/components/cta-section";
 import Footer from "@/components/footer";
 import ContactForm from "@/components/contact-form";
@@ -64,6 +67,25 @@ export default function Home() {
       // Also reset window scroll position as a backup
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
+
+    // Add smoother scroll behavior
+    let isScrolling = false;
+    const handleWheel = (e: WheelEvent) => {
+      if (isScrolling) return;
+      
+      isScrolling = true;
+      setTimeout(() => {
+        isScrolling = false;
+      }, 100); // Add small delay between scroll events
+    };
+
+    if (scrollContainer) {
+      scrollContainer.addEventListener('wheel', handleWheel, { passive: true });
+      
+      return () => {
+        scrollContainer.removeEventListener('wheel', handleWheel);
+      };
+    }
   }, []);
 
   return (
@@ -77,6 +99,9 @@ export default function Home() {
         <TransformationSection />
         <TestimonialsSection />
         <SecuritySection />
+        <HygieneProtocolSection />
+        <WorkersKitSection />
+        <TrustSection />
         <ContactForm />
         <CTASection />
         <Footer />

@@ -28,7 +28,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="min-h-screen flex items-center py-20 bg-gradient-to-br from-purple-50/20 via-neutral-50 to-blue-50/30 relative overflow-hidden">
+    <section id="how-it-works" className="min-h-screen flex items-center py-20 bg-gradient-to-br from-purple-50/20 via-neutral-50 to-blue-50/30 relative overflow-hidden snap-start">
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-40 left-16 w-80 h-80 bg-gradient-to-r from-primary/8 to-purple-400/8 rounded-full blur-3xl animate-float"></div>
