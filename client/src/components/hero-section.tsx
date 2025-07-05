@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, PlayCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedServiceCard from "./animated-service-card";
 import { Link } from "wouter";
 import { useTranslation } from "react-i18next";
 
@@ -13,24 +12,28 @@ const getServiceProfessionals = (t: any) => [
     title: t("hero.services.homeCleaning.title"),
     description: t("hero.services.homeCleaning.description"),
     icon: "broom",
+    image: "/images/Cleaner.jpg"
   },
   {
     id: 2,
     title: t("hero.services.cooking.title"),
     description: t("hero.services.cooking.description"),
     icon: "utensils",
+    image: "/images/Cook.jpg"
   },
   {
     id: 3,
     title: t("hero.services.elderlyCare.title"),
     description: t("hero.services.elderlyCare.description"),
     icon: "heart",
+    image: "/images/Elder%20care.jpg"
   },
   {
     id: 4,
     title: t("hero.services.babyCare.title"),
     description: t("hero.services.babyCare.description"),
     icon: "baby",
+    image: "/images/Baby%20Care.jpg"
   },
 ];
 
@@ -62,28 +65,55 @@ function ServiceCarousel() {
           </div>
         </div>
       </div>
-      
-      <div className="p-6 h-full relative">
-        {/* Meri Didi Branding */}
-        
-
         <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-            className="h-full flex items-center justify-center"
-          >
-            <AnimatedServiceCard
-              title={serviceProfessionals[current].title}
-              description={serviceProfessionals[current].description}
-              icon={serviceProfessionals[current].icon}
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.3 }}
+          className="h-80 relative flex items-end justify-center w-full rounded-lg overflow-hidden"
+          style={{
+            backgroundImage: `url(${serviceProfessionals[current].image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          {/* Dark gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+          
+          {/* Text content */}
+          <div className="relative z-10 text-center text-white p-6 w-full">
+            <motion.h3 
+              className="text-2xl font-heading font-bold mb-2"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+            >
+              {serviceProfessionals[current].title}
+            </motion.h3>
+            <motion.p 
+              className="text-gray-100 text-base leading-relaxed"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              {serviceProfessionals[current].description}
+            </motion.p>
+            <motion.button
+              className="mt-4 px-6 py-2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-md text-sm font-medium transition-all border border-white/30"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              Learn More
+            </motion.button>
+          </div>
+        </motion.div>
+      </AnimatePresence>
       
       <div className="absolute bottom-4 left-0 right-0 flex justify-center">
         <div className="flex space-x-2">
