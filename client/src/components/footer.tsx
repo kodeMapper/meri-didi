@@ -86,7 +86,8 @@ export default function Footer() {
             <div>
               <h4 className="text-white font-medium mb-4">{t("footer.company")}</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.aboutUs")}</a></li>
+                <li><Link href="/about-us" className="text-neutral-400 hover:text-white transition-colors">{t("footer.aboutUs")}</Link></li>
+                <li><Link href="/contact-us" className="text-neutral-400 hover:text-white transition-colors">{t("footer.contactUs")}</Link></li>
                 {/* <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.careers")}</a></li>
                 <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.blog")}</a></li>
                 <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.supportCenter")}</a></li> */}
@@ -98,7 +99,7 @@ export default function Footer() {
               <ul className="space-y-2 text-sm">
                 <li><Link href="/privacy-policy" className="text-neutral-400 hover:text-white transition-colors">{t("footer.privacyPolicy")}</Link></li>
                 <li><Link href="/worker-terms" className="text-neutral-400 hover:text-white transition-colors">{t("footer.workerTerms")}</Link></li>
-                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.cookiePolicy")}</a></li>
+                <li><Link href="/cookie-policy" className="text-neutral-400 hover:text-white transition-colors">{t("footer.cookiePolicy")}</Link></li>
                 <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.disclaimer")}</a></li>
                 <li><Link href="/delete-user-data" className="text-neutral-400 hover:text-white transition-colors">{t("footer.deleteData")}</Link></li>
                 <li><Link href="/delete-user-account" className="text-neutral-400 hover:text-white transition-colors">{t("footer.deleteAccount")}</Link></li>
