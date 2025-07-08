@@ -268,7 +268,7 @@ export default function TestimonialsSection() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Section Header */}
-        <motion.div 
+        {/* <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -279,10 +279,10 @@ export default function TestimonialsSection() {
           <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
             {t("testimonials.subtitle")}
           </p>
-        </motion.div>
+        </motion.div> */}
         
         {/* Video Testimonials */}
-        <div className="mb-20">
+        {/* <div className="mb-20">
           <div className="mb-8">
             <h3 className="text-2xl font-bold">{t("testimonials.videoSectionTitle")}</h3>
           </div>
@@ -304,7 +304,7 @@ export default function TestimonialsSection() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-        </div>
+        </div> */}
         
         {/* Worker Spotlights */}
         <div className="mb-20">
@@ -348,7 +348,7 @@ export default function TestimonialsSection() {
         </div>
         
         {/* Trust Badges */}
-        <div className="bg-white rounded-xl p-8 shadow-md mb-12">
+        {/* <div className="bg-white rounded-xl p-8 shadow-md mb-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex items-center">
               <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mr-4">
@@ -380,11 +380,11 @@ export default function TestimonialsSection() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <TrustScoreMeter score={4.8} reviews={1200} />
-        </div>
+        </div> */}
       </div>
     </section>
   );

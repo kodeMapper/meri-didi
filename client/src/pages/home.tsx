@@ -103,7 +103,7 @@ export default function Home() {
         <WorkersKitSection />
         <TrustSection />
         <ContactForm />
-        <CTASection />
+        {/* <CTASection /> */}
         <Footer />
       </div>
     </div>

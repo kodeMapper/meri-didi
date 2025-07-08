@@ -43,19 +43,23 @@
     "services": {
       "homeCleaning": {
         "title": "Home Cleaning",
-        "description": "Professional home cleaning services to keep your space spotless and hygienic."
+        "description": "Professional home cleaning services to keep your space spotless and hygienic.",
+        "price": "Price starts from ₹1299*"
       },
       "cooking": {
         "title": "Cooking", 
-        "description": "Expert cooking services bringing delicious homemade meals to your table."
+        "description": "Expert cooking services bringing delicious homemade meals to your table.",
+        "price": "Price starts from ₹2999*"
       },
       "elderlyCare": {
         "title": "Elderly Care",
-        "description": "Compassionate and professional care for elderly family members."
+        "description": "Compassionate and professional care for elderly family members.",
+        "price": "Price starts from ₹10999*"
       },
       "babyCare": {
         "title": "Baby Care",
-        "description": "Safe and nurturing baby care services for your peace of mind."
+        "description": "Safe and nurturing baby care services for your peace of mind.",
+        "price": "Price starts from ₹10999*"
       }
     }
   },
@@ -107,7 +111,7 @@
       },
       "3": {
         "name": "Vikram Sharma",
-        "role": "Handyman Professional",
+        "role": "handyman Professional",
         "intro": "No repair too big or small, I fix it all with a smile!",
         "awardType": "Most Reliable"
       }
@@ -336,7 +340,7 @@
     "homeCleaning": "Home Cleaning",
     "personalChef": "Personal Chef",
     "seniorCare": "Senior Care",
-    "handyman": "Handyman",
+    "handyman": "handyman",
     "company": "Company",
     "aboutUs": "About Us",
     "careers": "Careers",
@@ -367,7 +371,7 @@
         "homeCleaning": "Home Cleaning",
         "personalChef": "Personal Chef",
         "seniorCare": "Senior Care",
-        "handyman": "Handyman",
+        "handyman": "handyman",
         "pestControl": "Pest Control",
         "lawnCare": "Lawn Care",
         "other": "Other Service"

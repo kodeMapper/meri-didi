@@ -87,9 +87,9 @@ export default function Footer() {
               <h4 className="text-white font-medium mb-4">{t("footer.company")}</h4>
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.aboutUs")}</a></li>
-                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.careers")}</a></li>
+                {/* <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.careers")}</a></li>
                 <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.blog")}</a></li>
-                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.supportCenter")}</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">{t("footer.supportCenter")}</a></li> */}
               </ul>
             </div>
             

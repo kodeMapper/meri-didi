@@ -10,10 +10,11 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const FeatureCard = ({ icon, titleKey, descriptionKey, index }: { 
+const FeatureCard = ({ icon, titleKey, descriptionKey, priceKey, index }: { 
   icon: React.ReactNode; 
   titleKey: string; 
   descriptionKey: string;
+  priceKey: string;
   index: number;
 }) => {
   const { t } = useTranslation();
@@ -51,8 +52,11 @@ const FeatureCard = ({ icon, titleKey, descriptionKey, index }: {
         {icon}
       </div>
       <h3 className="text-xl font-heading font-semibold text-neutral-900 mb-2">{t(titleKey)}</h3>
-      <p className="text-neutral-700">
+      <p className="text-neutral-700 mb-3">
         {t(descriptionKey)}
+      </p>
+      <p className="text-orange-600 font-bold text-base">
+        {t(priceKey)}
       </p>
     </motion.div>
   );
@@ -65,22 +69,26 @@ export default function FeaturesSection() {
     {
       icon: <Home className="text-secondary text-xl" />,
       titleKey: "features.services.homeCleaning.title",
-      descriptionKey: "features.services.homeCleaning.description"
+      descriptionKey: "features.services.homeCleaning.description",
+      priceKey: "features.services.homeCleaning.price"
     },
     {
       icon: <Utensils className="text-secondary text-xl" />,
       titleKey: "features.services.cooking.title",
-      descriptionKey: "features.services.cooking.description"
+      descriptionKey: "features.services.cooking.description",
+      priceKey: "features.services.cooking.price"
     },
     {
       icon: <Heart className="text-secondary text-xl" />,
       titleKey: "features.services.elderlyCare.title",
-      descriptionKey: "features.services.elderlyCare.description"
+      descriptionKey: "features.services.elderlyCare.description",
+      priceKey: "features.services.elderlyCare.price"
     },
     {
       icon: <UserCheck className="text-secondary text-xl" />,
       titleKey: "features.services.babyCare.title",
-      descriptionKey: "features.services.babyCare.description"
+      descriptionKey: "features.services.babyCare.description",
+      priceKey: "features.services.babyCare.price"
     },
   ];
 
@@ -119,6 +127,7 @@ export default function FeaturesSection() {
               icon={feature.icon}
               titleKey={feature.titleKey}
               descriptionKey={feature.descriptionKey}
+              priceKey={feature.priceKey}
             />
           ))}
         </div>
