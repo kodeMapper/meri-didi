@@ -284,6 +284,8 @@
   "transformation": {
     "title": "See The Transformation",
     "subtitle": "Witness the dramatic before and after results of our professional services",
+    "before": "BEFORE",
+    "after": "AFTER",
     "comparisons": {
       "0": {
         "title": "Home Cleaning",

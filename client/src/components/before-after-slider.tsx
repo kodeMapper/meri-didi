@@ -4,11 +4,13 @@ import { useTranslation } from "react-i18next";
 
 type BeforeAfterSliderProps = {
   titleKey: string;
+  beforeSrc: string;
+  afterSrc: string;
   beforeAltKey: string;
   afterAltKey: string;
 };
 
-export default function BeforeAfterSlider({ titleKey, beforeAltKey, afterAltKey }: BeforeAfterSliderProps) {
+export default function BeforeAfterSlider({ titleKey, beforeSrc, afterSrc, beforeAltKey, afterAltKey }: BeforeAfterSliderProps) {
   const { t } = useTranslation();
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
@@ -62,16 +64,15 @@ export default function BeforeAfterSlider({ titleKey, beforeAltKey, afterAltKey 
       onTouchStart={handleMouseDown}
     >
       {/* After image (full width) */}
-      <div className="w-full h-full bg-gradient-to-r from-yellow-50 to-white">
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="p-4 text-center">
-            <h3 className="font-medium text-neutral-900">{t(afterAltKey)}</h3>
-            <div className="mt-2 w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center">
-              <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-            </div>
-          </div>
+      <div className="w-full h-full">
+        <img 
+          src={afterSrc} 
+          alt={t(afterAltKey)} 
+          className="w-full h-full object-cover"
+        />
+        {/* After label */}
+        <div className="absolute top-3 right-3 bg-green-600 text-white px-2 py-1 rounded text-xs font-semibold">
+          {t("transformation.after")}
         </div>
       </div>
       
@@ -80,17 +81,15 @@ export default function BeforeAfterSlider({ titleKey, beforeAltKey, afterAltKey 
         className="absolute top-0 left-0 h-full overflow-hidden"
         style={{ width: `${sliderPosition}%` }}
       >
-        <div className="w-full h-full bg-gradient-to-r from-neutral-200 to-neutral-100">
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="p-4 text-center">
-              <h3 className="font-medium text-neutral-900">{t(beforeAltKey)}</h3>
-              <div className="mt-2 w-16 h-16 rounded-full bg-red-100 mx-auto flex items-center justify-center">
-                <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
+        <img 
+          src={beforeSrc} 
+          alt={t(beforeAltKey)} 
+          className="w-full h-full object-cover"
+          style={{ width: `${100 / (sliderPosition / 100)}%` }}
+        />
+        {/* Before label */}
+        <div className="absolute top-3 left-3 bg-red-600 text-white px-2 py-1 rounded text-xs font-semibold">
+          {t("transformation.before")}
         </div>
       </div>
       

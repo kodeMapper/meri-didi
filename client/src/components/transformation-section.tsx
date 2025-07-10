@@ -9,11 +9,11 @@ const comparisons = [
     id: 1,
     titleKey: "transformation.comparisons.0.title",
     before: {
-      src: "https://i.pinimg.com/736x/10/05/a4/1005a4951893b9cc2313fb83101e3f75.jpg",
+      src: "/images/before-2.png",
       altKey: "transformation.comparisons.0.before.alt",
     },
     after: {
-      src: "https://puracy.com/cdn/shop/articles/sidekix-media-8qNuR1lIv_k-unsplash.jpg?v=1729510800",
+      src: "/images/after-2.png",
       altKey: "transformation.comparisons.0.after.alt",
     },
   },
@@ -21,9 +21,11 @@ const comparisons = [
     id: 2,
     titleKey: "transformation.comparisons.1.title",
     before: {
+      src: "/images/after-1.png",
       altKey: "transformation.comparisons.1.before.alt",
     },
     after: {
+      src: "/images/before-1.png",
       altKey: "transformation.comparisons.1.after.alt",
     },
   },
@@ -103,6 +105,8 @@ export default function TransformationSection() {
             <motion.div key={comparison.id} variants={itemVariants}>
               <BeforeAfterSlider 
                 titleKey={comparison.titleKey}
+                beforeSrc={comparison.before.src}
+                afterSrc={comparison.after.src}
                 beforeAltKey={comparison.before.altKey}
                 afterAltKey={comparison.after.altKey}
               />
