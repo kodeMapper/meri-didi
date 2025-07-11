@@ -939,12 +939,12 @@
       "phone": {
         "title": "Phone",
         "description": "Call us directly",
-        "value": "+91-XXXX-XXXX-XX"
+        "value": "+91-9960173586"
       },
       "email": {
         "title": "Email",
         "description": "Send us an email",
-        "value": "support@merididi.com"
+        "value": "merididiofficial@gmail.com"
       },
       "whatsapp": {
         "title": "WhatsApp",
@@ -954,7 +954,7 @@
       "address": {
         "title": "Address",
         "description": "Visit our office",
-        "value": "Mumbai, Maharashtra, India"
+        "value": "Opp Bharat Petrol Pump, Unthkhana Road, Medical Square Nagpur"
       }
     },
     "socialMedia": {
@@ -967,9 +967,9 @@
     },
     "businessHours": {
       "title": "Business Hours",
-      "weekdays": "Monday - Friday: 9:00 AM - 7:00 PM",
-      "saturday": "Saturday: 10:00 AM - 6:00 PM",
-      "sunday": "Sunday: 10:00 AM - 4:00 PM",
+      "weekdays": "Monday - Saturday: 10:00 AM - 5:00 PM",
+      "saturday": "",
+      "sunday": "Sunday: Closed",
       "supportNote": "Our customer support team is available during business hours to assist you with any questions or concerns."
     },
     "cta": {

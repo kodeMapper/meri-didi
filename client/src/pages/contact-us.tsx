@@ -26,7 +26,7 @@ export default function ContactUs() {
       title: t("contactUs.contactMethods.phone.title"),
       description: t("contactUs.contactMethods.phone.description"),
       value: t("contactUs.contactMethods.phone.value"),
-      action: "tel:+91XXXXXXXXXX",
+      action: "tel:+919960173586",
       color: "text-green-600"
     },
     {
@@ -34,7 +34,7 @@ export default function ContactUs() {
       title: t("contactUs.contactMethods.email.title"),
       description: t("contactUs.contactMethods.email.description"),
       value: t("contactUs.contactMethods.email.value"),
-      action: "mailto:support@merididi.com",
+      action: "mailto:merididiofficial@gmail.com",
       color: "text-blue-600"
     },
     {
@@ -42,7 +42,7 @@ export default function ContactUs() {
       title: t("contactUs.contactMethods.whatsapp.title"),
       description: t("contactUs.contactMethods.whatsapp.description"),
       value: t("contactUs.contactMethods.whatsapp.value"),
-      action: "https://wa.me/91XXXXXXXXXX",
+      action: "https://wa.me/919960173586",
       color: "text-green-500"
     },
     {
@@ -59,13 +59,13 @@ export default function ContactUs() {
     {
       icon: Facebook,
       name: t("contactUs.socialMedia.facebook"),
-      url: "https://facebook.com/merididi",
+      url: "https://www.facebook.com/share/1BhfZePSDD/",
       color: "hover:text-blue-600"
     },
     {
       icon: Instagram,
       name: t("contactUs.socialMedia.instagram"),
-      url: "https://instagram.com/merididi",
+      url: "https://instagram.com/merididiofficial",
       color: "hover:text-pink-600"
     },
     {
@@ -77,13 +77,13 @@ export default function ContactUs() {
     {
       icon: Linkedin,
       name: t("contactUs.socialMedia.linkedin"),
-      url: "https://linkedin.com/company/merididi",
+      url: "https://www.linkedin.com/in/merididi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       color: "hover:text-blue-700"
     },
     {
       icon: Youtube,
       name: t("contactUs.socialMedia.youtube"),
-      url: "https://youtube.com/@merididi",
+      url: "https://youtube.com/@merididiofficial",
       color: "hover:text-red-600"
     }
   ];
@@ -132,7 +132,7 @@ export default function ContactUs() {
                     variant="outline" 
                     size="sm"
                     onClick={() => window.open(method.action, '_blank')}
-                    className="w-full"
+                    className="w-full h-auto py-2 px-3 text-xs leading-relaxed whitespace-normal break-words"
                   >
                     {method.value}
                   </Button>
@@ -181,7 +181,6 @@ export default function ContactUs() {
                 <h3 className="text-2xl font-semibold text-neutral-900 mb-4">{t("contactUs.businessHours.title")}</h3>
                 <div className="space-y-2 text-neutral-700">
                   <p><strong>{t("contactUs.businessHours.weekdays")}</strong></p>
-                  <p><strong>{t("contactUs.businessHours.saturday")}</strong></p>
                   <p><strong>{t("contactUs.businessHours.sunday")}</strong></p>
                 </div>
                 <div className="mt-6 p-4 bg-primary/5 rounded-lg">
@@ -209,7 +208,7 @@ export default function ContactUs() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                onClick={() => window.open('https://wa.me/91XXXXXXXXXX', '_blank')}
+                onClick={() => window.open('https://wa.me/919960173586', '_blank')}
                 className="bg-green-600 hover:bg-green-700 text-white"
               >
                 <MessageCircle className="h-4 w-4 mr-2" />
@@ -218,7 +217,7 @@ export default function ContactUs() {
               <Button 
                 size="lg"
                 variant="outline"
-                onClick={() => window.open('tel:+91XXXXXXXXXX', '_blank')}
+                onClick={() => window.open('tel:+919960173586', '_blank')}
               >
                 <Phone className="h-4 w-4 mr-2" />
                 {t("contactUs.cta.callButton")}
